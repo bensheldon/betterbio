@@ -24,7 +24,15 @@ $(document).ready(function() {
         $(".boxContent").html($(showDiv).html());
         
         if(showDiv === "#quiz") {
-          $(".boxContent dd").hide();
+          $(".boxContent").attr("id", "visibleQuiz");
+          $("#visibleQuiz dd").hide();
+          
+          $("#visibleQuiz dt").click(function() {
+            $("#visibleQuiz dt").css("backgroundColor", "#fff");
+            $(this).css("backgroundColor", "#e9ffca");
+            $("#visibleQuiz #answer").html($(this).next("dd").html()).animate({"opacity": "1"}, 500);
+            $("#visibleQuiz dt").unbind('click');
+          });
         }
     }, 501);
     
