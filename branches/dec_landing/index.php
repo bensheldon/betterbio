@@ -197,11 +197,169 @@
     Thank you for helping us make life better - for all of us.
     -Khadijah Britton, Founder.
   </div>
-  <div class="slidercontent" id="story">story!</div>
+  <div class="slidercontent" id="story">
+    <!-- Begin MailChimp Signup Form -->
+    <script type="text/javascript">
+    // delete this script tag and use a "div.mce_inline_error{ XXX !important}" selector
+    // or fill this in and it will be inlined when errors are generated
+    var mc_custom_error_style = '';
+    </script>
+    <div id="mc_embed_signup">
+    <form action="http://twitter.us2.list-manage.com/subscribe/post?u=9465fda86f56b60a2ec4a6d79&amp;id=a5774e0fac" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+    	<fieldset>
+    	<legend style="white-space:normal"><span>Share Your Story Idea and Stay in the Loop!</span></legend>
+    <div class="indicate-required">* indicates required</div>
+    <div class="mc-field-group">
+    <label for="mce-EMAIL">Email Address <strong class="note-required">*</strong>
+    </label>
+    <input type="text" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+    </div>
+    <div class="mc-field-group">
+    <label for="mce-FNAME">First Name </label>
+    <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+    </div>
+    <div class="mc-field-group">
+    <label for="mce-LNAME">Last Name </label>
+    <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+    </div>
+    <div class="mc-field-group">
+    <label for="mce-MMERGE3">The Story You Want Told </label>
+    <input type="text" value="" name="MMERGE3" class="" id="mce-MMERGE3">
+    </div>
+    <div class="mc-field-group">
+        <label class="input-group-label">Please keep me in the loop on... </label>
+        <div class="input-group">
+        <ul><li><input type="checkbox" value="1" name="group[1]" id="mce-group-1-0"><label for="mce-group-1-0">News</label></li>
+    <li><input type="checkbox" value="2" name="group[2]" id="mce-group-1-1"><label for="mce-group-1-1">Events and Trainings</label></li>
+    <li><input type="checkbox" value="4" name="group[4]" id="mce-group-1-2"><label for="mce-group-1-2">Volunteer Opportunities</label></li>
+    <li><input type="checkbox" value="8" name="group[8]" id="mce-group-1-3"><label for="mce-group-1-3">Jobs and Internships</label></li>
+    <li><input type="checkbox" value="16" name="group[16]" id="mce-group-1-4"><label for="mce-group-1-4">Media and Speaking Opportunities</label></li>
+    </ul>
+        </div>
+    </div>
+    		<div id="mce-responses">
+    			<div class="response" id="mce-error-response" style="display:none"></div>
+    			<div class="response" id="mce-success-response" style="display:none"></div>
+    		</div>
+    		<div><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn"></div>
+    	</fieldset>	
+    	<a href="#" id="mc_embed_close" class="mc_embed_close">Close</a>
+    </form>
+    </div>
+    <!--End mc_embed_signup-->
+  </div>
   
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.4.2.js"%3E%3C/script%3E'))</script>
-  
+  <script type="text/javascript" src="http://downloads.mailchimp.com/js/jquery.validate.js"></script>
+  <script type="text/javascript" src="http://downloads.mailchimp.com/js/jquery.form.js"></script>
+  <script type="text/javascript">
+  /*var fnames = new Array();var ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='MMERGE3';ftypes[3]='text';var err_style = '';
+  try{
+      err_style = mc_custom_error_style;
+  } catch(e){
+      err_style = 'margin: 1em 0 0 0; padding: 1em 0.5em 0.5em 0.5em; background: ERROR_BGCOLOR none repeat scroll 0% 0%; font-weight: bold; float: left; z-index: 1; width: 80%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; color: ERROR_COLOR;';
+  }
+  var mce_jQuery = jQuery.noConflict();
+  mce_jQuery(document).ready( function($) {
+    var options = { errorClass: 'mce_inline_error', errorElement: 'div', errorStyle: err_style, onkeyup: function(){}, onfocusout:function(){}, onblur:function(){}  };
+    var mce_validator = mce_jQuery("#mc-embedded-subscribe-form").validate(options);
+    options = { url: 'http://twitter.us2.list-manage.com/subscribe/post-json?u=9465fda86f56b60a2ec4a6d79&id=a5774e0fac&c=?', type: 'GET', dataType: 'json', contentType: "application/json; charset=utf-8",
+                  beforeSubmit: function(){
+                      mce_jQuery('#mce_tmp_error_msg').remove();
+                      mce_jQuery('.datefield','#mc_embed_signup').each(
+                          function(){
+                              var txt = 'filled';
+                              var fields = new Array();
+                              var i = 0;
+                              mce_jQuery(':text', this).each(
+                                  function(){
+                                      fields[i] = this;
+                                      i++;
+                                  });
+                              mce_jQuery(':hidden', this).each(
+                                  function(){
+                                  	if ( fields[0].value=='MM' && fields[1].value=='DD' && fields[2].value=='YYYY' ){
+                                  		this.value = '';
+  									} else if ( fields[0].value=='' && fields[1].value=='' && fields[2].value=='' ){
+                                  		this.value = '';
+  									} else {
+  	                                    this.value = fields[0].value+'/'+fields[1].value+'/'+fields[2].value;
+  	                                }
+                                  });
+                          });
+                      return mce_validator.form();
+                  }, 
+                  success: mce_success_cb
+              };
+    mce_jQuery('#mc-embedded-subscribe-form').ajaxForm(options);
+
+  });
+  function mce_success_cb(resp){
+      mce_jQuery('#mce-success-response').hide();
+      mce_jQuery('#mce-error-response').hide();
+      if (resp.result=="success"){
+          mce_jQuery('#mce-'+resp.result+'-response').show();
+          mce_jQuery('#mce-'+resp.result+'-response').html(resp.msg);
+          mce_jQuery('#mc-embedded-subscribe-form').each(function(){
+              this.reset();
+      	});
+      } else {
+          var index = -1;
+          var msg;
+          try {
+              var parts = resp.msg.split(' - ',2);
+              if (parts[1]==undefined){
+                  msg = resp.msg;
+              } else {
+                  i = parseInt(parts[0]);
+                  if (i.toString() == parts[0]){
+                      index = parts[0];
+                      msg = parts[1];
+                  } else {
+                      index = -1;
+                      msg = resp.msg;
+                  }
+              }
+          } catch(e){
+              index = -1;
+              msg = resp.msg;
+          }
+          try{
+              if (index== -1){
+                  mce_jQuery('#mce-'+resp.result+'-response').show();
+                  mce_jQuery('#mce-'+resp.result+'-response').html(msg);            
+              } else {
+                  err_id = 'mce_tmp_error_msg';
+                  html = '<div id="'+err_id+'" style="'+err_style+'"> '+msg+'</div>';
+
+                  var input_id = '#mc_embed_signup';
+                  var f = mce_jQuery(input_id);
+                  if (ftypes[index]=='address'){
+                      input_id = '#mce-'+fnames[index]+'-addr1';
+                      f = mce_jQuery(input_id).parent().parent().get(0);
+                  } else if (ftypes[index]=='date'){
+                      input_id = '#mce-'+fnames[index]+'-month';
+                      f = mce_jQuery(input_id).parent().parent().get(0);
+                  } else {
+                      input_id = '#mce-'+fnames[index];
+                      f = mce_jQuery().parent(input_id).get(0);
+                  }
+                  if (f){
+                      mce_jQuery(f).append(html);
+                      mce_jQuery(input_id).focus();
+                  } else {
+                      mce_jQuery('#mce-'+resp.result+'-response').show();
+                      mce_jQuery('#mce-'+resp.result+'-response').html(msg);
+                  }
+              }
+          } catch(e){
+              mce_jQuery('#mce-'+resp.result+'-response').show();
+              mce_jQuery('#mce-'+resp.result+'-response').html(msg);
+          }
+      }
+  } */
+  </script>
   
   <!-- scripts concatenated and minified via ant build script-->
   <script src="js/plugins.js"></script>

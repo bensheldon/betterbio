@@ -34,6 +34,10 @@ $(document).ready(function() {
             $("#visibleQuiz dt").unbind('click');
           });
         }
+        
+        if(showDiv === "#story") {
+          alert("X");
+        }
     }, 501);
     
     return false;
