@@ -49,7 +49,7 @@
     <div id="main">
       <nav>
         <ul class="clearfix">
-          <li class="box"><a class="green" href="#quiz" title="Science &amp; You">Science &amp; You</a></li>
+          <li class="box"><a class="green" href="#quiz" title="Science &amp; You">Why BetterBio?</a></li>
           <li class="box "><a class="yellow" href="#promise" title="Our Promise">Our Promise</a></li>
           <li class="box"><a class="orange" href="#role" title="Your Role">Your Role</a></li>
           <li class="box"><a class="purple" href="#story" title="Your Story">Your Story</a></li>
@@ -66,111 +66,19 @@
   </div> <!-- end of #container -->
   
   <div class="slidercontent" id="quiz">
-    <!-- <header><h1>Which of these is clinically proven to help prevent and heal the common cold?</h1></header>
-    <dl>
-      <dt>Zinc</dt>
-      <dd>FALSE. For now, the study results on using zinc as a cold remedy are inconclusive. For every study 
-        showing a positive benefit with zinc, there’s another study showing no benefit at all. In fact, it’s 
-        believed that if there is any benefit in taking zinc or zinc lozenges, it is very minor. This is why 
-        we're here - to help separate scientific fact from fiction and bridge the life science knowledge gap!</dd>
-      <dt>Echinacea purporea</dt> 
-      <dd>CORRECT. University of Connecticut researchers put the theory to the test recently, and after studying 
-        more than 1,600 people, they reported that not only did echinacea cut the chances of catching a cold in 
-        half, but also those study participants who took it reduced the duration of their colds by about 1.4 days. 
-        This is why we're here - to help separate scientific fact from fiction and bridge the life science 
-        knowledge gap!</dd>
-      <dt>TRIM21</dt>
-      <dd>FALSE. Though recent research did prove that antibodies actually work inside human cells, which was a 
-        scientific breakthrough, no one has figured out how to actually turn this into a therapy - in other words, 
-        we know it happens, but don't know how we'd turn it into a medicine we could give people. This is why we're 
-        here - to help separate scientific fact from fiction and bridge the life science knowledge gap!</dd>
-      <dt>Vitamin C</dt>
-      <dd>FALSE. for most: A major review of more than 30 studies conducted by researchers at Australian National 
-        University and the University of Helsinki say that for the majority of people, vitamin C does nothing to 
-        prevent or reduce the symptoms of a cold. However, if you’re under a lot of stress, or are putting your 
-        body to the test—for example, training for a marathon—a daily dose of 200 mg of vitamin C may reduce your 
-        chances of catching a cold by about half. This is why we're here - to help separate scientific fact from 
-        fiction and bridge the life science knowledge gap!</dd>
-    </dl> -->
-    
-    <!-- <header><h1>What is DNA?</h1></header>
-    <dl>
-      <dt>Drug and Narcotics Agency</dt>
-      <dd>FALSE. It is a nucleic acid that contains the genetic instructions used in the development and functioning 
-        of all known living organisms, with the exception of some viruses. However, some Americans guessed this answer 
-        in a 2003 survey, where less than one-third knew that DNA is a basic genetic building block of life. This is 
-        why we're here - to help bridge the life science knowledge gap!</dd>
-      <dt>Deoxyribonucleic acid</dt> 
-      <dd>CORRECT. It is a nucleic acid that contains the genetic instructions used in the development and functioning 
-        of all known living organisms, with the exception of some viruses. However, less than one-third of Americans 
-        know that DNA is a basic genetic building block of life. This is why we're here - to help bridge the life 
-        science knowledge gap!</dd>
-      <dt>The chemicals that make up an atom</dt>
-      <dd>FALSE. Those are the proton, the neutron and the electron. DNA is deoxyribonucleic acid, a nucleic acid 
-        that contains the genetic instructions used in the development and functioning of all known living organisms, 
-        with the exception of some viruses. Less than one-third of Americans know that DNA is a basic genetic building 
-        block of life. This is why we're here - to help bridge the life science knowledge gap!</dd>
-      <dt>Dopamine Neurological Associations</dt>
-      <dd>FALSE. However, this is a better answer than Drug and Narcotics Agency, which some Americans think! Less than 
-        one-third of Americans know that DNA is a basic genetic building block of life.  DNA is actually 
-        deoxyribonucleic acid, a nucleic acid that contains the genetic instructions used in the development and 
-        functioning of all known living organisms, with the exception of some viruses. This is why we're here - to 
-        help bridge the life science knowledge gap!</dd>
-    </dl> -->
-  
-    <header><h1>What percentage of Americans reject evolution?</h1></header>
-    <dl>
-      <dt>10%</dt>
-      <dd>FALSE. Seventy-eight percent of Americans believe that God either created us as-is or "guided" our evolution. 
-        Only 16% of Americans surveyed by Gallup believe in evolution.</dd>
-      <dt>37%</dt>
-      <dd>FALSE. Seventy-eight percent of Americans believe that God either created us as-is or "guided" our evolution. 
-        Only 16% of Americans surveyed by Gallup believe in evolution.</dd>
-      <dt>45%</dt>
-      <dd>FALSE. Seventy-eight percent of Americans believe that God either created us as-is or "guided" our evolution. 
-        Only 16% of Americans surveyed by Gallup believe in evolution.</dd>
-      <dt>78%</dt>
-      <dd>CORRECT. Seventy-eight percent of Americans believe that God either created us as-is or "guided" our evolution. 
-        Only 16% of Americans surveyed by Gallup believe in evolution.</dd>
-    </dl>
-    
-    <!-- <header><h1>What percentage of foods served in America have at least one genetically modified (GM) ingredient?</h1></header>
-    <dl>
-      <dt>7%</dt>
-      <dd>FALSE. The Center for Food Safety, a non-profit public interest and environmental advocacy group 
-        headquartered in Washington, D.C., estimates that 70-75% of all grocery store products contain at least 
-        one genetically modified ingredient. You have almost certainly already consumed many GE foods, whether 
-        you knew it or not! A large percentage, 45% to be exact, of the conventionally grown corn in the United 
-        States comes from GM seeds.</dd>
-      <dt>38%</dt> 
-      <dd>FALSE. The Center for Food Safety, a non-profit public interest and environmental advocacy group 
-        headquartered in Washington, D.C., estimates that 70-75% of all grocery store products contain at least 
-        one genetically modified ingredient. You have almost certainly already consumed many GE foods, whether 
-        you knew it or not! A large percentage, 45% to be exact, of the conventionally grown corn in the United 
-        States comes from GM seeds.</dd>
-      <dt>52%</dt>
-      <dd>FALSE. The Center for Food Safety, a non-profit public interest and environmental advocacy group 
-        headquartered in Washington, D.C., estimates that 70-75% of all grocery store products contain at least 
-        one genetically modified ingredient. You have almost certainly already consumed many GE foods, whether 
-        you knew it or not! A large percentage, 45% to be exact, of the conventionally grown corn in the United 
-        States comes from GM seeds.</dd>
-      <dt>70%</dt>
-      <dd>TRUE. The Center for Food Safety, a non-profit public interest and environmental advocacy group 
-        headquartered in Washington, D.C., estimates that 70-75% of all grocery store products contain at least 
-        one genetically modified ingredient. You have almost certainly already consumed many GE foods, whether 
-        you knew it or not! A large percentage, 45% to be exact, of the conventionally grown corn in the United 
-        States comes from GM seeds.</dd>
-    </dl> -->
-  
-    <div id="answer">TRUE. The Center for Food Safety, a non-profit public interest and environmental advocacy group 
-      headquartered in Washington, D.C., estimates that 70-75% of all grocery store products contain at least 
-      one genetically modified ingredient. You have almost certainly already consumed many GE foods, whether 
-      you knew it or not! A large percentage, 45% to be exact, of the conventionally grown corn in the United 
-      States comes from GM seeds.</div>
+    <?php 
+      $quiz_num = rand(1,4);
+      include('quizzes/' . $quiz_num . '.php')
+    ?>
+    <div id="answer"></div>
   </div>
   
   
-  <div class="slidercontent" id="promise">promise!</div>
+  <div class="slidercontent" id="promise">
+    <!-- TODO: Replace this with an AJAX call -->
+    <?php include("lib/indiegogo_scrape.php"); ?><br />
+    <a href="https://www.indiegogo.com/projects/5764/pledges/new">Donate to BetterBio!</a>
+  </div>
   <div class="slidercontent" id="role">
     (Small Headshot Picture of Me)
     *Animation.*
@@ -198,61 +106,53 @@
     -Khadijah Britton, Founder.
   </div>
   <div class="slidercontent" id="story">
-    <!-- Begin MailChimp Signup Form -->
-    <script type="text/javascript">
-    // delete this script tag and use a "div.mce_inline_error{ XXX !important}" selector
-    // or fill this in and it will be inlined when errors are generated
-    var mc_custom_error_style = '';
-    </script>
-    <div id="mc_embed_signup">
     <form action="http://twitter.us2.list-manage.com/subscribe/post?u=9465fda86f56b60a2ec4a6d79&amp;id=a5774e0fac" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
     	<fieldset>
-    	<legend style="white-space:normal"><span>Share Your Story Idea and Stay in the Loop!</span></legend>
-    <div class="indicate-required">* indicates required</div>
-    <div class="mc-field-group">
-    <label for="mce-EMAIL">Email Address <strong class="note-required">*</strong>
-    </label>
-    <input type="text" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-    </div>
-    <div class="mc-field-group">
-    <label for="mce-FNAME">First Name </label>
-    <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
-    </div>
-    <div class="mc-field-group">
-    <label for="mce-LNAME">Last Name </label>
-    <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
-    </div>
-    <div class="mc-field-group">
-    <label for="mce-MMERGE3">The Story You Want Told </label>
-    <input type="text" value="" name="MMERGE3" class="" id="mce-MMERGE3">
-    </div>
-    <div class="mc-field-group">
-        <label class="input-group-label">Please keep me in the loop on... </label>
-        <div class="input-group">
-        <ul><li><input type="checkbox" value="1" name="group[1]" id="mce-group-1-0"><label for="mce-group-1-0">News</label></li>
-    <li><input type="checkbox" value="2" name="group[2]" id="mce-group-1-1"><label for="mce-group-1-1">Events and Trainings</label></li>
-    <li><input type="checkbox" value="4" name="group[4]" id="mce-group-1-2"><label for="mce-group-1-2">Volunteer Opportunities</label></li>
-    <li><input type="checkbox" value="8" name="group[8]" id="mce-group-1-3"><label for="mce-group-1-3">Jobs and Internships</label></li>
-    <li><input type="checkbox" value="16" name="group[16]" id="mce-group-1-4"><label for="mce-group-1-4">Media and Speaking Opportunities</label></li>
-    </ul>
+    	  <legend style="white-space:normal"><span>Share Your Story Idea and Stay in the Loop!</span></legend>
+        <div class="indicate-required">* indicates required</div>
+        <div class="mc-field-group">
+          <label for="mce-EMAIL">Email Address <strong class="note-required">*</strong></label>
+          <input type="text" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+          <label for="mce-FNAME">First Name </label>
+          <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+          <label for="mce-LNAME">Last Name </label>
+          <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
         </div>
-    </div>
+        <div class="mc-field-group">
+          <label class="input-group-label">Please keep me in the loop on... </label>
+          <div class="input-group">
+            <ul>
+              <li><input type="checkbox" value="1" name="group[1]" id="mce-group-1-0"><label for="mce-group-1-0">News</label></li>
+              <li><input type="checkbox" value="2" name="group[2]" id="mce-group-1-1"><label for="mce-group-1-1">Events and Trainings</label></li>
+              <li><input type="checkbox" value="4" name="group[4]" id="mce-group-1-2"><label for="mce-group-1-2">Volunteer Opportunities</label></li>
+              <li><input type="checkbox" value="8" name="group[8]" id="mce-group-1-3"><label for="mce-group-1-3">Jobs and Internships</label></li>
+              <li><input type="checkbox" value="16" name="group[16]" id="mce-group-1-4"><label for="mce-group-1-4">Media and Speaking Opportunities</label></li>
+            </ul>
+          </div>
+          <div class="mc-field-group">
+            <label for="mce-MMERGE3">The Story You Want Told </label>
+            <input type="text" value="" name="MMERGE3" class="" id="mce-MMERGE3">
+          </div>
+        </div>
+    		
     		<div id="mce-responses">
     			<div class="response" id="mce-error-response" style="display:none"></div>
     			<div class="response" id="mce-success-response" style="display:none"></div>
     		</div>
     		<div><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn"></div>
     	</fieldset>	
-    	<a href="#" id="mc_embed_close" class="mc_embed_close">Close</a>
     </form>
-    </div>
-    <!--End mc_embed_signup-->
   </div>
   
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.4.2.js"%3E%3C/script%3E'))</script>
   <script type="text/javascript" src="http://downloads.mailchimp.com/js/jquery.validate.js"></script>
   <script type="text/javascript" src="http://downloads.mailchimp.com/js/jquery.form.js"></script>
+  <script type="text/javascript">
+  // delete this script tag and use a "div.mce_inline_error{ XXX !important}" selector
+  // or fill this in and it will be inlined when errors are generated
+  var mc_custom_error_style = '';
+  </script>
   <script type="text/javascript">
   /*var fnames = new Array();var ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='MMERGE3';ftypes[3]='text';var err_style = '';
   try{

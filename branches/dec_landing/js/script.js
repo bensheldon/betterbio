@@ -36,7 +36,7 @@ $(document).ready(function() {
         }
         
         if(showDiv === "#story") {
-          alert("X");
+          $(".boxContent").attr("id", "visibleStory");
         }
     }, 501);
     
