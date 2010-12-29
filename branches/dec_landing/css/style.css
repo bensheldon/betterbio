@@ -117,7 +117,7 @@ a { text-decoration: none; }
 #container header nav li a { color: white; }
 
 .box { float: left; text-align: center; font-size: 26px; }
-.box a { line-height: 400px; font-family: Optima, Georgia, serif; 
+.box a { line-height: 400px; font-family: Optima, Georgia, serif; outline: 0;
          color: #435a2e; height: 400px; width: 240px; display: block; 
          box-shadow: 0 0 5px rgba(0, 0, 0, 1); 
          -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 1); 
