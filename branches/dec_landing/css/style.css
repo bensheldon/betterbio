@@ -104,6 +104,7 @@ a { text-decoration: none; }
 #container header nav ul form { display: inline; }
 #container header nav li { float: left; font-variant: small-caps; 
                            border-right: 1px solid #454545; padding: 5px 10px; }
+#container header nav li a:hover { text-decoration: underline; }
 #container header nav li.first { margin-left: 20px; }
 #container header nav li.right { margin-left: 430px; }
 #container header nav li.last { border-right: none; }
