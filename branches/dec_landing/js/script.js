@@ -82,7 +82,7 @@ $(document).ready(function() {
     return false;
   });
   
-  if(window.location.hash !== "") { $("a[href=" + window.location.hash + "]").click(); }
+  if(window.location.hash !== "") { $(".box a[href=" + window.location.hash + "]").click(); }
   
   //Mailchimp stuff
   var options = { errorClass: 'mce_inline_error', 
