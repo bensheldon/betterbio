@@ -49,10 +49,10 @@
     <div id="main">
       <nav>
         <ul class="clearfix">
-          <li class="box"><a class="green" href="#quiz" title="Science &amp; You">Why BetterBio?</a></li>
-          <li class="box "><a class="yellow" href="#promise" title="Our Promise">Our Promise</a></li>
+          <li class="box"><a class="green" href="#quiz" title="Science &amp; You">Our Role</a></li>
+          <li class="box "><a class="yellow" href="#promise" title="Our Promise">Our Story</a></li>
           <li class="box"><a class="orange" href="#role" title="Your Role">Your Role</a></li>
-          <li class="box"><a class="purple" href="#story" title="Your Story">Share Your Story</a></li>
+          <li class="box"><a class="purple" href="#story" title="Your Story">Your Story</a></li>
         </ul>
       </nav>
     </div>
@@ -73,41 +73,22 @@
     <div id="answer"></div>
   </div>
   
-  
   <div class="slidercontent" id="promise">
-    <iframe src="http://player.vimeo.com/video/18150336" width="590" height="332" frameborder="0"></iframe><p><a href="http://vimeo.com/18150336">Wingsuit Basejumping - The Need 4 Speed: The Art of Flight</a> from <a href="http://vimeo.com/phoenixfly">Phoenix Fly</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
-    
-    <span id="sumTotal"><img src="images/loading.gif" alt="" /></span> / $30,000<br />
-    <a href="https://www.indiegogo.com/projects/5764/pledges/new">Donate to BetterBio!</a>
+    <iframe src="http://player.vimeo.com/video/18301431" width="590" height="332" frameborder="0"></iframe>
+    <p>Now that we have told you our story, let's make it our story.</p>
+    <p>Get involved so you can tell everyone you were a part of it from the beginning.</p>
+    <p>Because it's your world, your body, your story.</p>
+    <p><a href="https://www.indiegogo.com/betterbio">Spread the word about BetterBio!</a></p>
   </div>
   
   <div class="slidercontent" id="role">
-    Coming Soon.
-    <!-- (Small Headshot Picture of Me)
-    *Animation.*
-
-    In order to get a job in this "innovation economy," you need real reporting that goes beyond soundbites.
-
-    In order to secure the health of your family and community, you need real answers, not press releases.
-
-    And in order lead a talented team of journalists so they can provide you with the news you need, I need you.
-
-    *End animation*
-
-    How can a nonprofit, independent news outlet provide in-depth, accessible reporting on these complex issues, especially when conventional media providers have abandoned biotech coverage?
-
-    It can't, unless you help us out.  And it must, because the mainstream media won't.
-
-    Please donate today and become part of the solution.  Before the end of this year, we need 500 people to step up and say yes, I will support BetterBio. Will you be one of them? We know some of you are struggling just to make ends meet, so remember: even a gift of $5 will make a difference. Donate the most you can, and we will put it to its maximum use.  Click here to help us get started.
-
-    Because our work is sponsored by a 501(c)(3) nonprofit, your donation is tax deductible - so don't wait to receive your tax benefit - donate now.  
-
-    If you can't afford to donate but believe in what we're doing, please make a pledge or join our referral program, in which we thank you for your hard fundraising work with prizes for referring in donations at different levels.  See our fundraising campaign site for more details.
-    However you participate, know how grateful we are to have you involved, and how committed we are to delivering on our promise.
-
-    Thank you for helping us make life better - for all of us.
-    -Khadijah Britton, Founder. -->
+    <iframe src="http://player.vimeo.com/video/18301496" width="590" height="332" frameborder="0"></iframe>
+    <p>Right now, we've raised <span id="sumTotal"><img src="images/loading.gif" alt="" /></span> of our $30,000 goal.</p>
+    <p>We need your support today - even a donation of $5 will make all the difference.</p>
+    <p><a href="https://www.indiegogo.com/projects/5764/pledges/new">Please donate now.</a></p>
+    <p>Thank you!</p>
   </div>
+  
   <div class="slidercontent" id="story">
     <form action="http://twitter.us2.list-manage.com/subscribe/post?u=9465fda86f56b60a2ec4a6d79&amp;id=a5774e0fac" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
     	<fieldset>

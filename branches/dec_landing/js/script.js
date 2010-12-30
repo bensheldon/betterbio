@@ -57,6 +57,10 @@ $(document).ready(function() {
         
         if(showDiv === "#promise") { 
           $(".boxContent").attr("id", "visiblePromise");
+        }
+        
+        if(showDiv === "#role") { 
+          $(".boxContent").attr("id", "visibleRole");
           $.ajax({ 
             "url": "lib/indiegogo_scrape.php",
             "success": function(data) {
