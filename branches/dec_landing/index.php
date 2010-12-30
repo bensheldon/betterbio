@@ -26,7 +26,7 @@
 
   <div id="container">
     <header>
-      <img src="images/logo.jpg" alt="" />
+      <a href="/"><img src="images/logo.jpg" alt="" /></a>
       <nav>
         <ul class="clearfix">
           <li class="first"><a href="/">home</a></li>
