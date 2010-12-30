@@ -65,7 +65,7 @@
     <div id="answer"></div>
     <div id="social">
       <a href="#" id="fb-share">Share on Facebook</a> &bull;
-      <a href="http://twitter.com/?status=I%20just%20took%20the%20Better%20Bio%20quiz.%20http://bit.ly/hcftB0" title="Share this quiz with your followers." target="_blank">Share on Twitter</a>
+      <a href="http://twitter.com/?status=I just took the Better Bio quiz - how much do you know about the biosciences? http://bit.ly/hcftB0" title="Share this quiz with your followers." target="_blank">Share on Twitter</a>
     </div>
   </div>
   
