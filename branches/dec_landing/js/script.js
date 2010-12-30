@@ -59,11 +59,13 @@ $(document).ready(function() {
             $("#visibleQuiz dt").unbind('click');
           });
           
+          _gaq.push(['_trackEvent', 'Slider', 'Click', 'Our Role']);
           $("#fb-share").click(quizToFB);
         }
         
         if(showDiv === "#promise") { 
           $(".boxContent").attr("id", "visiblePromise");
+          _gaq.push(['_trackEvent', 'Slider', 'Click', 'Our Story']);
         }
         
         if(showDiv === "#role") { 
@@ -72,12 +74,14 @@ $(document).ready(function() {
             "url": "lib/indiegogo_scrape.php",
             "success": function(data) {
               $("#sumTotal").html(data);
-            }})
+            }});
+          _gaq.push(['_trackEvent', 'Slider', 'Click', 'Your Role']);
         }
         
         if(showDiv === "#story") {
           $(".boxContent").attr("id", "visibleStory");
           $("#mce-EMAIL").focus();
+          _gaq.push(['_trackEvent', 'Slider', 'Click', 'Your Story']);
         }
     }, 501);
     

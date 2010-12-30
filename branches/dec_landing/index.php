@@ -64,8 +64,8 @@
     ?>
     <div id="answer"></div>
     <div id="social">
-      <a href="#" id="fb-share">Share on Facebook</a> &bull;
-      <a href="http://twitter.com/?status=I just took the Better Bio quiz - how much do you know about the biosciences? http://bit.ly/hcftB0" title="Share this quiz with your followers." target="_blank">Share on Twitter</a>
+      <a href="javascript:void(0);" id="fb-share" onclick="_gaq.push(['_trackEvent', 'Social', 'Click', 'Share on Facbook']);">Share on Facebook</a> &bull;
+      <a href="http://twitter.com/?status=I just took the Better Bio quiz - how much do you know about the biosciences? http://bit.ly/hcftB0" title="Share this quiz with your followers." onclick="_gaq.push(['_trackEvent', 'Social', 'Click', 'Share on Twitter']);" target="_blank">Share on Twitter</a>
     </div>
   </div>
   
