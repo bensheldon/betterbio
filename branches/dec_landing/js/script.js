@@ -58,6 +58,8 @@ $(document).ready(function() {
             $("#visibleQuiz #answer").html($(this).next("dd").html()).animate({"opacity": "1"}, 500);
             $("#visibleQuiz dt").unbind('click');
           });
+          
+          $("#fb-share").click(quizToFB);
         }
         
         if(showDiv === "#promise") { 
@@ -188,4 +190,33 @@ function mce_success_cb(resp){
             $('#mce-'+resp.result+'-response').html(msg);
         }
     }
+}
+
+function quizToFB() {
+  FB.ui(
+    {
+      method: 'stream.publish',
+      attachment: {
+        name: 'Better Bio',
+        caption: 'Knowledge in Action',
+        description: (
+          'Find out how much you REALLY know about science by ' +
+          'taking a quick quiz, courtesy of Better Bio, a non-profit ' +
+          'that empowers all of us to explore, investigate and direct ' +
+          'the science, ethics and political economy of the biotechnology industry.'
+        ),
+        href: 'http://betterbio.org/#quiz'
+      },
+      action_links: [
+        { text: 'betterbio', href: 'http://betterbio.org/#quiz' }
+      ]
+    },
+    function(response) {
+      if (response && response.post_id) {
+        //alert('Post was published.');
+      } else {
+        //alert('Post was not published.');
+      }
+    }
+  );
 }

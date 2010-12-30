@@ -64,7 +64,7 @@
     ?>
     <div id="answer"></div>
     <div id="social">
-      <a href="#">Share on Facebook</a> &bull;
+      <a href="#" id="fb-share">Share on Facebook</a> &bull;
       <a href="http://twitter.com/?status=I%20just%20took%20the%20Better%20Bio%20quiz.%20http://bit.ly/hcftB0" title="Share this quiz with your followers." target="_blank">Share on Twitter</a>
     </div>
   </div>
@@ -161,13 +161,18 @@
   <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.4.2.js"%3E%3C/script%3E'))</script>
   <script type="text/javascript" src="http://downloads.mailchimp.com/js/jquery.validate.js"></script>
   <script type="text/javascript" src="http://downloads.mailchimp.com/js/jquery.form.js"></script>
-  <script type="text/javascript">
-  // delete this script tag and use a "div.mce_inline_error{ XXX !important}" selector
-  // or fill this in and it will be inlined when errors are generated
-  
-  </script>
-  <script type="text/javascript">
-  
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({appId: '115422611864623', status: true, cookie: true,
+               xfbml: true});
+    };
+    (function() {
+      var e = document.createElement('script'); e.async = true;
+      e.src = document.location.protocol +
+        '//connect.facebook.net/en_US/all.js';
+      document.getElementById('fb-root').appendChild(e);
+    }());
   </script>
   
   <!-- scripts concatenated and minified via ant build script-->
