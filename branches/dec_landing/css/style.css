@@ -134,7 +134,18 @@ a { text-decoration: none; }
 #visibleQuiz #answer { opacity: 0; margin: 7px 0 0 10em; font-size: 16px; padding-right: 8px; line-height: 22px; }
 
 /* Mailchimp Form styles */
-.mc-field-group { float: left; }
+#visibleStory { font-size: 12px; }
+#visibleStory legend { font-size: 24px; padding-bottom: .75em; }
+#visibleStory .required { color: red; }
+#visibleStory legend span { font-size: 12px; padding-left: 3em; }
+#visibleStory .leftSide { float: left; width: 300px; }
+#visibleStory .leftSide p { margin-bottom: 1em; }
+#visibleStory .leftSide p > label { font-weight: bold; float: left; width: 100px; }
+#visibleStory .rightSide label { font-weight: bold; }
+#visibleStory .leftSide ul { margin-left: 100px; }
+#visibleStory .leftSide ul li { margin-bottom: 3px; }
+#visibleStory #mce-MMERGE3 { width: 480px; height: 240px; }
+#visibleStory #mc-embedded-subscribe { margin-top: 1em; }
 
 footer { background-color: black; color: #ddd; padding: 5px 10px 5px 0; clear: both; font-size: .85em; }
 footer ul { list-style-type: none; }
