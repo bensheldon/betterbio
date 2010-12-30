@@ -79,6 +79,15 @@
   
   <div class="slidercontent" id="promise">
     <iframe src="http://player.vimeo.com/video/18301431" width="590" height="332" frameborder="0"></iframe>
+    <p class="visuallyhidden">
+      Hi, I'm Khadijah M. Britton, founder of BetterBio.  I wanted to share a little about why we're here and what we will achieve if you give us your support.
+      I started BetterBio because I was frustrated.  Despite the fact that Americans are nearly unanimous in our agreement that knowledge of science is "essential" to healthcare, our global reputation and the economy, it turns out only one in three of us understands the scientific method.  Ten years ago, the United States government added "biotechnology" to its curriculum requirements for public schools, inspiring countries across the world to follow suit, yet less than one third of Americans know that DNA is a basic building block of life (in fact, when asked, some guessed it stood for "Drug and Narcotics Agency.")
+      Yet, with or without our understanding, scientific research is driving the economy, access to energy, our food supply and our healthcare system.
+      So, it came to me.  BetterBio: biotech news for the rest of us.  Not just scientists who wanted to see what the competition looked like.  Not just investors in the next new biotech start-up.  All of us.  Patients.  Parents.  Students.  Teachers.  Whomever was impacted by the decisions made in these scientific industries.  My idea was, and is, that by connecting the boardroom and research lab to the community at large, BetterBio would help us separate fact from fiction and make better choices for our lives.
+      We will do everything in our power to deliver the most meaningful, information-rich, and accessible news about  biotechnology and its impact on our lives.  At the end of the day, journalism only means something if it's news you can use.  Our end goal is to build bridges between industry, academy and community that help citizens become engaged participants in biomedical policy-making.  We will create the forum for you to enter the conversation – all you have to do is show up.
+      However, before we can do all of this – we need your help.  Please get involved however you can: Join the BetterBio community, donate as generously as you can, refer friends and share your story ideas.
+      Bio is the greek root for life.  And we truly are here to make life better – for all of us – through the power of information.  Hence the name, BetterBio.  We hope you will join us, and I look forward to hearing from you soon!
+    </p>
     <p>Now that we have told you our story, let's make it our story.</p>
     <p>Get involved so you can tell everyone you were a part of it from the beginning.</p>
     <p>Because it's your world, your body, your story.</p>
@@ -87,6 +96,15 @@
   
   <div class="slidercontent" id="role">
     <iframe src="http://player.vimeo.com/video/18301496" width="590" height="332" frameborder="0"></iframe>
+    <p class="visuallyhidden">
+      In order to get a job in this "innovation economy," you need real reporting that goes beyond soundbites.
+      In order to secure the health of your family and community, you need real answers, not press releases.
+      And in order lead a talented team of journalists so they can provide you with the news you need, I need you.
+      How can a nonprofit, independent news outlet provide in-depth, accessible reporting on these complex issues, especially when conventional media providers have abandoned biotech coverage?
+      It can't, unless you help us out.  And it must, because the mainstream media won't.
+      Please donate today and become part of the solution.  
+      Thank you for helping us make life better - for all of us.
+    </p>
     <p>Right now, we've raised <span id="sumTotal"><img src="images/loading.gif" alt="" /></span> of our $30,000 goal.</p>
     <p>We need your support today - even a donation of $5 will make all the difference.</p>
     <p><a href="https://www.indiegogo.com/projects/5764/pledges/new">Please donate now.</a></p>
