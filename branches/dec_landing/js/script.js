@@ -25,9 +25,14 @@ $(document).ready(function() {
   //Hiding some elements
   $('.slidercontent').hide();
   
+  $("#container header nav a").click(function() {
+    var linkClass = ".box ." + $(this).attr("class");
+    $(linkClass).click();
+  });
+  
   // Main slider animation 
   $("#main nav li").find("a").click(function(e) {
-    var boxClass = "." + $(this).attr("class");
+    var boxClass = ".box ." + $(this).attr("class");
     
     $(".boxContent").remove();
     $(".box a:not(" + boxClass +")").animate({'width': "50px", 'height': "400px"}, 500)

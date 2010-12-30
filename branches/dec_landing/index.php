@@ -29,19 +29,11 @@
       <a href="/"><img src="images/logo.jpg" alt="" /></a>
       <nav>
         <ul class="clearfix">
-          <li class="first"><a href="/">home</a></li>
-          <!-- ><li><a href="#">med</a></li>
-          <li><a href="#">food</a></li>
-          <li><a href="#">fuel</a></li>
-          <li><a href="#">blog</a></li>
-          <li class="right"><a href="#">about</a></li>
-          <li><a href="#">join</a></li>
-          <li class="last">
-              <form id="mailchimp" action="">
-                <input type="text" id="email" class="email" value="" />
-                <button>Subscribe</button>
-              </form>
-          </li> -->
+          <li class="first"><a href="/">Home</a></li>
+          <li><a class="green" href="#quiz">Our Role</a></li>
+          <li><a class="yellow" href="#promise">Our Story</a></li>
+          <li><a class="orange" href="#role">Your Role</a></li>
+          <li><a class="purple" href="#story">Your Story</a></li>
         </ul>
       </nav>
     </header>

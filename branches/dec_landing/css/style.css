@@ -89,11 +89,6 @@ button {  width: auto; overflow: visible; }
 body { font-family: Optima, Georgia, serif; }
 a { text-decoration: none; }
 
-.yellow { background-color: #fedfa6; }
-.orange { background-color: #f09e66; }
-.green { background-color: #95b665; }
-.purple { background-color: #c994c0; }
-
 #container { width: 960px; margin: 1em auto 0; }
 
 #container header nav ul { background-color: black; 
@@ -110,6 +105,10 @@ a { text-decoration: none; }
 #container header nav li.first { margin-left: 20px; }
 #container header nav li.right { margin-left: 430px; }
 #container header nav li.last { border-right: none; }
+#container header nav .yellow { color: #fedfa6; }
+#container header nav .orange { color: #f09e66; }
+#container header nav .green { color: #95b665; }
+#container header nav .purple { color: #c994c0; }
 
 #main nav { height: 400px; overflow-y: hidden; }
 #main nav .boxContent { display: none; clear: right; text-align: left;  padding: 10px; width: 790px; }
@@ -126,6 +125,10 @@ a { text-decoration: none; }
          -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 1); 
          -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 1); }
 .box > a:hover { font-weight: bold; }
+.box .yellow { background-color: #fedfa6; }
+.box .orange { background-color: #f09e66; }
+.box .green { background-color: #95b665; }
+.box .purple { background-color: #c994c0; }
 
 /* Quiz styles */
 #visibleQuiz { font-size: 12px; position: relative; }
