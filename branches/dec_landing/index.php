@@ -49,7 +49,7 @@
       </nav>
     </div>
     
-    <footer>
+    <footer class="clearfix">
       <ul class="clearfix">
         <li>All Materials Copyright &copy;2010 Better Bio</li>
         <li class="right">For more information, email <a href="mailto:info@betterbio.org">info@betterbio.org</a></li>
