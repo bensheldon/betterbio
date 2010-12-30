@@ -40,7 +40,7 @@ $(document).ready(function() {
         function() { $(boxClass).css("text-indent", "0px"); $(".boxContent").show(); })
         .parent().append('<div class="boxContent">xx</div>');
         
-        $(".boxContent").html($(showDiv).html());
+        $(".boxContent").html($(showDiv).html()).addClass("clearfix");
         window.location.hash = showDiv.substr(1);
         
         if(showDiv === "#quiz") {

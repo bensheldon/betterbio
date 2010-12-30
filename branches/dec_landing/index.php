@@ -30,7 +30,7 @@
       <nav>
         <ul class="clearfix">
           <li class="first"><a href="/">home</a></li>
-          <li><a href="#">med</a></li>
+          <!-- ><li><a href="#">med</a></li>
           <li><a href="#">food</a></li>
           <li><a href="#">fuel</a></li>
           <li><a href="#">blog</a></li>
@@ -41,7 +41,7 @@
                 <input type="text" id="email" class="email" value="" />
                 <button>Subscribe</button>
               </form>
-          </li>
+          </li> -->
         </ul>
       </nav>
     </header>
@@ -71,6 +71,10 @@
       include('quizzes/' . $quiz_num . '.php')
     ?>
     <div id="answer"></div>
+    <div id="social">
+      <a href="#">Share on Facebook</a> &bull;
+      <a href="http://twitter.com/?status=I%20just%20took%20the%20Better%20Bio%20quiz.%20http://bit.ly/hcftB0" title="Share this quiz with your followers." target="_blank">Share on Twitter</a>
+    </div>
   </div>
   
   <div class="slidercontent" id="promise">
@@ -167,15 +171,15 @@
     <script> DD_belatedPNG.fix('img, .png_bg'); </script>
   <![endif]-->
 
+<?php if($_SERVER['SERVER_NAME'] === "betterbio.dev"): ?>
   <!-- yui profiler and profileviewer - remove for production -->
   <script src="js/profiling/yahoo-profiling.min.js"></script>
   <script src="js/profiling/config.js"></script>
   <!-- end profiling code -->
+<?php endif; ?>
 
-
-  <!-- change the UA-XXXXX-X to be your site's ID -->
   <script>
-   var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
+   var _gaq = [['_setAccount', 'UA-19424667-1'], ['_trackPageview']];
    (function(d, t) {
     var g = d.createElement(t),
         s = d.getElementsByTagName(t)[0];
