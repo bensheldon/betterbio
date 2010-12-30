@@ -75,7 +75,7 @@
   
   
   <div class="slidercontent" id="promise">
-    <iframe src="http://player.vimeo.com/video/18150336" width="400" height="225" frameborder="0"></iframe>
+    <iframe src="http://player.vimeo.com/video/18150336" width="590" height="332" frameborder="0"></iframe><p><a href="http://vimeo.com/18150336">Wingsuit Basejumping - The Need 4 Speed: The Art of Flight</a> from <a href="http://vimeo.com/phoenixfly">Phoenix Fly</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
     
     <span id="sumTotal"><img src="images/loading.gif" alt="" /></span> / $30,000<br />
     <a href="https://www.indiegogo.com/projects/5764/pledges/new">Donate to BetterBio!</a>

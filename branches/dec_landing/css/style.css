@@ -134,7 +134,7 @@ a { text-decoration: none; }
 #visibleQuiz #answer { opacity: 0; margin: 7px 0 0 10em; font-size: 16px; padding-right: 8px; line-height: 22px; }
 
 /* Promise Video styles */
-#visiblePromise video { float: left; }
+#visiblePromise iframe { float: left; }
 
 /* Mailchimp Form styles */
 #visibleStory { font-size: 12px; }
