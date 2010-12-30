@@ -75,13 +75,26 @@
   
   
   <div class="slidercontent" id="promise">
-    <!-- TODO: Replace this with an AJAX call -->
+    <video width="590" height="332" controls>
+    	<!-- MP4 must be first for iPad! -->
+    	<source src="mov/pitch_1.mp4" type="video/mp4" /><!-- WebKit video    -->
+    	<!-- <source src="__VIDEO__.OGV" type="video/ogg" /><!-- Firefox / Opera -->
+    	<!-- fallback to Flash: -->
+    	<!-- <object width="640" height="360" type="application/x-shockwave-flash" data="__FLASH__.SWF">
+    		<param name="movie" value="__FLASH__.SWF" />
+    		<param name="flashvars" value="controlbar=over&amp;image=__POSTER__.JPG&amp;file=__VIDEO__.MP4" />
+    		<img src="__VIDEO__.JPG" width="640" height="360" alt="__TITLE__"
+    		     title="No video playback capabilities, please download the video below" />
+    	</object> -->
+    </video>
+    
     <span id="sumTotal"><img src="images/loading.gif" alt="" /></span> / $30,000<br />
     <a href="https://www.indiegogo.com/projects/5764/pledges/new">Donate to BetterBio!</a>
   </div>
   
   <div class="slidercontent" id="role">
-    (Small Headshot Picture of Me)
+    Coming Soon.
+    <!-- (Small Headshot Picture of Me)
     *Animation.*
 
     In order to get a job in this "innovation economy," you need real reporting that goes beyond soundbites.
@@ -104,7 +117,7 @@
     However you participate, know how grateful we are to have you involved, and how committed we are to delivering on our promise.
 
     Thank you for helping us make life better - for all of us.
-    -Khadijah Britton, Founder.
+    -Khadijah Britton, Founder. -->
   </div>
   <div class="slidercontent" id="story">
     <form action="http://twitter.us2.list-manage.com/subscribe/post?u=9465fda86f56b60a2ec4a6d79&amp;id=a5774e0fac" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">

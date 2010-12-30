@@ -133,6 +133,9 @@ a { text-decoration: none; }
 #visibleQuiz dt:hover { background-color: #e9ffca; }
 #visibleQuiz #answer { opacity: 0; margin: 7px 0 0 10em; font-size: 16px; padding-right: 8px; line-height: 22px; }
 
+/* Promise Video styles */
+#visiblePromise video { float: left; }
+
 /* Mailchimp Form styles */
 #visibleStory { font-size: 12px; }
 #visibleStory legend { font-size: 24px; padding-bottom: .75em; }

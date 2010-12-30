@@ -42,6 +42,7 @@ $(document).ready(function() {
         
         $(".boxContent").html($(showDiv).html());
         window.location.hash = showDiv.substr(1);
+        
         if(showDiv === "#quiz") {
           $(".boxContent").attr("id", "visibleQuiz");
           $("#visibleQuiz dd").hide();
@@ -55,6 +56,7 @@ $(document).ready(function() {
         }
         
         if(showDiv === "#promise") { 
+          $(".boxContent").attr("id", "visiblePromise");
           $.ajax({ 
             "url": "lib/indiegogo_scrape.php",
             "success": function(data) {
@@ -87,6 +89,7 @@ $(document).ready(function() {
               dataType: 'json', 
               contentType: "application/json; charset=utf-8",
               beforeSubmit: function(){
+                alert("x");
                 $('#mce_tmp_error_msg').remove();
                 $('.datefield','#mc_embed_signup').each(function(){
                   var txt = 'filled';
@@ -96,31 +99,30 @@ $(document).ready(function() {
                     fields[i] = this;
                     i++;
                   });
-                            $(':hidden', this).each(
-                                function(){
-                                	if ( fields[0].value=='MM' && fields[1].value=='DD' && fields[2].value=='YYYY' ){
-                                		this.value = '';
-									} else if ( fields[0].value=='' && fields[1].value=='' && fields[2].value=='' ){
-                                		this.value = '';
-									} else {
-	                                    this.value = fields[0].value+'/'+fields[1].value+'/'+fields[2].value;
-	                                }
-                                });
-                        });
-                    return mce_validator.form();
-                }, 
-                success: mce_success_cb
+                  $(':hidden', this).each(function(){
+                    if ( fields[0].value=='MM' && fields[1].value=='DD' && fields[2].value=='YYYY' ){
+                      this.value = '';
+									  } else if ( fields[0].value=='' && fields[1].value=='' && fields[2].value=='' ){
+                    	this.value = '';
+									  } else {
+	                    this.value = fields[0].value+'/'+fields[1].value+'/'+fields[2].value;
+	                  }
+                  });
+                });
+                return mce_validator.form();
+              }, 
+              success: mce_success_cb
             };
   $('#mc-embedded-subscribe-form').ajaxForm(options);
 });
 
 function mce_success_cb(resp){
-    mce_jQuery('#mce-success-response').hide();
-    mce_jQuery('#mce-error-response').hide();
+    $('#mce-success-response').hide();
+    $('#mce-error-response').hide();
     if (resp.result=="success"){
-        mce_jQuery('#mce-'+resp.result+'-response').show();
-        mce_jQuery('#mce-'+resp.result+'-response').html(resp.msg);
-        mce_jQuery('#mc-embedded-subscribe-form').each(function(){
+        $('#mce-'+resp.result+'-response').show();
+        $('#mce-'+resp.result+'-response').html(resp.msg);
+        $('#mc-embedded-subscribe-form').each(function(){
             this.reset();
     	});
     } else {
@@ -146,35 +148,35 @@ function mce_success_cb(resp){
         }
         try{
             if (index== -1){
-                mce_jQuery('#mce-'+resp.result+'-response').show();
-                mce_jQuery('#mce-'+resp.result+'-response').html(msg);            
+                $('#mce-'+resp.result+'-response').show();
+                $('#mce-'+resp.result+'-response').html(msg);            
             } else {
                 err_id = 'mce_tmp_error_msg';
                 html = '<div id="'+err_id+'" style="'+err_style+'"> '+msg+'</div>';
 
                 var input_id = '#mc_embed_signup';
-                var f = mce_jQuery(input_id);
+                var f = $(input_id);
                 if (ftypes[index]=='address'){
                     input_id = '#mce-'+fnames[index]+'-addr1';
-                    f = mce_jQuery(input_id).parent().parent().get(0);
+                    f = $(input_id).parent().parent().get(0);
                 } else if (ftypes[index]=='date'){
                     input_id = '#mce-'+fnames[index]+'-month';
-                    f = mce_jQuery(input_id).parent().parent().get(0);
+                    f = $(input_id).parent().parent().get(0);
                 } else {
                     input_id = '#mce-'+fnames[index];
-                    f = mce_jQuery().parent(input_id).get(0);
+                    f = $().parent(input_id).get(0);
                 }
                 if (f){
-                    mce_jQuery(f).append(html);
-                    mce_jQuery(input_id).focus();
+                    $(f).append(html);
+                    $(input_id).focus();
                 } else {
-                    mce_jQuery('#mce-'+resp.result+'-response').show();
-                    mce_jQuery('#mce-'+resp.result+'-response').html(msg);
+                    $('#mce-'+resp.result+'-response').show();
+                    $('#mce-'+resp.result+'-response').html(msg);
                 }
             }
         } catch(e){
-            mce_jQuery('#mce-'+resp.result+'-response').show();
-            mce_jQuery('#mce-'+resp.result+'-response').html(msg);
+            $('#mce-'+resp.result+'-response').show();
+            $('#mce-'+resp.result+'-response').html(msg);
         }
     }
 }
