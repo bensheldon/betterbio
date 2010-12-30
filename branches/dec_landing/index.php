@@ -75,18 +75,7 @@
   
   
   <div class="slidercontent" id="promise">
-    <video width="590" height="332" controls>
-    	<!-- MP4 must be first for iPad! -->
-    	<source src="mov/pitch_1.mp4" type="video/mp4" /><!-- WebKit video    -->
-    	<!-- <source src="__VIDEO__.OGV" type="video/ogg" /><!-- Firefox / Opera -->
-    	<!-- fallback to Flash: -->
-    	<!-- <object width="640" height="360" type="application/x-shockwave-flash" data="__FLASH__.SWF">
-    		<param name="movie" value="__FLASH__.SWF" />
-    		<param name="flashvars" value="controlbar=over&amp;image=__POSTER__.JPG&amp;file=__VIDEO__.MP4" />
-    		<img src="__VIDEO__.JPG" width="640" height="360" alt="__TITLE__"
-    		     title="No video playback capabilities, please download the video below" />
-    	</object> -->
-    </video>
+    <iframe src="http://player.vimeo.com/video/18150336" width="400" height="225" frameborder="0"></iframe>
     
     <span id="sumTotal"><img src="images/loading.gif" alt="" /></span> / $30,000<br />
     <a href="https://www.indiegogo.com/projects/5764/pledges/new">Donate to BetterBio!</a>
