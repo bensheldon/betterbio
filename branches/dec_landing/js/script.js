@@ -25,11 +25,23 @@ $(document).ready(function() {
   //Hiding some elements
   $('.slidercontent').hide();
   
+  $(".donate").live("click", function() {
+    _gaq.push(['_trackEvent', 'Donate', this.tagName, 'Donation Clicked']);
+    window.location = "https://www.indiegogo.com/projects/5764/pledges/new";
+    return false;
+  });
+  
   $("#container header nav a").click(function() {
     var linkClass = ".box ." + $(this).attr("class");
     $(linkClass).click();
   });
   
+  $.ajax({ 
+    "url": "lib/indiegogo_scrape.php",
+    "success": function(data) {
+      $(".sumTotal").html(data);
+    }});
+    
   // Main slider animation 
   $("#main nav li").find("a").click(function(e) {
     var boxClass = ".box ." + $(this).attr("class");
@@ -73,7 +85,7 @@ $(document).ready(function() {
           $.ajax({ 
             "url": "lib/indiegogo_scrape.php",
             "success": function(data) {
-              $("#sumTotal").html(data);
+              $(".sumTotal").html(data);
             }});
           _gaq.push(['_trackEvent', 'Slider', 'Click', 'Your Role']);
         }

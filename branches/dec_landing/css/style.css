@@ -89,9 +89,10 @@ button {  width: auto; overflow: visible; }
 body { font-family: Optima, Georgia, serif; }
 a { text-decoration: none; }
 
-#container { width: 960px; margin: 1em auto 0; }
+#container { width: 960px; margin: 0 auto; }
 
-#container header nav ul { background-color: black; 
+#container header { position: relative; }
+#container header nav ul { background-color: black;
                           -webkit-border-top-left-radius: 10px;
                           -webkit-border-top-right-radius: 10px;
                           -moz-border-radius-topleft: 10px;
@@ -101,14 +102,74 @@ a { text-decoration: none; }
 #container header nav ul form { display: inline; }
 #container header nav li { float: left; font-variant: small-caps; 
                            border-right: 1px solid #454545; padding: 5px 10px; }
+#container header nav li a { color: white; }                           
 #container header nav li a:hover { text-decoration: underline; }
 #container header nav li.first { margin-left: 20px; }
 #container header nav li.right { margin-left: 430px; }
 #container header nav li.last { border-right: none; }
 #container header nav .yellow { color: #fedfa6; }
 #container header nav .orange { color: #f09e66; }
-#container header nav .green { color: #95b665; }
+#container header nav .green, button span.green  { color: #95b665 !important; }
 #container header nav .purple { color: #c994c0; }
+#container header aside { position: absolute; bottom: 29px; right: 0; }
+button.slick-black {
+  background: #111;
+  background: -moz-linear-gradient(0% 100% 90deg, #FFFFFF, #000000,
+              rgba(0, 0, 0, 0.9) 0%,
+              rgba(20, 20, 20, 0.9) 50%,
+              rgba(30, 30, 30, 0.9) 50%,
+              rgba(50, 50, 50, 0.9) 100%);
+  background: -webkit-gradient(linear, 0 0, 0 100%,
+              color-stop(0, rgba(50, 50, 50, 0.9)),
+              color-stop(0.5, rgba(30, 30, 30, 0.9)),
+              color-stop(0.5, rgba(20, 20, 20, 0.9)),
+              color-stop(1, rgba(0, 0, 0, 0.9)));
+  border: 0;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -moz-box-shadow: inset 1px 1px 1px 0px rgba(135, 135, 135, 0.1), inset -1px -1px 1px 0px rgba(135, 135, 135, 0.1);
+  -webkit-box-shadow: inset 1px 1px 1px 0px rgba(135, 135, 135, 0.1), inset -1px -1px 1px 0px rgba(135, 135, 135, 0.1);
+  box-shadow: inset 1px 1px 1px 0px rgba(135, 135, 135, 0.1), inset -1px -1px 1px 0px rgba(135, 135, 135, 0.1);
+  color: #fff;
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+  font-size: 22px;
+  font-weight: lighter;
+  line-height: 1;
+  padding: 8px 0;
+  position: absolute; top: -5px; right: 0px;
+  text-shadow: 0px -1px 1px rgba(0, 0, 0, .8), 0 1px 1px rgba(255, 255, 255, 0.3);
+  width: 400px;
+}
+
+button.slick-black:hover {
+  background: #222;
+  background: -moz-linear-gradient(0% 100% 90deg, #FFFFFF, #000000,
+              rgba(20, 20, 20, 0.9) 0%,
+              rgba(40, 40, 40, 0.9) 50%,
+              rgba(50, 50, 50, 0.9) 50%,
+              rgba(70, 70, 70, 0.9) 100%);
+  background: -webkit-gradient(linear, 0 0, 0 100%,
+              color-stop(0, rgba(70, 70, 70, 0.9)),
+              color-stop(0.5, rgba(50, 50, 50, 0.9)),
+              color-stop(0.5, rgba(40, 40, 40, 0.9)),
+              color-stop(1, rgba(20, 20, 20, 0.9)));
+}
+
+button.slick-black:active {
+  background: #000;
+  background: -moz-linear-gradient(0% 100% 90deg, #FFFFFF, #000000,
+              rgba(0, 0, 0, 0.9) 0%,
+              rgba(10, 10, 10, 0.9) 50%,
+              rgba(20, 20, 20, 0.9) 50%,
+              rgba(30, 30, 30, 0.9) 100%);
+  background: -webkit-gradient(linear, 0 0, 0 100%,
+              color-stop(0, rgba(30, 30, 30, 0.9)),
+              color-stop(0.5, rgba(20, 20, 20, 0.9)),
+              color-stop(0.5, rgba(10, 10, 10, 0.9)),
+              color-stop(1, rgba(0, 0, 0, 0.9)));
+}
+button span.green { font-weight: bold; }
 
 #main nav { height: 400px; overflow-y: hidden; }
 #main nav .boxContent { display: none; clear: right; text-align: left;  padding: 10px; width: 790px; }
@@ -116,7 +177,6 @@ a { text-decoration: none; }
 #mailchimp input { font-size: 10px; }
 #mailchimp button { text-indent: -9999px; font-size: 10px; border: none;
                     background: url(../images/mag-glass.jpg) no-repeat 3px left;  }
-#container header nav li a { color: white; }
 
 .box { float: left; text-align: center; font-size: 26px; }
 .box > a { line-height: 400px; outline: 0;
@@ -165,6 +225,20 @@ footer a { color: #C994C0; }
 footer a:hover { color: #C994C0; text-decoration: underline; }
 
 
+/* AddThis code */
+.addthis_toolbox.addthis_pill_combo a {
+    float: left;
+}
+.addthis_toolbox.addthis_pill_combo a.addthis_button_tweet,
+.addthis_toolbox.addthis_pill_combo a.addthis_counter {
+    margin-top: -2px;
+}
+.addthis_button_compact .at15t_compact {
+    margin-right: 4px;
+    float: left;
+}
+
+.slidercontent { margin-top: 20em; }
 
 @media all and (orientation:portrait) { 
   

@@ -27,13 +27,24 @@
   <div id="container">
     <header>
       <a href="/"><img src="images/logo.jpg" alt="" /></a>
+      
+      <button class="slick-black donate"><span class="sumTotal">...</span> of $30,000 raised so far!<br /> <span class="green">Please Donate!</a></button>
+      
+      <aside>
+        <div class="addthis_toolbox addthis_pill_combo">
+          <a class="addthis_button_tweet" tw:count="horizontal"></a>
+          <a class="addthis_button_facebook_like"></a>
+          <a class="addthis_counter addthis_pill_style"></a>
+        </div>
+      </aside>
+      
       <nav>
         <ul class="clearfix">
           <li class="first"><a href="/">Home</a></li>
-          <li><a class="green" href="#quiz">Our Role</a></li>
-          <li><a class="yellow" href="#promise">Our Story</a></li>
-          <li><a class="orange" href="#role">Your Role</a></li>
-          <li><a class="purple" href="#story">Your Story</a></li>
+          <li><a class="green" href="#role">Your Role</a></li>
+          <li><a class="yellow" href="#story">Your Story</a></li>
+          <li><a class="orange" href="#quiz">Our Role</a></li>
+          <li><a class="purple" href="#promise">Our Story</a></li>
         </ul>
       </nav>
     </header>
@@ -41,10 +52,10 @@
     <div id="main">
       <nav>
         <ul class="clearfix">
-          <li class="box"><a class="green" href="#quiz" title="Science &amp; You">Our Role</a></li>
-          <li class="box "><a class="yellow" href="#promise" title="Our Promise">Our Story</a></li>
-          <li class="box"><a class="orange" href="#role" title="Your Role">Your Role</a></li>
-          <li class="box"><a class="purple" href="#story" title="Your Story">Your Story</a></li>
+          <li class="box"><a class="green" href="#role" title="Your Role">Your Role</a></li>
+          <li class="box"><a class="yellow" href="#story" title="Your Story">Your Story</a></li>
+          <li class="box"><a class="orange" href="#quiz" title="Science &amp; You">Our Role</a></li>
+          <li class="box "><a class="purple" href="#promise" title="Our Promise">Our Story</a></li>
         </ul>
       </nav>
     </div>
@@ -57,6 +68,8 @@
     </footer>
   </div> <!-- end of #container -->
   
+  
+  <!-- Slider Content -->
   <div class="slidercontent" id="quiz">
     <?php 
       $quiz_num = rand(1,4);
@@ -97,9 +110,9 @@
       Please donate today and become part of the solution.  
       Thank you for helping us make life better - for all of us.
     </p>
-    <p>Right now, we've raised <span id="sumTotal"><img src="images/loading.gif" alt="" /></span> of our $30,000 goal.</p>
+    <p>Right now, we've raised <span class="sumTotal"><img src="images/loading.gif" alt="" /></span> of our $30,000 goal.</p>
     <p>We need your support today - even a donation of $5 will make all the difference.</p>
-    <p><a href="https://www.indiegogo.com/projects/5764/pledges/new">Please donate now.</a></p>
+    <p><a class="donate" target="_blank" href="https://www.indiegogo.com/projects/5764/pledges/new">Please donate now.</a></p>
     <p>Thank you!</p>
   </div>
   
@@ -144,8 +157,6 @@
         <div class="rightSide">          
           <label for="mce-MMERGE3">The Story You Want Told</label>
           <textarea type="text" value="" name="MMERGE3" class="" id="mce-MMERGE3"></textarea>
-          
-          
         </div>
         
         <div id="mce-responses">
@@ -174,6 +185,7 @@
       document.getElementById('fb-root').appendChild(e);
     }());
   </script>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=aphelionz"></script>
   
   <!-- scripts concatenated and minified via ant build script-->
   <script src="js/plugins.js"></script>
