@@ -100,8 +100,7 @@
   </div>
   
   <div class="slidercontent" id="role">
-    <iframe src="http://player.vimeo.com/video/18301496" width="590" height="332" frameborder="0"></iframe>
-    <p class="visuallyhidden">
+    <p>
       In order to get a job in this "innovation economy," you need real reporting that goes beyond soundbites.
       In order to secure the health of your family and community, you need real answers, not press releases.
       And in order lead a talented team of journalists so they can provide you with the news you need, I need you.
