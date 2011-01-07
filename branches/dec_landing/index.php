@@ -41,10 +41,10 @@
       <nav>
         <ul class="clearfix">
           <li class="first"><a href="/">Home</a></li>
-          <li><a class="green" href="#role">Your Role</a></li>
-          <li><a class="yellow" href="#story">Your Story</a></li>
           <li><a class="orange" href="#quiz">Our Role</a></li>
+          <li><a class="green" href="#role">Your Role</a></li>
           <li><a class="purple" href="#promise">Our Story</a></li>
+          <li><a class="yellow" href="#story">Your Story</a></li>
         </ul>
       </nav>
     </header>
@@ -52,10 +52,10 @@
     <div id="main">
       <nav>
         <ul class="clearfix">
-          <li class="box"><a class="green" href="#role" title="Your Role">Your Role</a></li>
-          <li class="box"><a class="yellow" href="#story" title="Your Story">Your Story</a></li>
           <li class="box"><a class="orange" href="#quiz" title="Science &amp; You">Our Role</a></li>
+          <li class="box"><a class="green" href="#role" title="Your Role">Your Role</a></li>
           <li class="box "><a class="purple" href="#promise" title="Our Promise">Our Story</a></li>
+          <li class="box"><a class="yellow" href="#story" title="Your Story">Your Story</a></li>
         </ul>
       </nav>
     </div>
@@ -93,7 +93,7 @@
       However, before we can do all of this – we need your help.  Please get involved however you can: Join the BetterBio community, donate as generously as you can, refer friends and share your story ideas.
       Bio is the greek root for life.  And we truly are here to make life better – for all of us – through the power of information.  Hence the name, BetterBio.  We hope you will join us, and I look forward to hearing from you soon!
     </p>
-    <p>Now that we have told you our story, let's make it our story.</p>
+    <p>Now that we have told you our story, let's make it your story.</p>
     <p>Get involved so you can tell everyone you were a part of it from the beginning.</p>
     <p>Because it's your world, your body, your story.</p>
     <p><a href="https://www.indiegogo.com/betterbio">Spread the word about BetterBio!</a></p>
