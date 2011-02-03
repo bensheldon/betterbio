@@ -50,7 +50,7 @@
 
 	<?php $values = get_post_custom_values("Image");
 	if (isset($values[0])) { ?>
-	<p><img src="<?php echo bloginfo('template_url'); ?>/scripts/timthumb.php?src=/<?php
+	<p><img src="<?php echo bloginfo('template_url'); ?>/scripts/timthumb.php?src=<?php
 $values = get_post_custom_values("Image"); echo $values[0]; ?>&amp;w=<?php echo $width; ?>&amp;h=<?php echo $height; ?>&amp;zc=1&amp;q=100"
 alt="<?php the_title(); ?>" class="left" width="<?php echo $width; ?>px" height="<?php echo $height; ?>px"  /></p>
 	<?php } ?>
@@ -113,7 +113,7 @@ alt="<?php the_title(); ?>" class="left" width="<?php echo $width; ?>px" height=
 	$values = get_post_custom_values("Image");
 	if (isset($values[0])) {
 	?>
-		<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><img src="<?php echo bloginfo('template_url'); ?>/scripts/timthumb.php?src=/<?php
+		<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><img src="<?php echo bloginfo('template_url'); ?>/scripts/timthumb.php?src=<?php
 $values = get_post_custom_values("Image"); echo $values[0]; ?>&amp;w=<?php echo $width; ?>&amp;h=<?php echo $height; ?>&amp;zc=1&amp;q=100"
 alt="<?php the_title(); ?>" class="left" width="<?php echo $width; ?>px" height="<?php echo $height; ?>px"  /></a>
 		<?php } ?>
@@ -195,7 +195,7 @@ $image_src = $matches['1'][0]; ?>
 	$values = get_post_custom_values("Image");
 	if (isset($values[0])) {
 	?>
-		<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><img src="<?php echo bloginfo('template_url'); ?>/scripts/timthumb.php?src=/<?php
+		<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><img src="<?php echo bloginfo('template_url'); ?>/scripts/timthumb.php?src=<?php
 $values = get_post_custom_values("Image"); echo $values[0]; ?>&amp;w=<?php echo $width; ?>&amp;h=<?php echo $height; ?>&amp;zc=1&amp;q=100"
 alt="<?php the_title(); ?>" class="left" width="<?php echo $width; ?>px" height="<?php echo $height; ?>px"  /></a>
 		<?php } ?>

@@ -219,7 +219,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 	<?php $values = get_post_custom_values("Image");
 	if (isset($values[0])) { ?>
  	<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>">
-<img src="<?php echo bloginfo('template_url'); ?>/scripts/timthumb.php?src=/<?php
+<img src="<?php echo bloginfo('template_url'); ?>/scripts/timthumb.php?src=<?php
 $values = get_post_custom_values("Image"); echo $values[0]; ?>&amp;w=<?php echo $width; ?>&amp;h=<?php echo $height; ?>&amp;zc=1&amp;q=100"
 alt="<?php the_title(); ?>" class="left" <?php if ($style != "wide") { } else { echo "style=\"margin-bottom:10px;padding:0px;\""; } ?> width="<?php echo $width; ?>px" height="<?php echo $height; ?>px"  /></a>
  	<?php } ?>
@@ -267,7 +267,7 @@ $image_src = $matches['1'][0]; ?>
 	<?php	$values = get_post_custom_values("Image");
 	if (isset($values[0])) { ?>
       <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
-	<img src="<?php echo bloginfo('template_url'); ?>/scripts/timthumb.php?src=/<?php
+	<img src="<?php echo bloginfo('template_url'); ?>/scripts/timthumb.php?src=<?php
 $values = get_post_custom_values("Image"); echo $values[0]; ?>&amp;w=100&amp;h=65&amp;zc=1&amp;q=100"
 alt="<?php the_title(); ?>" class="left" width="100px" height="65px"  /></a><?php } ?>
 
@@ -322,7 +322,7 @@ alt="<?php the_title(); ?>" class="left" width="100px" height="65px"  /></a>
 	<?php $values = get_post_custom_values("Image");
 	if (isset($values[0])) { ?>
 	<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>">
-<img src="<?php echo bloginfo('template_url'); ?>/scripts/timthumb.php?src=/<?php
+<img src="<?php echo bloginfo('template_url'); ?>/scripts/timthumb.php?src=<?php
 $values = get_post_custom_values("Image"); echo $values[0]; ?>&amp;w=175&amp;h=150&amp;zc=1&amp;q=100"
 alt="<?php the_title(); ?>" class="left" width="175px" height="150px"  /></a>
 	<?php } ?>

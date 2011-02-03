@@ -35,7 +35,7 @@
 		if ( $width == 0 ) { $width = 80; }
 		if ( $height == 0 ) { $height = 80; }
 	?>	
-
+ 
 	<?php $status = get_settings ( "cp_thumbAuto" );
 		if ( $status != "first" ) { ?>
 

@@ -35,7 +35,7 @@
 	<?php
 	if (isset($values)) {
 	?>
-		<a href="<?php echo get_permalink($postid); ?>" rel="bookmark" title="<?php echo $title; ?>"><img src="<?php echo bloginfo('template_url'); ?>/scripts/timthumb.php?src=/<?php
+		<a href="<?php echo get_permalink($postid); ?>" rel="bookmark" title="<?php echo $title; ?>"><img src="<?php echo bloginfo('template_url'); ?>/scripts/timthumb.php?src=<?php
 echo $values; ?>&amp;w=<?php echo $width; ?>&amp;h=<?php echo $height; ?>&amp;zc=1&amp;q=100"
 alt="<?php echo $title; ?>" class="left" width="<?php echo $width; ?>px" height="<?php echo $height; ?>px"  /></a>
 		<?php } ?>
