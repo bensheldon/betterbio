@@ -162,6 +162,7 @@ $image_src = $matches['1'][0]; ?>
 
 </div>
 
+<script src="<?php bloginfo('template_url'); ?>/js/scripts.js"></script>
 <?php
 	$cp_analytics = get_settings( "cp_analytics" );
 	if( $cp_analytics != "" ) { 

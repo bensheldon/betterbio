@@ -94,8 +94,6 @@ alt="<?php the_title(); ?>" class="left" width="<?php echo $width; ?>px" height=
         <?php global $ar_ID; global $post; $ar_ID[] = $post->ID; ?>
         
 	<?php if( $odd = $i%2 ) { echo '<div class="clearfloat">'; } ?>
-	
-    
     
 	<div class="tanbox <?php if( $odd = $i%2 ) { echo 'left'; } else { echo 'right'; } ?>">
 		<span class="title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></span>

@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
 
 <head profile="http://gmpg.org/xfn/11">
@@ -10,6 +10,7 @@
 
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
 <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/madmenu.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/buttons.css" type="text/css" media="screen" />
 <!--[if IE 6]>
     <style type="text/css"> 
     body {
@@ -134,9 +135,19 @@ jQuery(document).ready(function() {
 	<?php	} ?>
 
 	</div>
-
+	
 	<div class="right">
-	<?php $cp_i = 1; $cp_iAd = get_settings( "cp_adImage_" . $cp_i ); ?>
+	  <button class="slick-black donate"><span class="sumTotal">...</span> of $30,000 raised so far!<br /> <span class="green">Please Donate!</a></button> 
+
+    <aside> 
+      <div class="addthis_toolbox addthis_pill_combo"> 
+        <a class="addthis_button_tweet" tw:count="horizontal"></a> 
+        <a class="addthis_button_facebook_like"></a> 
+        <a class="addthis_counter addthis_pill_style"></a> 
+      </div> 
+    </aside>
+  
+	<?php  /* $cp_i = 1; $cp_iAd = get_settings( "cp_adImage_" . $cp_i ); ?>
 	
 	<?php if(($cp_iAd != "") && ($cp_iAd != "Adsense")) { ?>
 	<a href="<?php echo get_settings( "cp_adURL_" . $cp_i ); ?>">
@@ -161,7 +172,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 
 	<?php	} } ?>
-	<?php } ?>
+	<?php } */ ?>
 
 	
 	</div>
