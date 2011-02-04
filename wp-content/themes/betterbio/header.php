@@ -186,9 +186,16 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <div id="madmenu">
 <ul>
 
-<li class="first"><a href="<?php echo get_option('home'); ?>/"><?php _e('Home','arthemia');?></a></li>
+<li class="first"><a href="<?php echo get_option('home'); ?>/" class="purple"><?php _e('Home','arthemia');?></a></li>
+
+<li><a href="/drugs/" class="orange">Drugs</a></li>
+<li><a href="/food/" class="green">Food</a></li>
+<li><a href="/fuel/" class="yellow">Fuel</a></li>
+<li><a href="/blogs/" class="grey">Blogs</a></li>
+
 
 <?php wp_list_pages('title_li=&sort_column=menu_order'); ?> 
+
 
 </ul>
 
@@ -358,31 +365,21 @@ $image_src = $matches['1'][0]; ?>
 		$showcatbar3 = get_settings ( "cp_showindexcatbar" );
 	
 		  if ( (is_home() && $showcatbar3 != "no") ||  (is_search() && $showcatbar2 != "no") || (is_archive() && $showcatbar2 != "no") || (is_single() && $showcatbar1 != "no") ) { ?>
-	<div id="middle" class="clearfloat">
-
-	<?php $postcat = get_settings( "ar_categories" );
-		if( $ar_categories == 0 ) { $ar_categories= $cp_categories->cat_ID; }
-
-	if( ! is_array( $postcat ) ) {
-		foreach ( $cp_categories as $b ) {
-		$postcat[] = $b->cat_ID;
-		}	
-	}
 	
-	$postcat = array_slice($postcat, 0, 5);
-    sort($postcat);
-
-	foreach ($postcat as $cp_pC ) { ?>
-	
-	<?php query_posts("showposts=1&cat=$cp_pC"); ?>
-	<div id="cat-<?php echo $cp_pC; ?>" class="category" onclick="window.location.href='<?php echo get_category_link($cp_pC);?>';">
-		<span class="cat_title"><?php single_cat_title(); ?></span>
-		<p><?php echo category_description($cp_pC); ?></p>
-	</div>
-	<?php } ?>
-
-	<?php wp_reset_query(); ?>
-    </div>
+	<div id="middle" class="clearfloat"><?php 
+	  $post_types = get_settings( "ar_categories" );
+	  $post_types = array_slice($post_types, 0, 5);
+    
+    $i = 1;
+	  foreach ($postcat as $key => $cp_pC ) { ?>
+	    <?php $post_type = get_post_type_object( $cp_pC ); ?>
+	    <div id="cat-<?php echo $cp_pC; ?>" class="category" onclick="window.location.href='<?php echo get_category_link($cp_pC);?>';">
+		    <span class="cat_title"><?php echo $post_type->name ?></span>
+		    <p><?php echo get_settings('cp_descText_'.$i); $i++; ?></p>
+	    </div>
+	  <?php } ?>
+    <?php wp_reset_query(); ?>
+  </div>
 
 	
 	<?php } ?>

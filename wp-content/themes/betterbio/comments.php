@@ -92,7 +92,7 @@ add_filter('comment_class','comment_add_microid');
 
 <p><textarea name="comment" id="comment" cols="100%" rows="15" tabindex="4" class="field"></textarea></p>
 <p><?php _e('You can use these tags:','arthemia'); ?><br/><code><?php echo allowed_tags(); ?></code></p>
-<p><?php _e('This is a Gravatar-enabled weblog. To get your own globally-recognized-avatar, please register at','arthemia'); ?> <a href="http://www.gravatar.com">Gravatar</a>.</p>
+<p><?php _e('This is a Gravatar-enabled site. To get your own globally-recognized-avatar, please register at','arthemia'); ?> <a href="http://www.gravatar.com">Gravatar</a>.</p>
 
 <p><input name="submit" class="submitbutton" type="submit" id="submit" tabindex="5" value="<?php _e('Submit Comment','arthemia'); ?>" />
 <?php do_action('comment_form', $post->ID); ?>

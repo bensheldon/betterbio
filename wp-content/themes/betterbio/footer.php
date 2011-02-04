@@ -64,7 +64,7 @@ $image_src = $matches['1'][0]; ?>
     
         <?php $ar_video = get_settings( "ar_video" );
 			if( $ar_video == 0 ) { $ar_video = $cp_categories[0]->cat_ID; } 
-            query_posts( 'showposts=1&cat=' . $ar_video ); ?>
+            query_posts( 'showposts=1&post_type=' . $ar_video ); ?>
         
        <h3 class="cat_title"><a href="<?php echo get_category_link($ar_video);?>"><?php _e('Latest Video Post','arthemia');?></a></h3>
         

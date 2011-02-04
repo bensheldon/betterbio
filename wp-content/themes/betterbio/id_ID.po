@@ -272,7 +272,7 @@ msgid "You can use these tags:"
 msgstr "Anda dapat menggunakan tag HTML ini:"
 
 #: c:\wamp\www\wp-content\themes\arthemia-premium/comments.php:105
-msgid "This is a Gravatar-enabled weblog. To get your own globally-recognized-avatar, please register at"
+msgid "This is a Gravatar-enabled site. To get your own globally-recognized-avatar, please register at"
 msgstr "Website ini menggunakan Gravatar. Untuk mendapatkan avatar pribadi Anda, silakan register dan upload avatar Anda di"
 
 #: c:\wamp\www\wp-content\themes\arthemia-premium/comments.php:107
