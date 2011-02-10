@@ -21,7 +21,7 @@ function create_fuel_type() {
       'show_ui' => true,
       'capability_type' => 'post',
       'taxonomies' => array("fuel_categories"),
-      'supports' => array('fuel_categories','title','editor','thumbnail','comments','revisions')
+      'supports' => array('fuel_categories','title','editor','thumbnail','custom-fields','comments','revisions')
     )
   );
   flush_rewrite_rules();

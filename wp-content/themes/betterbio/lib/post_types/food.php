@@ -21,7 +21,7 @@ function create_food_type() {
       'show_ui' => true,
       'capability_type' => 'post',
       'taxonomies' => array("food_categories"),
-      'supports' => array('food_categories','title','editor','thumbnail','comments','revisions')
+      'supports' => array('food_categories','title','editor','thumbnail','custom-fields','comments','revisions')
     )
   );
   flush_rewrite_rules();

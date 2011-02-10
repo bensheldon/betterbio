@@ -21,7 +21,7 @@
         $status = get_settings ( "cp_thumbAuto" );
 	?>
     
-    <?php $randompost = $wpdb->get_results("SELECT ID FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = 'post' ORDER BY RAND() LIMIT 12"); 
+    <?php $randompost = $wpdb->get_results("SELECT ID FROM $wpdb->posts WHERE post_status = 'publish' ORDER BY RAND() LIMIT 12"); 
 
 		foreach ($randompost as $post) { 	
 			$ID = $post->ID;
@@ -66,7 +66,7 @@ $image_src = $matches['1'][0]; ?>
 			if( $ar_video == 0 ) { $ar_video = $cp_categories[0]->cat_ID; } 
             query_posts( 'showposts=1&post_type=' . $ar_video ); ?>
         
-       <h3 class="cat_title"><a href="<?php echo get_category_link($ar_video);?>"><?php _e('Latest Video Post','arthemia');?></a></h3>
+       <h3 class="cat_title"><a href="<?php ?>"><?php _e('Latest Video Post','arthemia');?></a></h3>
         
         <?php while (have_posts()) : the_post(); ?>		
 

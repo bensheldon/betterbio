@@ -237,17 +237,21 @@ function cp_themePage() {
 			$cp_cat[] = array( $key, ucfirst($key) );
 		}
     
-		cp_th( "Headline" );
+		/* cp_th( "Headline" );
 		cp_select( "ar_headline", $cp_cat, get_settings( "ar_headline" ), "" );		
+		cp_cth(); */
+    $cp_users = get_users_of_blog(1);
+    foreach($cp_users as $user) {
+      $cp_us[] = array($user->user_id, $user->user_login);
+    }
+    
+		cp_th( "Featured Blogs" );
+		cp_multiSelect( "ar_featured[]", $cp_us, get_settings( "ar_featured" ), "", "Hold down Ctrl button to select multiple authors." );		
 		cp_cth();
-
-		cp_th( "Featured" );
-		cp_select( "ar_featured", $cp_cat, get_settings( "ar_featured" ), "" );		
-		cp_cth();
-        
-        cp_th( "Video" );
+		   
+    /* cp_th( "Video" );
 		cp_select( "ar_video", $cp_cat, get_settings( "ar_video" ), "" );		
-		cp_cth();
+		cp_cth(); */
 
 		cp_th( "Category Bar" );
 		cp_multiSelect( "ar_categories[]", $cp_cat, get_settings( "ar_categories" ), "", "Hold down Ctrl button to select multiple categories. You must select 5 categories to get the best layout." );

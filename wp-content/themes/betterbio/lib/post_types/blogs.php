@@ -21,7 +21,7 @@ function create_blogs_type() {
       'show_ui' => true,
       'capability_type' => 'post',
       'taxonomies' => array("blogs_categories"),
-      'supports' => array('blogs_categories','title','editor','thumbnail','comments','revisions')
+      'supports' => array('blogs_categories','title','editor','thumbnail','custom-fields','comments','revisions')
     )
   );
   flush_rewrite_rules();

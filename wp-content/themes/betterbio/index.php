@@ -1,45 +1,38 @@
 <?php get_header(); ?>
 	
-	 <?php
-		//Get value from Admin Panel
-		$cp_categories = get_categories('hide_empty=0');
-		
-        $status1 = get_settings( "cp_preventHeadline" );
-        
-        if ( $status1 != "No" ) {
-        
-        $ar_headline = get_settings( "ar_headline" );
-		$ar_featured = get_settings( "ar_featured" );
-		
-        }
-        
-        ?>
-
+<?php
+	//Get value from Admin Panel
+	$cp_categories = get_categories('hide_empty=0');
+	$status1 = get_settings( "cp_preventHeadline" );
+      
+  if ( $status1 != "No" ) {
+    $ar_headline = get_settings( "ar_headline" );
+    $ar_featured = get_settings( "ar_featured" );
+	}
+?>
 
 	<div id="bottom" class="clearfloat">
-		
-	<div id="bottom-left">
-
-	<?php if(!is_paged()) { ?>	
-
-	<div id="front-list">	
-	
-	<?php $width = get_settings ( "cp_thumbWidth_LatestPost" );
-		$height = get_settings ( "cp_thumbHeight_LatestPost" );
-		if ( $width == 0 ) { $width = 150; }
-		if ( $height == 0 ) { $height = 150; }
-	?>
-	
-	<?php query_posts(array(
-			'category__not_in' => array($ar_headline,$ar_featured),
-			'showposts' => 1,
-			)); ?>
-	
+		<div id="bottom-left">
+      <?php if(!is_paged()) { ?>	
+        <div id="front-list">	
+	        <?php 
+	          $width = get_settings ( "cp_thumbWidth_LatestPost" );
+	        	$height = get_settings ( "cp_thumbHeight_LatestPost" );
+	        	if ( $width == 0 ) { $width = 150; }
+	        	if ( $height == 0 ) { $height = 150; }
+	        ?>
+	        <?php 
+	          query_posts(array(
+	            'post_type' => array( 'industry', 'drugs', 'food', 'fuel' ),
+	            'showposts' => 1
+	          ));
+			    ?>
+			    
 	<?php while (have_posts()) : the_post(); ?>		
     <?php global $ar_ID; global $post; $ar_ID[] = $post->ID; ?>
-     
+
 	<div class="clearfloat">
-	<h3 class="cat_title"><?php the_category(', '); ?> &raquo;</h3>
+	<h3 class="cat_title"><a href="/<?php echo $post->post_type; ?>"><?php echo ucfirst($post->post_type); ?> &raquo;</a></h3>
 	<span class="title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></span>
 	<div class="meta"><?php the_time(get_option('date_format')); ?> &#150; <?php the_time(); ?> | <?php comments_popup_link(__('No Comment','arthemia'), __('One Comment','arthemia'), __('% Comments','arthemia'));?></div>		
 	
@@ -72,7 +65,7 @@ alt="<?php the_title(); ?>" class="left" width="<?php echo $width; ?>px" height=
 	<?php $column = get_settings ( "cp_status_Column" );
 		if ( $column != "one" ) { ?>	
 
-	<div id="paged-list">	
+	<div id="paged-list">
 	<?php add_filter('post_limits', 'my_post_limit'); ?>
 	
 	<?php

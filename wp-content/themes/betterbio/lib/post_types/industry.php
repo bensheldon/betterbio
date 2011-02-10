@@ -21,7 +21,7 @@ function create_industry_type() {
       'show_ui' => true,
       'capability_type' => 'post',
       'taxonomies' => array("industry_categories"),
-      'supports' => array('industry_categories','title','editor','thumbnail','comments','revisions')
+      'supports' => array('industry_categories','title','editor','thumbnail','comments','custom-fields','revisions')
     )
   );
   flush_rewrite_rules();
