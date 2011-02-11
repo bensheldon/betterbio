@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 	<div id="content" class="archive">
-	
+
 	<?php if (have_posts()) : ?>
 	
     <?php 

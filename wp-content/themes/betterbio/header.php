@@ -186,8 +186,9 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <div id="madmenu">
 <ul>
 
-<li class="first"><a href="<?php echo get_option('home'); ?>/" class="purple"><?php _e('Home','arthemia');?></a></li>
+<li class="first"><a href="<?php echo get_option('home'); ?>/"><?php _e('Home','arthemia');?></a></li>
 
+<li><a href="/industry/" class="purple">Industry</a></li>
 <li><a href="/drugs/" class="orange">Drugs</a></li>
 <li><a href="/food/" class="green">Food</a></li>
 <li><a href="/fuel/" class="yellow">Fuel</a></li>
