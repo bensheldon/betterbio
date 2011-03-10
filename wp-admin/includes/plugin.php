@@ -1394,9 +1394,9 @@ function user_can_access_admin_page() {
 	global $_wp_submenu_nopriv;
 	global $plugin_page;
 	global $_registered_pages;
-
+  
 	$parent = get_admin_page_parent();
-
+  
 	if ( !isset( $plugin_page ) && isset( $_wp_submenu_nopriv[$parent][$pagenow] ) )
 		return false;
 
