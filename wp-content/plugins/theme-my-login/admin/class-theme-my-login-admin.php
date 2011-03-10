@@ -13,15 +13,6 @@ if ( !class_exists( 'Theme_My_Login_Admin' ) ) :
  */
 class Theme_My_Login_Admin {
 	/**
-	 * Holds reference to global $theme_my_login object
-	 *
-	 * @since 6.0
-	 * @access public
-	 * @var object
-	 */
-	var $theme_my_login;
-
-	/**
 	 * Holds TML menu array
 	 *
 	 * @since 6.0
@@ -48,8 +39,8 @@ class Theme_My_Login_Admin {
 	function admin_menu() {
 		// Create our settings link in the default WP "Settings" menu
 		add_options_page(
-			__( 'Theme My Login', $this->theme_my_login->textdomain ),
-			__( 'Theme My Login', $this->theme_my_login->textdomain ),
+			__( 'Theme My Login', 'theme-my-login' ),
+			__( 'Theme My Login', 'theme-my-login' ),
 			'manage_options',
 			'theme-my-login',
 			array( &$this, 'display_settings_page' )
@@ -79,19 +70,19 @@ class Theme_My_Login_Admin {
 	 * @access public
 	 */
 	function module_errors() {
-		$module_errors = $this->theme_my_login->get_option( 'module_errors' );
+		$module_errors = $GLOBALS['theme_my_login']->options->get_option( 'module_errors' );
 		// If we have errors to display
-		if ( $module_errors ) {
+		if ( $module_errors && current_user_can( 'manage_options' ) ) {
 			// Display them
 			echo '<div class="error">';
 			foreach ( (array) $module_errors as $module => $error ) {
-				echo '<p><strong>' . sprintf( __( 'ERROR: The module "%1$s" could not be activated (%2$s).', $this->theme_my_login->textdomain ), $module, $error ) . '</strong></p>';
+				echo '<p><strong>' . sprintf( __( 'ERROR: The module "%1$s" could not be activated (%2$s).', 'theme-my-login' ), $module, $error ) . '</strong></p>';
 			}
 			echo '</div>';
 			// Unset the error array
-			$this->theme_my_login->delete_option( 'module_errors' );
+			$GLOBALS['theme_my_login']->options->delete_option( 'module_errors' );
 			// Update the options in the DB
-			$this->theme_my_login->save_options();
+			$GLOBALS['theme_my_login']->options->save();
 		}
 	}
 
@@ -102,13 +93,13 @@ class Theme_My_Login_Admin {
 	 * @access public
 	 */
 	function initial_nag() {
-		if ( $this->theme_my_login->get_option( 'initial_nag' ) && current_user_can( 'manage_options' ) ) {
+		if ( $GLOBALS['theme_my_login']->options->get_option( 'initial_nag' ) && current_user_can( 'manage_options' ) ) {
 			echo '<div id="tml-initial-nag" class="updated">';
 			echo '<p>';
-			echo '<strong>' . __( 'NOTICE:', $this->theme_my_login->textdomain ) . '</strong> ';
-			printf( __( 'Now that you have activated Theme My Login, please <a href="%s">visit the settings page</a> and familiarize yourself with all of the available options.', $this->theme_my_login->textdomain ), admin_url( 'options-general.php?page=theme-my-login' ) );
+			echo '<strong>' . __( 'NOTICE:', 'theme-my-login' ) . '</strong> ';
+			printf( __( 'Now that you have activated Theme My Login, please <a href="%s">visit the settings page</a> and familiarize yourself with all of the available options.', 'theme-my-login' ), admin_url( 'options-general.php?page=theme-my-login' ) );
 			echo '</p><p>';
-			printf( '<a href="%s">' . __( 'Take me to the settings page', $this->theme_my_login->textdomain ) . '</a>', admin_url( 'options-general.php?page=theme-my-login' ) );
+			printf( '<a href="%s">' . __( 'Take me to the settings page', 'theme-my-login' ) . '</a>', admin_url( 'options-general.php?page=theme-my-login' ) );
 			echo '</p></div>';
 		}
 	}
@@ -121,17 +112,17 @@ class Theme_My_Login_Admin {
 	 */
 	function did_you_know() {
 		$tips = apply_filters( 'tml_tips', array(
-			__( 'You can now login with your e-mail address or username! Try it out!', $this->theme_my_login->textdomain ),
-			__( 'Theme My Login now utilizes a module system. Modules are similar to WordPress plugins. Each module extends the default functionality of Theme My Login. <a rel="tml-options" href="#tml-modules">Click here</a> to get started with modules now.', $this->theme_my_login->textdomain ),
-			__( 'Theme My Login now allows custom forms. You can create your own form template(s) by copying the default version(s) from "theme-my-login/templates" to your current theme directory. Try it out!', $this->theme_my_login->textdomain ),
-			__( 'You can maintain your stylesheet changes between upgrades. Just simply copy the file "theme-my-login/theme-my-login.css" to your current theme directory and edit it as you please!', $this->theme_my_login->textdomain ),
-			__( 'Theme My Login provides a shortcode that you can use within your posts with multiple parameters to customize the form. Visit the <a href="http://www.jfarthing.com/docs/theme-my-login/shortcode" target="_blank">Theme My Login Documentation</a> for usage instructions.', $this->theme_my_login->textdomain ),
-			__( 'Theme My Login is <em>FREE</em> but Jeff sure appreciates <a href="http://www.jfarthing.com/donate" target="_blank">donations</a>!', $this->theme_my_login->textdomain ),
-			__( 'Jeff is <a href="http://www.jfarthing.com/hire-me" target="_blank">available for hire</a>!', $this->theme_my_login->textdomain )
+			__( 'You can now login with your e-mail address or username! Try it out!', 'theme-my-login' ),
+			__( 'Theme My Login now utilizes a module system. Modules are similar to WordPress plugins. Each module extends the default functionality of Theme My Login. <a rel="tml-options" href="#tml-options-modules">Click here</a> to get started with modules now.', 'theme-my-login' ),
+			__( 'Theme My Login now allows custom forms. You can create your own form template(s) by copying the default version(s) from "theme-my-login/templates" to your current theme directory. Try it out!', 'theme-my-login' ),
+			__( 'You can maintain your stylesheet changes between upgrades. Just simply copy the file "theme-my-login/theme-my-login.css" to your current theme directory and edit it as you please!', 'theme-my-login' ),
+			__( 'Theme My Login provides a shortcode that you can use within your posts with multiple parameters to customize the form. Visit the <a href="http://www.jfarthing.com/docs/theme-my-login/shortcode" target="_blank">Theme My Login Documentation</a> for usage instructions.', 'theme-my-login' ),
+			__( 'Theme My Login is <em>FREE</em> but Jeff sure appreciates <a href="http://www.jfarthing.com/donate" target="_blank">donations</a>!', 'theme-my-login' ),
+			__( 'Jeff is <a href="http://www.jfarthing.com/hire-me" target="_blank">available for hire</a>!', 'theme-my-login' )
 			) );
 		$key = array_rand( $tips );
 		echo '<div id="tml-tips" class="updated">';
-		echo '<p><strong>' . __( 'Did You Know?', $this->theme_my_login->textdomain ) . '</strong></p>';
+		echo '<p><strong>' . __( 'Did You Know?', 'theme-my-login' ) . '</strong></p>';
 		echo '<p>' . $tips[$key] . '</p>';
 		echo '</div>';
 	}
@@ -147,8 +138,10 @@ class Theme_My_Login_Admin {
 
 		if ( current_user_can( 'manage_options' ) ) {
 			// Remove initial nag now that the settings page has been visited
-			if ( $this->theme_my_login->get_option( 'initial_nag' ) )
-				$this->theme_my_login->set_option( 'initial_nag', 0, true );
+			if ( $GLOBALS['theme_my_login']->options->get_option( 'initial_nag' ) ) {
+				$GLOBALS['theme_my_login']->options->set_option( 'initial_nag', 0 );
+				$GLOBALS['theme_my_login']->options->save();
+			}
 			// Show "Did You Know" box
 			add_action( 'admin_notices', array( &$this, 'did_you_know' ) );
 		}
@@ -159,7 +152,7 @@ class Theme_My_Login_Admin {
 		wp_enqueue_script( 'theme-my-login-admin', plugins_url( '/theme-my-login/admin/js/theme-my-login-admin.js' ), array( 'jquery-ui-tabs', 'jquery-shake' ) );
 
 		// Set the correct admin style according to user setting (Only supports default admin schemes)
-		$admin_color = function_exists( 'get_user_meta' ) ? get_user_meta( $user_ID, 'admin_color' ) : get_usermeta( $user_ID, 'admin_color' );
+		$admin_color = get_user_meta( $user_ID, 'admin_color' );
 		$stylesheet = ( 'classic' == $admin_color ) ? 'colors-classic.css' : 'colors-fresh.css';
 		wp_enqueue_style( 'theme-my-login-colors-fresh', plugins_url( '/theme-my-login/admin/css/' . $stylesheet ) );
 	}
@@ -172,22 +165,22 @@ class Theme_My_Login_Admin {
 	 */
 	function display_settings_page() {
 		// Default menu
-		$this->add_menu_page( __('General', $this->theme_my_login->textdomain ), 'tml-options' );
-		$this->add_submenu_page( 'tml-options', __( 'Basic', $this->theme_my_login->textdomain ), 'tml-options-basic', array( &$this, 'display_basic_settings' ) );
-		$this->add_submenu_page( 'tml-options', __( 'Modules', $this->theme_my_login->textdomain ), 'tml-options-modules', array( &$this, 'display_module_settings' ) );
+		$this->add_menu_page( __('General', 'theme-my-login' ), 'tml-options' );
+		$this->add_submenu_page( 'tml-options', __( 'Basic', 'theme-my-login' ), 'tml-options-basic', array( &$this, 'display_basic_settings' ) );
+		$this->add_submenu_page( 'tml-options', __( 'Modules', 'theme-my-login' ), 'tml-options-modules', array( &$this, 'display_module_settings' ) );
 
 		// Allow plugins to add to menu
 		do_action_ref_array( 'tml_admin_menu', array( &$this ) );
 		?>
 <div class="wrap">
     <?php screen_icon( 'options-general' ); ?>
-    <h2><?php esc_html_e( 'Theme My Login Settings', $this->theme_my_login->textdomain ); ?></h2>
+    <h2><?php esc_html_e( 'Theme My Login Settings', 'theme-my-login' ); ?></h2>
 
     <form action="options.php" method="post">
     <?php settings_fields( 'theme_my_login' ); ?>
 
 	<div style="display:none;">
-		<p><input type="submit" name="submit" value="<?php esc_attr_e( 'Save Changes', $this->theme_my_login->textdomain ) ?>" /></p>
+		<p><input type="submit" name="submit" value="<?php esc_attr_e( 'Save Changes', 'theme-my-login' ) ?>" /></p>
 	</div>
 
     <div id="tml-container">
@@ -244,7 +237,7 @@ class Theme_My_Login_Admin {
 
     </div>
 	
-    <p><input type="submit" name="submit" class="button-primary" value="<?php esc_attr_e( 'Save Changes', $this->theme_my_login->textdomain ) ?>" /></p>
+    <p><input type="submit" name="submit" class="button-primary" value="<?php esc_attr_e( 'Save Changes', 'theme-my-login' ) ?>" /></p>
     </form>
 
 </div>
@@ -257,37 +250,33 @@ class Theme_My_Login_Admin {
 	 * @since 6.0
 	 * @access public
 	 */
-	function display_basic_settings() {
-		// Shorthand reference
-		$theme_my_login =& $this->theme_my_login;
-	?>
+	function display_basic_settings() { ?>
 <table class="form-table">
     <tr valign="top">
-        <th scope="row"><label for="theme_my_login_page_id"><?php _e( 'Page ID', $theme_my_login->textdomain ); ?></label></th>
+        <th scope="row"><label for="theme_my_login_page_id"><?php _e( 'Page ID', 'theme-my-login' ); ?></label></th>
         <td>
-            <input name="theme_my_login[page_id]" type="text" id="theme_my_login_page_id" value="<?php echo (int) $theme_my_login->get_option( 'page_id' ); ?>" class="small-text" />
-            <p class="description"><?php _e( 'This should be the ID of the WordPress page that includes the [theme-my-login] shortcode. By default, this page is titled "Login".', $theme_my_login->textdomain ); ?></p>
+            <input name="theme_my_login[page_id]" type="text" id="theme_my_login_page_id" value="<?php echo (int) $GLOBALS['theme_my_login']->options->get_option( 'page_id' ); ?>" class="small-text" />
+            <p class="description"><?php _e( 'This should be the ID of the WordPress page that includes the [theme-my-login] shortcode. By default, this page is titled "Login".', 'theme-my-login' ); ?></p>
         </td>
     </tr>
     <tr valign="top">
-        <th scope="row"><?php _e( 'Pagelist', $theme_my_login->textdomain ); ?></th>
+        <th scope="row"><?php _e( 'Pagelist', 'theme-my-login' ); ?></th>
         <td>
-            <input name="theme_my_login[show_page]" type="checkbox" id="theme_my_login_show_page" value="1"<?php checked( 1, $theme_my_login->get_option( 'show_page' ) ); ?> />
-            <label for="theme_my_login_show_page"><?php _e( 'Show Page In Pagelist', $theme_my_login->textdomain ); ?></label>
-            <p class="description"><?php _e( 'Enable this setting to add login/logout links to the pagelist generated by functions like wp_list_pages() and wp_page_menu().', $theme_my_login->textdomain ); ?></p>
+            <input name="theme_my_login[show_page]" type="checkbox" id="theme_my_login_show_page" value="1"<?php checked( 1, $GLOBALS['theme_my_login']->options->get_option( 'show_page' ) ); ?> />
+            <label for="theme_my_login_show_page"><?php _e( 'Show Page In Pagelist', 'theme-my-login' ); ?></label>
+            <p class="description"><?php _e( 'Enable this setting to add login/logout links to the pagelist generated by functions like wp_list_pages() and wp_page_menu().', 'theme-my-login' ); ?></p>
         </td>
     </tr>
     <tr valign="top">
-        <th scope="row"><?php _e( 'Stylesheet', $theme_my_login->textdomain ); ?></th>
+        <th scope="row"><?php _e( 'Stylesheet', 'theme-my-login' ); ?></th>
         <td>
-            <input name="theme_my_login[enable_css]" type="checkbox" id="theme_my_login_enable_css" value="1"<?php checked( 1, $theme_my_login->get_option( 'enable_css' ) ); ?> />
-            <label for="theme_my_login_enable_css"><?php _e( 'Enable "theme-my-login.css"', $theme_my_login->textdomain ); ?></label>
-            <p class="description"><?php _e( 'In order to keep changes between upgrades, you can store your customized "theme-my-login.css" in your current theme directory.', $theme_my_login->textdomain ); ?></p>
+            <input name="theme_my_login[enable_css]" type="checkbox" id="theme_my_login_enable_css" value="1"<?php checked( 1, $GLOBALS['theme_my_login']->options->get_option( 'enable_css' ) ); ?> />
+            <label for="theme_my_login_enable_css"><?php _e( 'Enable "theme-my-login.css"', 'theme-my-login' ); ?></label>
+            <p class="description"><?php _e( 'In order to keep changes between upgrades, you can store your customized "theme-my-login.css" in your current theme directory.', 'theme-my-login' ); ?></p>
         </td>
     </tr>
     <?php do_action( 'tml_settings_basic' ); ?>
-</table>
-<?php
+</table><?php
 	}
 
 	/**
@@ -298,17 +287,17 @@ class Theme_My_Login_Admin {
 	 */
 	function display_module_settings() {
 		$all_modules = get_plugins( '/' . TML_DIRNAME . '/modules' );
-		$active_modules = (array) $this->theme_my_login->get_option( 'active_modules' );
+		$active_modules = (array) $GLOBALS['theme_my_login']->options->get_option( 'active_modules' );
 	?>
 <table class="form-table">
     <tr valign="top">
-        <th scope="row"><?php _e( 'Modules', $this->theme_my_login->textdomain ); ?></th>
+        <th scope="row"><?php _e( 'Modules', 'theme-my-login' ); ?></th>
         <td>
             <?php if ( !empty( $all_modules ) ) : foreach ( $all_modules as $module_file => $module_data ) : ?>
             <input name="theme_my_login_modules[]" type="checkbox" id="theme_my_login_modules_<?php echo $module_file; ?>" value="<?php echo $module_file; ?>"<?php checked( 1, in_array( $module_file, (array) $active_modules ) ); ?> />
-            <label for="theme_my_login_modules_<?php echo $module_file; ?>"><?php printf( __( 'Enable %s', $this->theme_my_login->textdomain ), $module_data['Name'] ); ?></label><br />
+            <label for="theme_my_login_modules_<?php echo $module_file; ?>"><?php printf( __( 'Enable %s', 'theme-my-login' ), $module_data['Name'] ); ?></label><br />
             <?php if ( $module_data['Description'] ) echo '<p class="description">' . $module_data['Description'] . '</p>'; ?>
-            <?php endforeach; else : _e( 'No modules found.', $this->theme_my_login->textdomain ); endif; ?>
+            <?php endforeach; else : _e( 'No modules found.', 'theme-my-login' ); endif; ?>
         </td>
     </tr>
     <?php do_action( 'tml_settings_modules' ); ?>
@@ -328,9 +317,6 @@ class Theme_My_Login_Admin {
 	 * @return string|array Sanitized settings
 	 */
 	function save_settings( $settings ) {
-		// Shorthand reference
-		$options =& $this->theme_my_login->options;
-
 		// Sanitize new settings
 		$settings['page_id'] = absint( $settings['page_id'] );
 		$settings['show_page'] = ( isset( $settings['show_page'] ) && $settings['show_page'] ) ? 1 : 0;
@@ -339,7 +325,7 @@ class Theme_My_Login_Admin {
 		$modules = isset( $_POST['theme_my_login_modules'] ) ? $_POST['theme_my_login_modules'] : array();
 
 		// If we have modules to activate
-		if ( $activate = array_diff( (array) $modules, (array) $options['active_modules'] ) ) {
+		if ( $activate = array_diff( (array) $modules, (array) $GLOBALS['theme_my_login']->options->get_option( 'active_modules' ) ) ) {
 			// Attempt to activate them
 			$result = $this->activate_modules( $activate );
 			// Check for WP_Error
@@ -348,19 +334,19 @@ class Theme_My_Login_Admin {
 				foreach ( $result->get_error_data( 'modules_invalid' ) as $module => $wp_error ) {
 					// Store the module and error message to a temporary array which will be passed to 'admin_notices'
 					if ( is_wp_error( $wp_error ) )
-						$options['module_errors'][$module] = $wp_error->get_error_message();
+						$GLOBALS['theme_my_login']->options->options['module_errors'][$module] = $wp_error->get_error_message();
 				}
 			}
 		}
 
 		// If we have modules to deactivate
-		if ( $deactivate = array_diff( (array) $options['active_modules'], $modules ) ) {
+		if ( $deactivate = array_diff( (array) $GLOBALS['theme_my_login']->options->get_option( 'active_modules' ), $modules ) ) {
 			// Deactive them
 			$this->deactivate_modules( $deactivate );
 		}
 
 		// Merge current settings
-		$settings = $this->theme_my_login->array_merge_recursive( $options, $settings );
+		$settings = Theme_My_Login::array_merge_recursive( $GLOBALS['theme_my_login']->options->options, $settings );
 
 		// Allow plugins/modules to add/modify settings
 		$settings = apply_filters( 'tml_save_settings', $settings );
@@ -383,15 +369,15 @@ class Theme_My_Login_Admin {
 		if ( is_wp_error( $valid ) )
 			return $valid;
 
-		$current = (array) $this->theme_my_login->get_option( 'active_modules' );
-		if ( !$this->theme_my_login->is_module_active( $module ) ) {
+		$current = (array) $GLOBALS['theme_my_login']->options->get_option( 'active_modules' );
+		if ( !$GLOBALS['theme_my_login']->is_module_active( $module ) ) {
 			//ob_start();
 			@include ( TML_ABSPATH . '/modules/' . $module );
 			$current[] = $module;
 			sort( $current );
 			do_action( 'tml_activate_module', trim( $module ) );
-			$this->theme_my_login->set_option( 'active_modules', $current );
-			do_action_ref_array( 'tml_activate_' . trim( $module ), array( &$this->theme_my_login ) );
+			$GLOBALS['theme_my_login']->options->set_option( 'active_modules', $current );
+			do_action_ref_array( 'tml_activate_' . trim( $module ), array( &$GLOBALS['theme_my_login'] ) );
 			do_action( 'tml_activated_module', trim( $module ) );
 			//ob_end_clean();
 		}
@@ -419,7 +405,7 @@ class Theme_My_Login_Admin {
 		}
 
 		if ( !empty( $errors ) )
-			return new WP_Error( 'modules_invalid', __( 'One of the modules is invalid.', $this->theme_my_login->textdomain ), $errors );
+			return new WP_Error( 'modules_invalid', __( 'One of the modules is invalid.', 'theme-my-login' ), $errors );
 
 		return true;
 	}
@@ -434,14 +420,14 @@ class Theme_My_Login_Admin {
 	 * @param bool $silent If true, prevents calling deactivate hook
 	 */
 	function deactivate_modules( $modules, $silent = false ) {
-		$current = (array) $this->theme_my_login->get_option( 'active_modules' );
+		$current = (array) $GLOBALS['theme_my_login']->options->get_option( 'active_modules' );
 
 		if ( !is_array( $modules ) )
 			$modules = array( $modules );
 
 		foreach ( $modules as $module ) {
 			$module = plugin_basename( $module );
-			if( !$this->theme_my_login->is_module_active( $module ) )
+			if( !$GLOBALS['theme_my_login']->is_module_active( $module ) )
 				continue;
 
 			if ( !$silent )
@@ -453,12 +439,13 @@ class Theme_My_Login_Admin {
 				array_splice( $current, $key, 1 );
 
 			if ( !$silent ) {
-				do_action_ref_array( 'tml_deactivate_' . trim( $module ), array( &$this->theme_my_login ) );
+				do_action_ref_array( 'tml_deactivate_' . trim( $module ), array( &$GLOBALS['theme_my_login'] ) );
 				do_action( 'tml_deactivated_module', trim( $module ) );
 			}
 		}
 
-		$this->theme_my_login->set_option( 'active_modules', $current, true );
+		$GLOBALS['theme_my_login']->options->set_option( 'active_modules', $current );
+		$GLOBALS['theme_my_login']->options->save();
 	}
 
 	/**
@@ -472,13 +459,13 @@ class Theme_My_Login_Admin {
 	 */
 	function validate_module( $module ) {
 		if ( validate_file( $module ) )
-			return new WP_Error( 'module_invalid', __( 'Invalid module path.', $this->theme_my_login->textdomain ) );
+			return new WP_Error( 'module_invalid', __( 'Invalid module path.', 'theme-my-login' ) );
 		if ( !file_exists( TML_ABSPATH. '/modules/' . $module ) )
-			return new WP_Error( 'module_not_found', __( 'Module file does not exist.', $this->theme_my_login->textdomain ) );
+			return new WP_Error( 'module_not_found', __( 'Module file does not exist.', 'theme-my-login' ) );
 
 		$installed_modules = get_plugins( '/' . TML_DIRNAME . '/modules' );
 		if ( !isset( $installed_modules[$module] ) )
-			return new WP_Error( 'no_module_header', __( 'The module does not have a valid header.', $this->theme_my_login->textdomain ) );
+			return new WP_Error( 'no_module_header', __( 'The module does not have a valid header.', 'theme-my-login' ) );
 		return 0;
 	}
 
@@ -541,20 +528,40 @@ class Theme_My_Login_Admin {
 	}
 
 	/**
-	 * Installs TML
+	 * Wrapper for multisite installation
 	 *
-	 * @since 6.0
+	 * @since 6.1
 	 * @access public
 	 */
 	function install() {
-		// Shorthand reference
-		$theme_my_login =& $this->theme_my_login;
+		global $wpdb;
 
+		if ( function_exists( 'is_multisite' ) && is_multisite() ) {
+			if ( isset( $_GET['networkwide'] ) && ( $_GET['networkwide'] == 1 ) ) {
+				$blogids = $wpdb->get_col( $wpdb->prepare( "SELECT blog_id FROM $wpdb->blogs" ) );
+				foreach ( $blogids as $blog_id ) {
+					switch_to_blog( $blog_id );
+					Theme_My_Login_Admin::_install();
+				}
+				restore_current_blog();
+				return;
+			}	
+		}
+		Theme_My_Login_Admin::_install();
+	}
+
+	/**
+	 * Installs TML
+	 *
+	 * @since 6.0
+	 * @access private
+	 */
+	function _install() {
 		// Declare page_id to avoid notices
 		$page_id = 0;
 
 		// Current version
-		$version = $theme_my_login->get_option( 'version' );
+		$version = $GLOBALS['theme_my_login']->options->get_option( 'version' );
 
 		// 4.4 upgrade
 		if ( version_compare( $version, '4.4', '<' ) ) {
@@ -566,11 +573,10 @@ class Theme_My_Login_Admin {
 		}
 
 		// Get existing page ID
-		$page_id = $theme_my_login->get_option( 'page_id' );
+		$page_id = $GLOBALS['theme_my_login']->options->get_option( 'page_id' );
 
 		// Check if page exists
-		if ( !$page = get_page( $page_id ) )
-			$page = get_page_by_title( 'Login' );
+		$page = ( $page_id ) ? get_page( $page_id ) : get_page_by_title( 'Login' );
 
 		// Maybe create login page?
 		if ( $page ) {
@@ -591,21 +597,43 @@ class Theme_My_Login_Admin {
 		}
 
 		$plugin_data = get_plugin_data( TML_ABSPATH . '/theme-my-login.php' );
-		$theme_my_login->set_option( 'version', $plugin_data['Version'] );
-		$theme_my_login->set_option( 'page_id', (int) $page_id );
-		return $theme_my_login->save_options();
+		$GLOBALS['theme_my_login']->options->set_option( 'version', $plugin_data['Version'] );
+		$GLOBALS['theme_my_login']->options->set_option( 'page_id', (int) $page_id );
+		$GLOBALS['theme_my_login']->options->save();
+
+		return $page_id;
+	}
+
+	/**
+	 * Wrapper for multisite uninstallation
+	 *
+	 * @since 6.1
+	 * @access public
+	 */
+	function uninstall() {
+		global $wpdb;
+
+		if ( function_exists( 'is_multisite' ) && is_multisite() ) {
+			if ( isset( $_GET['networkwide'] ) && ( $_GET['networkwide'] == 1 ) ) {
+				$blogids = $wpdb->get_col( $wpdb->prepare( "SELECT blog_id FROM $wpdb->blogs" ) );
+				foreach ( $blogids as $blog_id ) {
+					switch_to_blog( $blog_id );
+					$this->_uninstall();
+				}
+				restore_current_blog();
+				return;
+			}	
+		}
+		Theme_My_Login_Admin::_uninstall();
 	}
 
 	/**
 	 * Uninstalls TML
 	 *
 	 * @since 6.0
-	 * @access public
+	 * @access private
 	 */
-	function uninstall() {
-		// Shorthand reference
-		$theme_my_login =& $this->theme_my_login;
-
+	function _uninstall() {
 		require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 		// Run module uninstall hooks
@@ -613,7 +641,7 @@ class Theme_My_Login_Admin {
 		foreach ( array_keys( $modules ) as $module ) {
 			$module = plugin_basename( trim( $module ) );
 
-			$valid = $this->validate_module( $module );
+			$valid = Theme_My_Login_Admin::validate_module( $module );
 			if ( is_wp_error( $valid ) )
 				continue;
 
@@ -622,11 +650,11 @@ class Theme_My_Login_Admin {
 		}
 
 		// Delete the page
-		wp_delete_post( $theme_my_login->get_option( 'page_id' ) );
+		wp_delete_post( $GLOBALS['theme_my_login']->options->get_option( 'page_id' ) );
 
 		// Delete options
-		delete_option( $theme_my_login->options_key );
-		delete_option( 'widget_' . $theme_my_login->options_key );
+		delete_option( 'theme_my_login' );
+		delete_option( 'widget_theme-my-login' );
 	}
 
 	/**
@@ -646,49 +674,16 @@ class Theme_My_Login_Admin {
 	 * @access public
 	 */
 	function __construct() {
-		$this->theme_my_login =& $GLOBALS['theme_my_login'];
-
 		add_action( 'admin_init', array( &$this, 'admin_init' ) );
 		add_action( 'admin_menu', array( &$this, 'admin_menu' ) );
 		add_action( 'admin_notices', array( &$this, 'module_errors' ) );
 		add_action( 'admin_notices', array( &$this, 'initial_nag' ) );
 		add_action( 'load-settings_page_theme-my-login', array( &$this, 'load_settings_page' ) );
+
+		register_activation_hook( TML_ABSPATH . '/theme-my-login.php', array( &$this, 'install' ) );
+		register_uninstall_hook( TML_ABSPATH . '/theme-my-login.php', array( &$this, 'uninstall' ) );
 	}
 }
-
-/**
- * Install method wrapper
- *
- * @see Theme_My_Login_Admin::install()
- * @since 6.0
- * @access public
- */
-function theme_my_login_install() {
-	global $theme_my_login_admin;
-
-	if ( !is_object( $theme_my_login_admin ) )
-		$theme_my_login_admin =& new Theme_My_Login_Admin();
-
-	$theme_my_login_admin->install();
-}
-register_activation_hook( TML_ABSPATH . '/theme-my-login.php', 'theme_my_login_install' );
-
-/**
- * Uninstall method wrapper
- *
- * @see Theme_My_Login_Admin::uninstall()
- * @since 6.0
- * @access public
- */
-function theme_my_login_uninstall() {
-	global $theme_my_login_admin;
-
-	if ( !is_object( $theme_my_login_admin ) )
-		$theme_my_login_admin =& new Theme_My_Login_Admin();
-
-	$theme_my_login_admin->uninstall();
-}
-register_uninstall_hook( TML_ABSPATH . '/theme-my-login.php', 'theme_my_login_uninstall' );
 
 endif; // Class exists
 

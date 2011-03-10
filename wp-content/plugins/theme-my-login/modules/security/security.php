@@ -40,13 +40,13 @@ class Theme_My_Login_Security extends Theme_My_Login_Module {
 				if ( $time > $expiration )
 					$this->unlock_user( $userdata->ID );
 				else
-					return new WP_Error( 'locked_account', sprintf( __( '<strong>ERROR</strong>: This account has been locked because of too many failed login attempts. You may try again in %s.', $this->theme_my_login->textdomain ), human_time_diff( $time, $expiration ) ) );
+					return new WP_Error( 'locked_account', sprintf( __( '<strong>ERROR</strong>: This account has been locked because of too many failed login attempts. You may try again in %s.', 'theme-my-login' ), human_time_diff( $time, $expiration ) ) );
 			} else {
-				return new WP_Error( 'locked_account', __( '<strong>ERROR</strong>: This account has been locked.', $this->theme_my_login->textdomain ) );
+				return new WP_Error( 'locked_account', __( '<strong>ERROR</strong>: This account has been locked.', 'theme-my-login' ) );
 			}
 		} elseif ( is_wp_error( $user ) && 'incorrect_password' == $user->get_error_code() ) {
 			// Get the options
-			$options = $this->theme_my_login->get_option( array( 'security', 'failed_login' ), array() );
+			$options = $GLOBALS['theme_my_login']->options->get_option( array( 'security', 'failed_login' ), array() );
 
 			// Get the attempts
 			$attempts = $this->get_failed_login_attempts( $userdata->ID );
@@ -66,7 +66,7 @@ class Theme_My_Login_Security extends Theme_My_Login_Module {
 					// Create new expiration
 					$expiration = $time + $this->get_seconds_from_unit( $options['lockout_duration'], $options['lockout_duration_unit'] );
 					$this->lock_user( $userdata->ID, $expiration );
-					return new WP_Error( 'locked_account', sprintf( __( '<strong>ERROR</strong>: This account has been locked because of too many failed login attempts. You may try again in %s.', $this->theme_my_login->textdomain ), human_time_diff( $time, $expiration ) ) );
+					return new WP_Error( 'locked_account', sprintf( __( '<strong>ERROR</strong>: This account has been locked because of too many failed login attempts. You may try again in %s.', 'theme-my-login' ), human_time_diff( $time, $expiration ) ) );
 				}
 			} else {
 				// Clear the attempts
@@ -120,7 +120,7 @@ class Theme_My_Login_Security extends Theme_My_Login_Module {
 		if ( $expires )
 			$security['lock_expiration'] = absint( $expires );
 
-		return $this->update_user_meta( $user, 'theme_my_login_security', $security );
+		return update_user_meta( $user, 'theme_my_login_security', $security );
 	}
 
 	/**
@@ -146,7 +146,7 @@ class Theme_My_Login_Security extends Theme_My_Login_Module {
 			unset( $security['lock_expiration'] );
 		$security['failed_login_attempts'] = array();
 
-		return $this->update_user_meta( $user, 'theme_my_login_security', $security );
+		return update_user_meta( $user, 'theme_my_login_security', $security );
 	}
 
 	/**
@@ -185,49 +185,6 @@ class Theme_My_Login_Security extends Theme_My_Login_Module {
 	}
 
 	/**
-	 * Calls get_user_meta() or get_usermeta() depending on WP version
-	 *
-	 * @see get_user_meta(), get_usermeta()
-	 * @since 6.0
-	 * @access public
-	 *
-	 * @param int $user_id User ID
-	 * @param string $key The meta key to retrieve
-	 * @param bool $single Whether to return a single value
-	 * @return mixed Array if $single is false, value of meta data field if $single is true
-	 */
-	function get_user_meta( $user_id, $meta_key, $single = false ) {
-		if ( function_exists( 'get_user_meta' ) )
-			$value = get_user_meta( $user_id, $meta_key, $single );
-		else {
-			$value = get_usermeta( $user_id, $meta_key );
-			if ( empty( $value ) && !$single )
-				$value = array();
-		}
-		return $value;
-	}
-
-	/**
-	 * Calls update_user_meta() or update_usermeta() depending on WP version
-	 *
-	 * @see update_user_meta(), update_usermeta()
-	 * @since 6.0
-	 * @access public
-	 *
-	 * @param int $user_id User ID
-	 * @param string $key Metadata key
-	 * @param mixed $value Metadata value
-	 * @param mixed $prev_value Optional. Previous value to check before removing
-	 * @return bool False on failure, true if success.
-	 */
-	function update_user_meta( $user_id, $meta_key, $meta_value = '', $prev_value = '' ) {
-		if ( function_exists( 'update_user_meta' ) )
-			return update_user_meta( $user_id, $meta_key, $meta_value, $prev_value );
-		else
-			return update_usermeta( $user_id, $meta_key, $meta_value );
-	}
-
-	/**
 	 * Get a user's security meta
 	 *
 	 * @since 6.0
@@ -241,7 +198,7 @@ class Theme_My_Login_Security extends Theme_My_Login_Module {
 			'is_locked' => false,
 			'failed_login_attempts' => array()
 			);
-		$meta = $this->get_user_meta( $user_id, 'theme_my_login_security', true );
+		$meta = get_user_meta( $user_id, 'theme_my_login_security', true );
 		if ( !is_array( $meta ) )
 			$meta = array();
 
@@ -275,7 +232,7 @@ class Theme_My_Login_Security extends Theme_My_Login_Module {
 	function reset_failed_login_attempts( $user_id ) {
 		$security_meta = $this->get_security_meta( $user_id );
 		$security_meta['failed_login_attempts'] = array();
-		return $this->update_user_meta( $user_id, 'theme_my_login_security', $security_meta );
+		return update_user_meta( $user_id, 'theme_my_login_security', $security_meta );
 	}
 
 	/**
@@ -316,7 +273,7 @@ class Theme_My_Login_Security extends Theme_My_Login_Module {
 
 		$security_meta['failed_login_attempts'][] = array( 'time' => $time, 'ip' => $ip );
 
-		return $this->update_user_meta( $user_id, 'theme_my_login_security', $security_meta );
+		return update_user_meta( $user_id, 'theme_my_login_security', $security_meta );
 	}
 
 	/**
@@ -362,26 +319,6 @@ class Theme_My_Login_Security extends Theme_My_Login_Module {
 	}
 
 	/**
-	 * Activates this module
-	 *
-	 * Callback for "tml_activate_security/security.php" hook in method Theme_My_Login_Admin::activate_module()
-	 *
-	 * @see Theme_My_Login_Admin::activate_module()
-	 * @since 6.0
-	 * @access public
-	 *
-	 * @param object $theme_my_login Reference to global $theme_my_login object
-	 */
-	function activate( &$theme_my_login ) {
-		$options = $this->init_options();
-		if ( !isset( $theme_my_login->options['security'] ) ) {
-			$theme_my_login->options['security'] = $options['security'];
-		} else {
-			$theme_my_login->options['security'] = $theme_my_login->array_merge_recursive( $options['security'], $theme_my_login->options['security'] );
-		}
-	}
-
-	/**
 	 * Initializes options for this module
 	 *
 	 * Callback for "tml_init_options" hook in method Theme_My_Login_Base::init_options()
@@ -416,8 +353,6 @@ class Theme_My_Login_Security extends Theme_My_Login_Module {
 	 * @access public
 	 */
 	function load() {
-		// Activate
-		add_action( 'tml_activate_security/security.php', array( &$this, 'activate' ) );
 		// Initialize
 		add_filter( 'tml_init_options', array( &$this, 'init_options' ) );
 

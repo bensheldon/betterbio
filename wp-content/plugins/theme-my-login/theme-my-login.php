@@ -3,19 +3,11 @@
 Plugin Name: Theme My Login
 Plugin URI: http://www.jfarthing.com/wordpress-plugins/theme-my-login/
 Description: Themes the WordPress login, registration and forgot password pages according to your theme.
-Version: 6.0.4
+Version: 6.1
 Author: Jeff Farthing
 Author URI: http://www.jfarthing.com
 Text Domain: theme-my-login
 */
-
-/*
- * = Future Ideas =
- * ----------------------------------------------------------------------
- * Allow separate permalinks for login, register and lostpassword
- * Allow users to delete themselves
- * Add option to forward all "wp-login.php" requests to TML login page
- */
 
 // Allow custom functions file
 if ( file_exists( WP_PLUGIN_DIR . '/theme-my-login-custom.php' ) )
@@ -48,6 +40,7 @@ if ( !defined( 'TML_DEBUG' ) )
 
 // Require a few needed files
 require_once( TML_ABSPATH . '/includes/class-theme-my-login.php' );
+require_once( TML_ABSPATH . '/includes/class-plugin-options.php' );
 require_once( TML_ABSPATH . '/includes/class-theme-my-login-template.php' );
 require_once( TML_ABSPATH . '/includes/class-theme-my-login-module.php' );
 require_once( TML_ABSPATH . '/includes/class-theme-my-login-widget.php' );
@@ -82,6 +75,16 @@ if ( is_admin() ) {
 	 * @since 6.0
 	 */
 	$GLOBALS['theme_my_login_admin'] =& new Theme_My_Login_Admin();
+}
+
+if ( function_exists( 'is_multisite' ) && is_multisite() ) {
+	require_once( TML_ABSPATH . '/includes/class-theme-my-login-ms-signup.php' );
+	/**
+	 * Theme My Login MS Signup object
+	 * @global object $theme_my_login_ms_signup
+	 * @since 6.1
+	 */
+	$GLOBALS['theme_my_login_ms_signup'] =& new Theme_My_Login_MS_Signup();
 }
 
 if ( defined( 'TML_DEBUG' ) && TML_DEBUG )

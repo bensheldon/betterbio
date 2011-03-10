@@ -3,12 +3,14 @@ Contributors: rATRIJS
 Donate Link: http://ratvars.com/custom-post-type-archives/
 Tags: custom post types, custom post type, post types, post type, archive, archives, rewrite, feeds, paging, post type url, custom post type url, custom post type archive url, post type archive url, custom post type index, post type index
 Requires at least: 3.0
-Tested up to: 3.0.1
-Stable tag: 1.4
+Tested up to: 3.1
+Stable tag: 1.5
 
 Enables custom post type archives that will support both paging and feeds. All fully customizable.
 
 == Description ==
+
+**Since version 3.1 WordPress has it's own implementation of custom post type archives so you can create them without this plugin - visit this page for more info -&gt; http://codex.wordpress.org/Post_Types. Nevertheless I do believe that this plugin is more flexible and you can still use it and it will still work as expected.**
 
 This plugin will enable custom post type archives (also yearly, monthly and daily) together with feeds, customizable titles and paging.
 
@@ -30,7 +32,7 @@ Note that if you update URL base field, disable/enable post type rewrite tag usa
 
 Also a good thing for theme developers - you have four new functions to use:
 
-*	is_post_type_archive - this function will work similary as is_category or is_single and so on. It will return true if this page is a custom post type archive or false if it isn't. You can also specify an optional argument with post type name and then function will return boolean to say whether you're in post type archive for that post type or not. Simple and useful!
+*	pta_is_post_type_archive - this function will work similary as is_category or is_single and so on. It will return true if this page is a custom post type archive or false if it isn't. You can also specify an optional argument with post type name and then function will return boolean to say whether you're in post type archive for that post type or not. Simple and useful!
 *	get_the_post_type_permalink - this function will return a link to custom post type archive for current post in the WordPress loop. Or you can specify a post type slug or post ID or post object as an argument if you are not in a loop. In this way you can always link to custom post type archives wherever you are.
 *	the_post_type_permalink - uses get_the_post_type_permalink to echo the link rather than return it.
 *	wp_get_post_type_archives - will work the same way as ['wp_get_archives'](http://codex.wordpress.org/Function_Reference/wp_get_archives) function that allows you to get yearly, monthly, daily (and so on) archives for custom post types.
@@ -162,6 +164,10 @@ P.S. It might not work properly with 'weekly' archives.
 
 == Changelog ==
 
+= 1.5 =
+*	This version should now support WordPress 3.1.
+*	Function 'is_post_type_archive' is renamed to 'pta_is_post_type_archive', because since v3.1 WordPress implements it's own 'is_post_type_archive' function and WordPress's function won't work correctly with this plugin so you should use 'pta_is_post_type_archive' if you use this plugin. 'is_post_type_archive' function implemented by this plugin will still be available if you have a WordPress install older than v3.1.
+
 = 1.4 =
 *	Added support for yearly, monthly and daily archives. Now you can just put year and month and day at the end of the custom post type archive URLs to show only posts from those dates. It works the same way as in other places.
 *	You can also use the new function 'wp_get_post_type_archives' to render out these dated lists the same way as the 'wp_get_archives' function. You can use the same options as the 'wp_get_archives' function as it uses it to get the data.
@@ -199,6 +205,9 @@ P.S. It might not work properly with 'weekly' archives.
 *	Initial version. Can't say more :)
 
 == Upgrade Notice ==
+
+= 1.5 =
+Added support for WordPress 3.1. Renamed function 'is_post_type_archive' to 'pta_is_post_type_archive'. Use this function if you use WP 3.1 or newer.
 
 = 1.4 =
 Added support for daily, monthly and yearly archives and added a function like 'wp_get_archives' only for custom post types. Also added body classes.

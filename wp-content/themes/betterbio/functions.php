@@ -1,11 +1,12 @@
 <?php 
 
-include("lib/post_types/industry.php");
-include("lib/post_types/drugs.php");
-include("lib/post_types/food.php");
-include("lib/post_types/fuel.php");
-include("lib/post_types/blogs.php");
-include("lib/post_types/podcast.php");
+require_once("lib/betterbio_roles.php");
+require_once("lib/post_types/industry.php");
+require_once("lib/post_types/drugs.php");
+require_once("lib/post_types/food.php");
+require_once("lib/post_types/fuel.php");
+require_once("lib/post_types/blogs.php");
+require_once("lib/post_types/podcast.php");
 
 error_reporting(0);
 $ThemeName = "Arthemia Premium";

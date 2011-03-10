@@ -4,7 +4,7 @@ Plugin Name: Custom Post Type Archives
 Plugin URI: http://ratvars.com/custom-post-type-archives
 Description: Enables archives (with feeds and paging) for custom post types
 Author: Rolands Atvars
-Version: 1.4
+Version: 1.5
 Author URI: http://ratvars.com
 */
 add_action('admin_menu', 'pta_create_menu');
@@ -198,7 +198,7 @@ function pta_register_post_type_rewrite_rules($wp_rewrite) {
 	
 	return $wp_rewrite;
 }
-add_filter('generate_rewrite_rules', 'pta_register_post_type_rewrite_rules');
+add_filter('generate_rewrite_rules', 'pta_register_post_type_rewrite_rules', 100);
 
 /**
  * This hook callback function will try to tell WordPress to include proper template
@@ -212,7 +212,7 @@ add_filter('generate_rewrite_rules', 'pta_register_post_type_rewrite_rules');
  * @return string path to template to include. Will be changed if we're in custom post type area.
  */
 function pta_register_post_type_redirects($template, $force_post_type = false) {
-	if(!is_post_type_archive() and $force_post_type === false) return $template;
+	if(!pta_is_post_type_archive() and $force_post_type === false) return $template;
 	
 	if(is_404()) // we are in a custom post type archive but there were no posts found for current request
 		return $template; // we just continue with WordPress idea then
@@ -239,7 +239,7 @@ add_filter('template_include', 'pta_register_post_type_redirects');
  * They are not. Must fix this!
  */
 function pta_fix_post_type_context() {
-	if(is_post_type_archive()) {
+	if(pta_is_post_type_archive()) {
 		global $wp_query;
 		
 		$wp_query->is_home = false;
@@ -262,7 +262,7 @@ add_filter('template_redirect', 'pta_fix_post_type_context');
  * @param string $seplocation where is the seperator placed.
  */
 function pta_fix_wp_title($wp_title, $sep, $seplocation) {
-	if(is_post_type_archive() and !is_404()) { // do stuff if we are in post type archive that has posts (is not 404)
+	if(pta_is_post_type_archive() and !is_404()) { // do stuff if we are in post type archive that has posts (is not 404)
 		$query_post_type = get_query_var('post_type');
 		$title = pta_get_settings('title'); // let's get the title now
 		$customisations = pta_get_settings('enabled_post_type_customisations');
@@ -307,7 +307,7 @@ add_filter('wp_title', 'pta_fix_wp_title', 10, 3);
  * @return array body classes with additional body classes
  */
 function pta_fix_body_class($classes) {
-	if(!is_post_type_archive()) return $classes;
+	if(!pta_is_post_type_archive()) return $classes;
 	
 	$archive_classes = array(
 		'post-type-archive',
@@ -326,7 +326,7 @@ add_filter('body_class', 'pta_fix_body_class', 10);
  * Is this a good idea? Should 'enable_feed_links' option be more important?
  */
 function pta_add_feed_link() {
-	if(!is_post_type_archive()) return; // if we are not in post type archive - quit!
+	if(!pta_is_post_type_archive()) return; // if we are not in post type archive - quit!
 	
 	// only add the feed link if theme supports auto feed links or user enabled it
 	$add_feed_link = (current_theme_supports('automatic-feed-links') or pta_get_settings('enable_feed_links'));
@@ -358,7 +358,7 @@ add_action('wp_head', 'pta_add_feed_link');
  * @param string | bool $specific_post_type optional post type name to know whether we are on this specific post type
  * @return bool
  */
-function is_post_type_archive($specific_post_type = false) {
+function pta_is_post_type_archive($specific_post_type = false) {
 	static $is_post_type_index;
 	
 	if(!isset($is_post_type_index)) {
@@ -381,6 +381,18 @@ function is_post_type_archive($specific_post_type = false) {
 		return ($specific_post_type == get_query_var('post_type'));
 	
 	return $is_post_type_index;
+}
+
+/**
+ * Since WP v3.1 WordPress implements it's own is_post_type_archive function so I had to rename it to
+ * pta_is_post_type_archive.
+ * To make things backwards compatible (with pre-3.1 releases) we just implement is_post_type_archive function
+ * and forward it to pta_ist_post_type_archive.
+ */
+if(!function_exists('is_post_type_archive')) {
+	function is_post_type_archive($specific_post_type = false) {
+		return pta_is_post_type_archive($specific_post_type);
+	}
 }
 
 /**
