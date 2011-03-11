@@ -145,18 +145,38 @@ if(isset($_GET['flush_user_roles']) && is_admin()) {
                                     "feature_posts", "delete_private_pages", "unfiltered_upload");
   $capabilities = forbid_user_capabilities($capabilities, $content_editor_forbidden);
   add_role( 'content_editor', 'Content Editor', $capabilities );
-  
+
+  add_role( 'media_editor', 'Media Editor', $capabilities );
+
   $content_author_forbidden = array("edit_files", "moderate_comments", "manage_categories", "unfiltered_html",
                                     "edit_others_posts", "edit_published_posts", "publish_posts", "level_7",
                                     "delete_others_posts", "delete_published_posts", "delete_private_posts",
-                                    "read_private_posts", "edit_private_posts", "list_users");
+                                    "read_private_posts", "edit_private_posts", "list_users", "read_private_pages");
   $capabilities = forbid_user_capabilities($capabilities, $content_author_forbidden);
   add_role( 'content_author', 'Content Author', $capabilities );
   
-/* TBD
-add_role( 'media_editor', 'Media Editor', $capabilities );
-add_role( 'media_author', 'Media Author', $capabilities );
-add_role( 'news_contributor', 'News Contributor', $capabilities ); */
+  add_role( 'media_author', 'Media Author', $capabilities );
+
+  $news_contributor_forbidden = array("level_3", "upload_files", "delete_posts");
+  $capabilities = forbid_user_capabilities($capabilities, $content_author_forbidden);
+  add_role( 'news_contributor', 'News Contributor', $capabilities );
 
   header("Location:/wp-admin");
 }
+
+// Hiding posts from everybody but the current author for 
+function posts_for_current_author($query) {
+	global $current_user;
+
+  if($query->is_admin && (isset($current_user->caps["content_author"]) 
+                          || isset($current_user->caps["media_author"]) 
+                          || isset($current_user->caps["news_contributor"]))) {
+		global $user_ID;
+		$query->set('author',  $user_ID);
+		unset($user_ID);
+	}
+	unset($user_level);
+
+	return $query;
+}
+add_filter('pre_get_posts', 'posts_for_current_author');

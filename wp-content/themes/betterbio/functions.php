@@ -1,12 +1,16 @@
 <?php 
 
-require_once("lib/betterbio_roles.php");
-require_once("lib/post_types/industry.php");
-require_once("lib/post_types/drugs.php");
-require_once("lib/post_types/food.php");
-require_once("lib/post_types/fuel.php");
-require_once("lib/post_types/blogs.php");
-require_once("lib/post_types/podcast.php");
+require_once("_lib/betterbio_roles.php");
+require_once("_lib/post_types/industry.php");
+require_once("_lib/post_types/drugs.php");
+require_once("_lib/post_types/food.php");
+require_once("_lib/post_types/fuel.php");
+
+// TODO: Blogs System and Podcasts system
+//require_once("_lib/post_types/blogs.php");
+//require_once("_lib/post_types/podcast.php");
+
+require_once("_lib/themepage.php");
 
 error_reporting(0);
 $ThemeName = "Arthemia Premium";
@@ -92,8 +96,6 @@ function my_post_limit($limit) {
 	$limit = 'LIMIT '.$pgstrt.$postperpage;
 	return $limit;
 }
-
-include("lib/themepage.php");
 
 // Plugin by Steve Smith - http://orderedlist.com/wordpress-plugins/feedburner-plugin/ and feedburner - http://www.feedburner.com/fb/a/help/wordpress_quickstart
 function feed_redirect() {
