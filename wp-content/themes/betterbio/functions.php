@@ -6,6 +6,8 @@ require_once("_lib/post_types/drugs.php");
 require_once("_lib/post_types/food.php");
 require_once("_lib/post_types/fuel.php");
 
+require_once("_lib/betterbio_js.php");
+
 // TODO: Blogs System and Podcasts system
 //require_once("_lib/post_types/blogs.php");
 //require_once("_lib/post_types/podcast.php");
