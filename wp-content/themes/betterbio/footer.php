@@ -3,9 +3,9 @@
 
 </div>
 
-<?php $showgallery1 = get_settings ( "cp_showpostgallery" );
-      $showgallery2 = get_settings ( "cp_showarchivegallery" );
-	$showgallery3 = get_settings ( "cp_showindexgallery" );
+<?php $showgallery1 = get_option ( "cp_showpostgallery" );
+      $showgallery2 = get_option ( "cp_showarchivegallery" );
+	$showgallery3 = get_option ( "cp_showindexgallery" );
 
 		  if ( (is_home() && $showgallery3 != "no") || (is_search() && $showgallery2 != "no") || (is_archive() && $showgallery2 != "no") || (is_single() && $showgallery1 != "no") ) { ?>
           
@@ -14,11 +14,11 @@
     <div id="random">
     <h3><?php _e('Random Posts','arthemia');?></h3>
     
-    <?php $width = get_settings ( "cp_thumbWidth_Gallery" );
-		$height = get_settings ( "cp_thumbHeight_Gallery" );
+    <?php $width = get_option ( "cp_thumbWidth_Gallery" );
+		$height = get_option ( "cp_thumbHeight_Gallery" );
 		if ( $width == 0 ) { $width = 80; }
 		if ( $height == 0 ) { $height = 80; }
-        $status = get_settings ( "cp_thumbAuto" );
+        $status = get_option ( "cp_thumbAuto" );
 	?>
     
     <?php $randompost = $wpdb->get_results("SELECT ID FROM $wpdb->posts WHERE post_status = 'publish' ORDER BY RAND() LIMIT 12"); 
@@ -62,7 +62,7 @@ $image_src = $matches['1'][0]; ?>
     
     <div id="video">
     
-        <?php $ar_video = get_settings( "ar_video" );
+        <?php $ar_video = get_option( "ar_video" );
 			if( $ar_video == 0 ) { $ar_video = $cp_categories[0]->cat_ID; } 
             query_posts( 'showposts=1&post_type=' . $ar_video ); ?>
         
@@ -164,7 +164,7 @@ $image_src = $matches['1'][0]; ?>
 
 <script src="<?php bloginfo('template_url'); ?>/js/scripts.js"></script>
 <?php
-	$cp_analytics = get_settings( "cp_analytics" );
+	$cp_analytics = get_option( "cp_analytics" );
 	if( $cp_analytics != "" ) { 
 ?>
 

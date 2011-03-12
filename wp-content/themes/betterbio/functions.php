@@ -1,41 +1,37 @@
 <?php 
 
+// Theme stuff
 require_once("_lib/betterbio_roles.php");
+require_once("_lib/image_sizes.php");
+require_once("_lib/betterbio_js.php");
+require_once("_lib/themepage.php");
+require_once("_lib/sidebars.php");
+
+// Post types
+require_once("_lib/post_types/_global_content.php");
 require_once("_lib/post_types/industry.php");
 require_once("_lib/post_types/drugs.php");
 require_once("_lib/post_types/food.php");
 require_once("_lib/post_types/fuel.php");
 
-require_once("_lib/betterbio_js.php");
 
 // TODO: Blogs System and Podcasts system
 //require_once("_lib/post_types/blogs.php");
 //require_once("_lib/post_types/podcast.php");
 
-require_once("_lib/themepage.php");
 
-error_reporting(0);
 $ThemeName = "Arthemia Premium";
 
-// sidebar stuff
-if ( function_exists('register_sidebar') ) 
-{     
-register_sidebar(array('name' => 'Sidebar Top','before_widget' => '','after_widget' => '','before_title' => '<h3>','after_title' => '</h3>'));     
-register_sidebar(array('name' => 'Sidebar Left','before_widget' => '','after_widget' => '','before_title' => '<h3>','after_title' => '</h3>')); 
-register_sidebar(array('name' => 'Sidebar Right','before_widget' => '','after_widget' => '','before_title' => '<h3>','after_title' => '</h3>'));   
-register_sidebar(array('name' => 'Sidebar Bottom','before_widget' => '','after_widget' => '','before_title' => '<h3>','after_title' => '</h3>'));    
-register_sidebar(array('name' => 'Footer Left','before_widget' => '','after_widget' => '','before_title' => '<h3>','after_title' => '</h3>'));
-register_sidebar(array('name' => 'Footer Center','before_widget' => '','after_widget' => '','before_title' => '<h3>','after_title' => '</h3>')); 
-register_sidebar(array('name' => 'Footer Right','before_widget' => '','after_widget' => '','before_title' => '<h3>','after_title' => '</h3>')); 
-}
+
+add_theme_support('post-thumbnails');
+add_theme_support('automatic-feed-links');
 
 // WP bug workaround to get W3C compliant
 remove_filter('term_description','wpautop');
-
-
 // excerpt
 remove_filter('get_the_excerpt', 'wp_trim_excerpt');
 add_filter('get_the_excerpt', 'custom_trim_excerpt');
+
 
 function custom_trim_excerpt($text) { // Fakes an excerpt if needed
 global $post;
@@ -104,8 +100,8 @@ function feed_redirect() {
 
 	global $wp, $feed, $withcomments;
 	
-	$newURL1 = trim( get_settings( "cp_feedlinkURL" ) );
-	$newURL2 = trim( get_settings( "cp_feedlinkComments" ) );
+	$newURL1 = trim( get_option( "cp_feedlinkURL" ) );
+	$newURL2 = trim( get_option( "cp_feedlinkComments" ) );
 	
 	if( is_feed() ) {
 
@@ -142,7 +138,7 @@ function feed_check_url() {
 		case 'wp-atom.php':
 		case 'wp-rdf.php':
 		
-			$newURL = trim( get_settings( "cp_feedlinkURL" ) );
+			$newURL = trim( get_option( "cp_feedlinkURL" ) );
 			
 			if ( $newURL != '' ) {
 				if ( function_exists('status_header') ) { status_header( 302 ); }
@@ -155,7 +151,7 @@ function feed_check_url() {
 			
 		case 'wp-commentsrss2.php':
 		
-			$newURL = trim( get_settings( "cp_feedlinkComments" ) );
+			$newURL = trim( get_option( "cp_feedlinkComments" ) );
 			
 			if ( $newURL != '' ) {
 				if ( function_exists('status_header') ) { status_header( 302 ); }

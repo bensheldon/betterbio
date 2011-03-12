@@ -52,87 +52,15 @@ function create_industry_taxonomies()
   ));
 }
 
-if (is_admin()) add_action('admin_menu', 'add_industry_boxen');
-function add_industry_boxen() {
-  //add_meta_box("inventory-options", "Wine Options", "wb_inventory_options", "inventory", "normal", "high");
+function save_industry_details($post_id) {
+  global $post;
+  
+  if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) 
+    return $post_id;
+      
+  if(isset($_POST['post_type']) && ($_POST['post_type'] == "industry")) {
+       $featured = $_POST['featured-post'];
+       update_post_meta($post_id, 'featured-post', $featured);
+  }
 }
-
-/* function wb_inventory_price(){
-     global $post;
-     $price = get_post_meta($post->ID, 'inventory-price', true);
-     echo '<input type="text" name="inventory-price" value="'.$price.'">';
-} 
-function wb_inventory_size(){
-     global $post;
-     $size = get_post_meta($post->ID, 'inventory-size', true);
-     $size = strlen($size) > 0 ? $size : '750';
-     $options = array('375'=>'375mL', '500'=>'500mL', '750'=>'750mL', '1000'=>'1000mL', '1500'=>'1500mL', '3000'=>'3000mL');
-     echo '<select name="inventory-size" >';
-     foreach($options as $key => $label){
-       echo '<option value="'.$key.'" '.($key==$size ? 'selected="selected"' : '').'>'.$label.'</option>';
-     }
-     echo '</select>';
-}
-
-function wb_inventory_discount(){
-     global $post;
-     $discount = get_post_meta($post->ID, 'inventory-discount', true);
-     echo '<input type="checkbox" name="inventory-discount" value="1" '.($discount==1 ? 'checked="checked"' : '').'>
-           <label for="inventory-discount">Discountable</label>';
-}
-
-function wb_inventory_options(){
-     global $post;
-     $dropDowns = array(
-       'color'   => array('red'=> 'Red', 'white' => 'White', 'pink' => 'Pink', 'orange' => 'Orange'),
-       'bubbles' => array('frizzante' => 'Frizzante', 'sparkling' => 'Sparkling'),
-       'method'  => array('organic' => 'Organic', 'biodynamic' => 'Biodynamic', 'natural' => 'Natural'),
-       'style'   => array('aperitif' => 'Aperitif', 'dessert' => 'Dessert')
-     );
-     
-     foreach ($dropDowns as $meta => $options) {
-       $meta_value = get_post_meta($post->ID, 'inventory-'.$meta, true);
-       $meta_value = !empty($meta_value) ? $meta_value : '-';
-       
-       echo '<select name="inventory-'.$meta.'">';
-         echo '<option value="-">Select '.$meta.':</option>';
-         foreach ($options as $key => $optionVal) {
-           echo '<option value="'.$key.'" '.($key==$meta_value ? 'selected="selected"' : '').'>'.$optionVal.'</option>';
-         }
-       echo '</select>';
-     }
-}
-
-*/
-
-
-
-/* function save_inventory_details($post_id) {
-     global $post;
-     
-     if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) 
-       return $post_id;
-         
-     if(isset($_POST['post_type']) && ($_POST['post_type'] == "inventory")) {
-          $price = $_POST['inventory-price'];
-          update_post_meta($post_id, 'inventory-price', $price);
-          $origin = $_POST['inventory-origin'];
-          update_post_meta($post_id, 'inventory-origin', $origin);
-          $year = $_POST['inventory-year'];
-          update_post_meta($post_id, 'inventory-year', $year);
-          $size = $_POST['inventory-size'];
-          update_post_meta($post_id, 'inventory-size', $size);
-          $producer = $_POST['inventory-producer'];
-          update_post_meta($post_id, 'inventory-producer', $producer);
-          $discount = isset($_POST['inventory-discount']) && $_POST['inventory-discount'] == 1 ? 1 : 0;
-          update_post_meta($post_id, 'inventory-discount', $discount);
-          
-          $wineOptions = array('color', 'bubbles', 'method', 'style');
-          foreach ($wineOptions as $option) {
-          	$key = 'inventory-'.$option;
-          	$optionValue = $_POST[$key] == '-' ? '' : $_POST[$key];
-          	update_post_meta($post_id, $key, $optionValue);
-          }
-     }
-}
-add_action("save_post", "save_inventory_details");  */
+add_action("save_post", "save_industry_details");

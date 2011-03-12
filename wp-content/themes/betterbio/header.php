@@ -23,8 +23,8 @@
 
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
-    <link rel="icon" href="<?php bloginfo('template_url'); ?>/images/icons/<?php echo get_settings( "cp_favICON" ); ?>" />
-    <link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/icons/<?php echo get_settings( "cp_favICON" ); ?>" />
+    <link rel="icon" href="<?php bloginfo('template_url'); ?>/images/icons/<?php echo get_option( "cp_favICON" ); ?>" />
+    <link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/icons/<?php echo get_option( "cp_favICON" ); ?>" />
 
     <?php if (is_home()) { ?>
       <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/jquery.jcarousel.css" />
@@ -35,7 +35,7 @@
       <?php 
         $cp_max = 10;
         $cp_categories = get_categories('');
-        $postcat = get_settings( "ar_categories" );
+        $postcat = get_option( "ar_categories" );
 
         if( is_array( $postcat ) ) {
 	        foreach ( $cp_categories as $b ) {
@@ -44,26 +44,26 @@
         }
 
         for( $cp_i = 1; $cp_i <= $cp_max; $cp_i ++ ) {
-        	$cp_catCol = get_settings( "cp_catColor" );
-            $cp_iCol = get_settings( "cp_hexColor_" . $cp_i );
-            $cp_tCol = get_settings( "cp_textColor_" . $cp_i );
-            $cp_hCol = get_settings( "cp_hoverColor_" . $cp_i );
+        	$cp_catCol = get_option( "cp_catColor" );
+            $cp_iCol = get_option( "cp_hexColor_" . $cp_i );
+            $cp_tCol = get_option( "cp_textColor_" . $cp_i );
+            $cp_hCol = get_option( "cp_hoverColor_" . $cp_i );
         		if( ($cp_iCol != "") || ($cp_tCol != "")  ) { ?>
         		   
               /* category bar */
-              #cat-<?php echo get_settings( "cp_colorCategory_" . $cp_i ); ?> { border-top:8px solid <?php echo $cp_iCol ?>; color:<?php echo $cp_tCol ?>; }
-              #cat-<?php echo get_settings( "cp_colorCategory_" . $cp_i ); ?>:hover { background:<?php echo $cp_iCol ?>; color:<?php echo $cp_hCol ?>; }
+              #cat-<?php echo get_option( "cp_colorCategory_" . $cp_i ); ?> { border-top:8px solid <?php echo $cp_iCol ?>; color:<?php echo $cp_tCol ?>; }
+              #cat-<?php echo get_option( "cp_colorCategory_" . $cp_i ); ?>:hover { background:<?php echo $cp_iCol ?>; color:<?php echo $cp_hCol ?>; }
               /* sidebar */
-              #sidebar h3.catt-<?php echo get_settings( "cp_colorCategory_" . $cp_i ); ?>  {background:<?php echo $cp_iCol ?>; color:<?php echo $cp_catCol ?>; }
-              #sidebar h3.catt-<?php echo get_settings( "cp_colorCategory_" . $cp_i ); ?> a { color:<?php echo $cp_catCol ?>; }
+              #sidebar h3.catt-<?php echo get_option( "cp_colorCategory_" . $cp_i ); ?>  {background:<?php echo $cp_iCol ?>; color:<?php echo $cp_catCol ?>; }
+              #sidebar h3.catt-<?php echo get_option( "cp_colorCategory_" . $cp_i ); ?> a { color:<?php echo $cp_catCol ?>; }
 		
         <?php } } ?>
 
         <?php if (is_home()): ?>
           <?php 
-            $style = get_settings ( "cp_styleHead" );
+            $style = get_option ( "cp_styleHead" );
             if ( $style != "wide" ) { $height = 257; $clip_height = 237; $feat_height = 282; }
-		        else { $height = 422; $clip_height = 395; $feat_height = 446; } ?>
+		          else { $height = 422; $clip_height = 395; $feat_height = 446; } ?>
 		      
             .jcarousel-skin-arthemia .jcarousel-container-vertical { width: 310px; height: <?php echo $height; ?>px; padding: 0px; }
             .jcarousel-skin-arthemia .jcarousel-clip-vertical { width: 310px; height: <?php echo $clip_height; ?>px; }
@@ -79,8 +79,8 @@
 
     <?php if (is_home()): ?>
     <?php
-      $speed = get_settings ( "cp_ScrollSpeed" );
-      $scroll = get_settings ( "cp_autoScroll" );
+      $speed = get_option ( "cp_ScrollSpeed" );
+      $scroll = get_option ( "cp_autoScroll" );
       if ( $speed != "" ) { $speed = $speed/1000;  } else { $speed = 2; }
       if ( $scroll != "No" ) { } else { $speed = 0;  } ?>
     
@@ -121,7 +121,7 @@
     <div id="head" class="clearfloat">
       <div class="clearfloat">
 	      <div id="logo" class="left">
-	        <?php $cp_iLogo = get_settings( "cp_logo" ); 
+	        <?php $cp_iLogo = get_option( "cp_logo" ); 
 	        	if( $cp_iLogo != "" ) { 
 	        	?>
 	        <a href="<?php echo get_option('home'); ?>">
@@ -139,22 +139,22 @@
             </div> 
           </aside>
   
-            	<?php  /* $cp_i = 1; $cp_iAd = get_settings( "cp_adImage_" . $cp_i ); ?>
+            	<?php  /* $cp_i = 1; $cp_iAd = get_option( "cp_adImage_" . $cp_i ); ?>
             	
             	<?php if(($cp_iAd != "") && ($cp_iAd != "Adsense")) { ?>
-            	<a href="<?php echo get_settings( "cp_adURL_" . $cp_i ); ?>">
+            	<a href="<?php echo get_option( "cp_adURL_" . $cp_i ); ?>">
             	<img src="<?php bloginfo('template_url'); ?>/images/ads/<?php echo $cp_iAd; ?>" alt="" width="728px" height="90px" /></a>
             	<?php } else { ?>
             
             	<?php if( $cp_iAd != "") { ?>
             	
-            	<?php $cp_iAdcode = get_settings( "cp_adAdsenseCode_" . $cp_i ); 
+            	<?php $cp_iAdcode = get_option( "cp_adAdsenseCode_" . $cp_i ); 
             		if( $cp_iAdcode != "" ) { 
             		?>
             	
             	<script type="text/javascript"><!--
-            google_ad_client = "<?php echo get_settings( "cp_adGoogleID" ); ?>";
-            google_ad_slot = "<?php echo get_settings( "cp_adAdsenseCode_" . $cp_i ); ?>";
+            google_ad_client = "<?php echo get_option( "cp_adGoogleID" ); ?>";
+            google_ad_slot = "<?php echo get_option( "cp_adAdsenseCode_" . $cp_i ); ?>";
             google_ad_width = 728;
             google_ad_height = 90;
             //-->
@@ -187,13 +187,13 @@
     <?php include(TEMPLATEPATH . '/partials/front.php'); ?>
 
 	  <?php 
-	    if ( (is_home() && get_settings ( "cp_showindexcatbar" ) != "no") || 
-		       (is_search() && get_settings ( "cp_showarchivecatbar" ) != "no") || 
-		       (is_archive() && get_settings ( "cp_showarchivecatbar" ) != "no") || 
-		       (is_single() && get_settings ( "cp_showpostcatbar" ) != "no") ): ?>
+	    if ( (is_home() && get_option ( "cp_showindexcatbar" ) != "no") || 
+		       (is_search() && get_option ( "cp_showarchivecatbar" ) != "no") || 
+		       (is_archive() && get_option ( "cp_showarchivecatbar" ) != "no") || 
+		       (is_single() && get_option ( "cp_showpostcatbar" ) != "no") ): ?>
 	
 	         <div id="middle" class="clearfloat"><?php 
-	           $post_types = get_settings( "ar_categories" );
+	           $post_types = get_option( "ar_categories" );
 	           $post_types = array_slice($post_types, 0, 5);
              
              $i = 1;
@@ -202,7 +202,7 @@
 	             <a href="/<?php echo $cp_pC; ?>">
 	               <div id="cat-<?php echo $cp_pC; ?>" class="category">
 	         	      <span class="cat_title"><?php echo $post_type->name ?></span>
-	         	      <p><?php echo get_settings('cp_descText_'.$i); $i++; ?></p>
+	         	      <p><?php echo get_option('cp_descText_'.$i); $i++; ?></p>
 	               </div>
 	             </a>
 	           <?php } ?>

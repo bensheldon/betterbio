@@ -238,7 +238,7 @@ function cp_themePage() {
 		}
     
 		/* cp_th( "Headline" );
-		cp_select( "ar_headline", $cp_cat, get_settings( "ar_headline" ), "" );		
+		cp_select( "ar_headline", $cp_cat, get_option( "ar_headline" ), "" );		
 		cp_cth(); */
     $cp_users = get_users_of_blog(1);
     foreach($cp_users as $user) {
@@ -246,25 +246,25 @@ function cp_themePage() {
     }
     
 		cp_th( "Featured Blogs" );
-		cp_multiSelect( "ar_featured[]", $cp_us, get_settings( "ar_featured" ), "", "Hold down Ctrl button to select multiple authors." );		
+		cp_multiSelect( "ar_featured[]", $cp_us, get_option( "ar_featured" ), "", "Hold down Ctrl button to select multiple authors." );		
 		cp_cth();
 		   
     /* cp_th( "Video" );
-		cp_select( "ar_video", $cp_cat, get_settings( "ar_video" ), "" );		
+		cp_select( "ar_video", $cp_cat, get_option( "ar_video" ), "" );		
 		cp_cth(); */
 
 		cp_th( "Category Bar" );
-		cp_multiSelect( "ar_categories[]", $cp_cat, get_settings( "ar_categories" ), "", "Hold down Ctrl button to select multiple categories. You must select 5 categories to get the best layout." );
+		cp_multiSelect( "ar_categories[]", $cp_cat, get_option( "ar_categories" ), "", "Hold down Ctrl button to select multiple categories. You must select 5 categories to get the best layout." );
 		cp_cth();
 		
 		cp_th( "Category Spoilers" );
-		cp_multiSelect( "ar_spoilers[]", $cp_cat, get_settings( "ar_spoilers" ), "", "Hold down Ctrl button to select multiple categories." );
+		cp_multiSelect( "ar_spoilers[]", $cp_cat, get_option( "ar_spoilers" ), "", "Hold down Ctrl button to select multiple categories." );
 		cp_cth();
 		
 	?>
 	</table>	
 
-	<h3>Theme Sections and Thumbnail Settings</h3>
+<?php /* ?>	<h3>Theme Sections and Thumbnail Settings</h3>
 	<p>Configuration for page sections and thumbnail generation across your website. Thumbnail are generated and resized automatically using the TimThumb script. <strong>Do not forget to make the 'scripts' and 'cache' folder of the theme writable</strong> (CHMOD 777 or 755 from FTP).</p>
 
 	<table width="100%" cellspacing="2" cellpadding="5" class="editform form-table">
@@ -273,12 +273,12 @@ function cp_themePage() {
 		$cp_thumb[] = array( "", "Post Custom Field" );
 
 		cp_th( "Thumbnail assignment" );
-		cp_select( "cp_thumbAuto", $cp_thumb, get_settings( "cp_thumbAuto" ), "" );
+		cp_select( "cp_thumbAuto", $cp_thumb, get_option( "cp_thumbAuto" ), "" );
 		cp_cth();
 	?>
 	</table>
 
-<p>In case you want to have full control over the image thumbnail assignment, please refer to the tutorial <a href="http://colorlabsproject.com/knowledgebase-tutorials/tutorial-timthumb-thumbnail-generation-with-arthemia-theme/" target="_blank">here</a>. You have to do manual thumbnail assignment using Custom Field if you don't want to assign the first image of the post as thumbnail, or perhaps to have a different image as thumbnail.</p>
+<p>In case you want to have full control over the image thumbnail assignment, please refer to the tutorial <a href="http://colorlabsproject.com/knowledgebase-tutorials/tutorial-timthumb-thumbnail-generation-with-arthemia-theme/" target="_blank">here</a>. You have to do manual thumbnail assignment using Custom Field if you don't want to assign the first image of the post as thumbnail, or perhaps to have a different image as thumbnail.</p> <?php echo ucfirst($post->post_type); */ ?>
 
 	<h4>Front Page Settings</h4>
 	<p>You can customize the front page here. Thumbnail sizes are in pixels (px). To control number of post shown in the column list, go to Settings > Reading > Blog post.</p>
@@ -290,22 +290,22 @@ function cp_themePage() {
 		$cp_headimage[] = array( "", "Square Image" );
 
         cp_th( "Headline Style" );
-        cp_select( "cp_styleHead", $cp_headimage, get_settings( "cp_styleHead" ), "" );
+        cp_select( "cp_styleHead", $cp_headimage, get_option( "cp_styleHead" ), "" );
 		cp_cth();
         
-        cp_th( "Featured Items" );
-        cp_input( "cp_numFeatured", "smalltext", "Total item in vertical carousel", get_settings( "cp_numFeatured" ) );
-		cp_cth();
+        //cp_th( "Featured Items" );
+        //cp_input( "cp_numFeatured", "smalltext", "Total item in vertical carousel", get_option( "cp_numFeatured" ) );
+		//cp_cth();
         
         $cp_scroll[] = array( "", "Yes" );
 		$cp_scroll[] = array( "No", "No" );
 
         cp_th( "Auto scroll carousel?" );
-        cp_select( "cp_autoScroll", $cp_scroll, get_settings( "cp_autoScroll" ), "" );
+        cp_select( "cp_autoScroll", $cp_scroll, get_option( "cp_autoScroll" ), "" );
 		cp_cth();
         
         cp_th( "Carousel pause time" );
-        cp_input( "cp_ScrollSpeed", "smalltext", "in miliseconds (default: 2000)", get_settings( "cp_ScrollSpeed" ) );
+        cp_input( "cp_ScrollSpeed", "smalltext", "in miliseconds (default: 2000)", get_option( "cp_ScrollSpeed" ) );
 		cp_cth();
         
 	?>
@@ -317,8 +317,8 @@ function cp_themePage() {
 
 	<?php
 		cp_th( "Latest Post Section" );
-		cp_input( "cp_thumbWidth_LatestPost", "smalltext", "Thumbnail Width (default. 150)", get_settings( "cp_thumbWidth_LatestPost" ) );
-		cp_input( "cp_thumbHeight_LatestPost", "smalltext", "Thumbnail Height (default. 150)", get_settings( "cp_thumbHeight_LatestPost" ) );
+		cp_input( "cp_thumbWidth_LatestPost", "smalltext", "Thumbnail Width (default. 150)", get_option( "cp_thumbWidth_LatestPost" ) );
+		cp_input( "cp_thumbHeight_LatestPost", "smalltext", "Thumbnail Height (default. 150)", get_option( "cp_thumbHeight_LatestPost" ) );
 		cp_cth();
 	?>
 
@@ -335,10 +335,10 @@ function cp_themePage() {
 		$cp_num_column[] = array( "one", "Show One-Column List" );
 
 		cp_th( "Column List" );
-		cp_input( "cp_thumbWidth_Column", "smalltext", "Thumbnail Width (default. 80)", get_settings( "cp_thumbWidth_Column" ) );
-		cp_input( "cp_thumbHeight_Column", "smalltext", "Thumbnail Height (default. 80)", get_settings( "cp_thumbHeight_Column" ) );
-		cp_select( "cp_excerptColumn", $cp_column, get_settings( "cp_excerptColumn" ), "" );
-		cp_select ("cp_status_Column", $cp_num_column, get_settings( "cp_status_Column" ), "" );
+		cp_input( "cp_thumbWidth_Column", "smalltext", "Thumbnail Width (default. 80)", get_option( "cp_thumbWidth_Column" ) );
+		cp_input( "cp_thumbHeight_Column", "smalltext", "Thumbnail Height (default. 80)", get_option( "cp_thumbHeight_Column" ) );
+		cp_select( "cp_excerptColumn", $cp_column, get_option( "cp_excerptColumn" ), "" );
+		cp_select ("cp_status_Column", $cp_num_column, get_option( "cp_status_Column" ), "" );
 		cp_cth();
 
 
@@ -358,8 +358,8 @@ function cp_themePage() {
 		$cp_indexgallery[] = array( "", "Show Video and Random Post Gallery" );
 		
 		cp_th( "Index Page" );
-		cp_select( "cp_showindexcatbar", $cp_indexcatbar, get_settings( "cp_showindexcatbar" ), "" );
-		cp_select( "cp_showindexgallery", $cp_indexgallery, get_settings( "cp_showindexgallery" ), "" );
+		cp_select( "cp_showindexcatbar", $cp_indexcatbar, get_option( "cp_showindexcatbar" ), "" );
+		cp_select( "cp_showindexgallery", $cp_indexgallery, get_option( "cp_showindexgallery" ), "" );
 		
 		cp_cth();
 
@@ -380,10 +380,10 @@ function cp_themePage() {
 		$cp_showspoilers[] = array( "", "Show Category Spoilers" );
 
 		cp_th( "Category Spoilers" );
-		cp_input( "cp_thumbWidth_Spoilers", "smalltext", "Thumbnail Width (default. 80)", get_settings( "cp_thumbWidth_Spoilers" ) );
-		cp_input( "cp_thumbHeight_Spoilers", "smalltext", "Thumbnail Height (default. 80)", get_settings( "cp_thumbHeight_Spoilers" ) );
-		cp_select( "cp_excerptSpoilers", $cp_spoilers, get_settings( "cp_excerptSpoilers" ), "" );
-        cp_select( "cp_catSpoilers", $cp_showspoilers, get_settings( "cp_catSpoilers" ), "" );
+		cp_input( "cp_thumbWidth_Spoilers", "smalltext", "Thumbnail Width (default. 80)", get_option( "cp_thumbWidth_Spoilers" ) );
+		cp_input( "cp_thumbHeight_Spoilers", "smalltext", "Thumbnail Height (default. 80)", get_option( "cp_thumbHeight_Spoilers" ) );
+		cp_select( "cp_excerptSpoilers", $cp_spoilers, get_option( "cp_excerptSpoilers" ), "" );
+        cp_select( "cp_catSpoilers", $cp_showspoilers, get_option( "cp_catSpoilers" ), "" );
 
 		cp_cth();
 
@@ -412,12 +412,12 @@ function cp_themePage() {
 		$cp_postgallery[] = array( "", "Show Video and Random Post Gallery" );
 		
 		cp_th( "Single Post View" );
-		cp_input( "cp_thumbWidth_Post", "smalltext", "Thumbnail Width (default. 150)", get_settings( "cp_thumbWidth_Post" ) );
-		cp_input( "cp_thumbHeight_Post", "smalltext", "Thumbnail Height (default. 150)", get_settings( "cp_thumbHeight_Post" ) );
-		cp_select( "cp_postThumb", $cp_postview, get_settings( "cp_postThumb" ), "" );
-		cp_select( "cp_showpostcatbar", $cp_postcatbar, get_settings( "cp_showpostcatbar" ), "" );
-		cp_select( "cp_showpostheadline", $cp_postheadline, get_settings( "cp_showpostheadline" ), "" );
-		cp_select( "cp_showpostgallery", $cp_postgallery, get_settings( "cp_showpostgallery" ), "" );
+		cp_input( "cp_thumbWidth_Post", "smalltext", "Thumbnail Width (default. 150)", get_option( "cp_thumbWidth_Post" ) );
+		cp_input( "cp_thumbHeight_Post", "smalltext", "Thumbnail Height (default. 150)", get_option( "cp_thumbHeight_Post" ) );
+		cp_select( "cp_postThumb", $cp_postview, get_option( "cp_postThumb" ), "" );
+		cp_select( "cp_showpostcatbar", $cp_postcatbar, get_option( "cp_showpostcatbar" ), "" );
+		cp_select( "cp_showpostheadline", $cp_postheadline, get_option( "cp_showpostheadline" ), "" );
+		cp_select( "cp_showpostgallery", $cp_postgallery, get_option( "cp_showpostgallery" ), "" );
 		
         cp_cth(); ?>
 
@@ -442,11 +442,11 @@ function cp_themePage() {
 		$cp_archivegallery[] = array( "", "Show Video and Random Post Gallery" );
     
 		cp_th( "Archive and Search" );
-		cp_input( "cp_thumbWidth_Archive", "smalltext", "Thumbnail Width (default. 150)", get_settings( "cp_thumbWidth_Archive" ) );
-		cp_input( "cp_thumbHeight_Archive", "smalltext", "Thumbnail Height (default. 150)", get_settings( "cp_thumbHeight_Archive" ) );
-		cp_select( "cp_showarchivecatbar", $cp_archivecatbar, get_settings( "cp_showarchivecatbar" ), "" );
-		cp_select( "cp_showarchiveheadline", $cp_archiveheadline, get_settings( "cp_showarchiveheadline" ), "" );
-		cp_select( "cp_showarchivegallery", $cp_archivegallery, get_settings( "cp_showarchivegallery" ), "" );
+		cp_input( "cp_thumbWidth_Archive", "smalltext", "Thumbnail Width (default. 150)", get_option( "cp_thumbWidth_Archive" ) );
+		cp_input( "cp_thumbHeight_Archive", "smalltext", "Thumbnail Height (default. 150)", get_option( "cp_thumbHeight_Archive" ) );
+		cp_select( "cp_showarchivecatbar", $cp_archivecatbar, get_option( "cp_showarchivecatbar" ), "" );
+		cp_select( "cp_showarchiveheadline", $cp_archiveheadline, get_option( "cp_showarchiveheadline" ), "" );
+		cp_select( "cp_showarchivegallery", $cp_archivegallery, get_option( "cp_showarchivegallery" ), "" );
 		cp_cth();
     	
 	?>
@@ -466,14 +466,14 @@ function cp_themePage() {
 		$cp_headpost[] = array( "No", "No" );
 
         cp_th( "Headline and featured post exclusion?" );
-        cp_select( "cp_preventHeadline", $cp_headpost, get_settings( "cp_preventHeadline" ), "" );
+        cp_select( "cp_preventHeadline", $cp_headpost, get_option( "cp_preventHeadline" ), "" );
 		cp_cth();
         
         $cp_latestpost[] = array( "", "Yes" );
 		$cp_latestpost[] = array( "No", "No" );
 
         cp_th( "Column list posts exclusion on category spoilers?" );
-        cp_select( "cp_preventLatest", $cp_latestpost, get_settings( "cp_preventLatest" ), "" );
+        cp_select( "cp_preventLatest", $cp_latestpost, get_option( "cp_preventLatest" ), "" );
 		cp_cth();
         
         
@@ -501,7 +501,7 @@ function cp_themePage() {
 		closedir( $cp_logoDir );
 		
 		cp_th( "Logo" );
-		cp_select( "cp_logo", $cp_Alogo, get_settings( "cp_logo" ), "" );
+		cp_select( "cp_logo", $cp_Alogo, get_option( "cp_logo" ), "" );
 		cp_cth();
 
 
@@ -520,7 +520,7 @@ function cp_themePage() {
 		closedir( $cp_icoDir );
 
 		cp_th( "Favorite Icons" );
-		cp_select( "cp_favICON", $cp_Aico, get_settings( "cp_favICON" ), "" );
+		cp_select( "cp_favICON", $cp_Aico, get_option( "cp_favICON" ), "" );
 
 		cp_cth();
 			    	
@@ -543,16 +543,16 @@ function cp_themePage() {
 		}
 		
         cp_th( "Category Spoilers Title Color" );
-        cp_input( "cp_catColor", "smalltext", "Text (start with #)", get_settings( "cp_catColor" ) );
+        cp_input( "cp_catColor", "smalltext", "Text (start with #)", get_option( "cp_catColor" ) );
         cp_cth();
         
 		cp_th( "Category Bar Colors" );
 		for( $cp_x = 1; $cp_x <= $cp_numCats; $cp_x ++ ) {
-		  cp_select ( "cp_colorCategory_" . $cp_x, $cp_Colorcat, get_settings( "cp_colorCategory_" . $cp_x ), "" );
-		  echo '<br />'; cp_input( "cp_hexColor_" . $cp_x, "smalltext", "Background (start with #)", get_settings( "cp_hexColor_" . $cp_x ) );
-		  cp_input( "cp_textColor_" . $cp_x, "smalltext", "Text (start with #)", get_settings( "cp_textColor_" . $cp_x ) );
-      cp_input( "cp_hoverColor_" . $cp_x, "smalltext", "Link Hover (start with #)", get_settings( "cp_hoverColor_" . $cp_x ) );
-      cp_input( "cp_descText_" . $cp_x, "smalltext", "Category Description", get_settings( "cp_descText_" . $cp_x ) );
+		  cp_select ( "cp_colorCategory_" . $cp_x, $cp_Colorcat, get_option( "cp_colorCategory_" . $cp_x ), "" );
+		  echo '<br />'; cp_input( "cp_hexColor_" . $cp_x, "smalltext", "Background (start with #)", get_option( "cp_hexColor_" . $cp_x ) );
+		  cp_input( "cp_textColor_" . $cp_x, "smalltext", "Text (start with #)", get_option( "cp_textColor_" . $cp_x ) );
+      cp_input( "cp_hoverColor_" . $cp_x, "smalltext", "Link Hover (start with #)", get_option( "cp_hoverColor_" . $cp_x ) );
+      cp_input( "cp_descText_" . $cp_x, "smalltext", "Category Description", get_option( "cp_descText_" . $cp_x ) );
       echo '<br />'; 
     }
 		cp_cth();
@@ -566,15 +566,15 @@ function cp_themePage() {
 	<table width="100%" cellspacing="2" cellpadding="5" class="editform form-table">
 	<?php
 		cp_th( "Google Analytics ID" );
-		cp_input( "cp_analytics", "smalltext", "Google Analytics ID. Start with UA-", get_settings( "cp_analytics" ) );
+		cp_input( "cp_analytics", "smalltext", "Google Analytics ID. Start with UA-", get_option( "cp_analytics" ) );
 		cp_cth();		
 
 		cp_th( "Feedburner URL" );
-		cp_input( "cp_feedlinkURL", "text", "Feedburner URL. This will replace RSS feed link. Start with http://", get_settings( "cp_feedlinkURL" ) );
+		cp_input( "cp_feedlinkURL", "text", "Feedburner URL. This will replace RSS feed link. Start with http://", get_option( "cp_feedlinkURL" ) );
 		cp_cth();
 		
 		cp_th( "Feedburner Comments URL" );
-		cp_input( "cp_feedlinkComments", "text", "Feedburner URL. This will replace RSS comment feed link. Start with http://", get_settings( "cp_feedlinkComments" ) );
+		cp_input( "cp_feedlinkComments", "text", "Feedburner URL. This will replace RSS comment feed link. Start with http://", get_option( "cp_feedlinkComments" ) );
 		cp_cth();
 		
 		
@@ -605,21 +605,21 @@ function cp_themePage() {
 		closedir( $cp_adsDir );
 		
 		cp_th( "Header Section Ad" );
-		cp_select( "cp_adImage_1", $cp_ads, get_settings( "cp_adImage_1" ), "" );
+		cp_select( "cp_adImage_1", $cp_ads, get_option( "cp_adImage_1" ), "" );
 		echo "<br />";
-		cp_input( "cp_adURL_1", "text", "Header Section Ad click URL", get_settings( "cp_adURL_1" ) );
+		cp_input( "cp_adURL_1", "text", "Header Section Ad click URL", get_option( "cp_adURL_1" ) );
 		cp_cth();
 		
 		cp_th( "Sidebar Section Ad" );
-		cp_select( "cp_adImage_2", $cp_ads, get_settings( "cp_adImage_2" ), "" );
+		cp_select( "cp_adImage_2", $cp_ads, get_option( "cp_adImage_2" ), "" );
 		echo "<br />";
-		cp_input( "cp_adURL_2", "text", "Sidebar Section Ad click URL", get_settings( "cp_adURL_2" ) );
+		cp_input( "cp_adURL_2", "text", "Sidebar Section Ad click URL", get_option( "cp_adURL_2" ) );
 		cp_cth();
 		
 		cp_th( "Single Post View Ad" );
-		cp_select( "cp_adImage_3", $cp_ads, get_settings( "cp_adImage_3" ), "" );
+		cp_select( "cp_adImage_3", $cp_ads, get_option( "cp_adImage_3" ), "" );
 		echo "<br />";
-		cp_input( "cp_adURL_3", "text", "Single Post View Ad click URL", get_settings( "cp_adURL_3" ) );
+		cp_input( "cp_adURL_3", "text", "Single Post View Ad click URL", get_option( "cp_adURL_3" ) );
 		cp_cth();
 	    	
     	
@@ -647,19 +647,19 @@ src=&quot;http://pagead2.googlesyndication.com/pagead/show_ads.js&quot;&gt;
 	<?php
 		
 		cp_th( "Google Ad Client ID" );
-		cp_input( "cp_adGoogleID", "text", "Put your Google Ad Client ID here. (Eg. pub-XXXXXXXXXXXXXXXX)", get_settings( "cp_adGoogleID" ) );
+		cp_input( "cp_adGoogleID", "text", "Put your Google Ad Client ID here. (Eg. pub-XXXXXXXXXXXXXXXX)", get_option( "cp_adGoogleID" ) );
 		cp_cth();
 
 		cp_th( "728x90 Ad Slot ID" );
-		cp_input( "cp_adAdsenseCode_1", "smalltext", "Put the Ad Slot ID for here. (Eg. YYYYYYYYYY)", get_settings( "cp_adAdsenseCode_1" ) );
+		cp_input( "cp_adAdsenseCode_1", "smalltext", "Put the Ad Slot ID for here. (Eg. YYYYYYYYYY)", get_option( "cp_adAdsenseCode_1" ) );
 		cp_cth();
 		
 		cp_th( "300x225 Ad Slot ID" );
-		cp_input( "cp_adAdsenseCode_2", "smalltext", "Put the Ad Slot ID for here. (Eg. YYYYYYYYYY)", get_settings( "cp_adAdsenseCode_2" ) );
+		cp_input( "cp_adAdsenseCode_2", "smalltext", "Put the Ad Slot ID for here. (Eg. YYYYYYYYYY)", get_option( "cp_adAdsenseCode_2" ) );
 		cp_cth();
 		
 		cp_th( "468x60 Ad Slot ID" );
-		cp_input( "cp_adAdsenseCode_3", "smalltext", "Put the Ad Slot ID for here. (Eg. YYYYYYYYYY)", get_settings( "cp_adAdsenseCode_3" ) );
+		cp_input( "cp_adAdsenseCode_3", "smalltext", "Put the Ad Slot ID for here. (Eg. YYYYYYYYYY)", get_option( "cp_adAdsenseCode_3" ) );
 		cp_cth();
 	    	
     	
@@ -687,7 +687,7 @@ function cp_getProperty( $property ) {
 
 	global $ThemeName;
 
-	$value = get_settings( "ThemeName_" . $property );
+	$value = get_option( "ThemeName_" . $property );
 	if( $value == "1" ) { return 1; } else { return 0; }	
 
 }

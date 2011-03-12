@@ -3,11 +3,11 @@
 <?php
 	//Get value from Admin Panel
 	$cp_categories = get_categories('hide_empty=0');
-	$status1 = get_settings( "cp_preventHeadline" );
+	$status1 = get_option( "cp_preventHeadline" );
       
   if ( $status1 != "No" ) {
-    $ar_headline = get_settings( "ar_headline" );
-    $ar_featured = get_settings( "ar_featured" );
+    $ar_headline = get_option( "ar_headline" );
+    $ar_featured = get_option( "ar_featured" );
 	}
 ?>
 
@@ -16,8 +16,8 @@
       <?php if(!is_paged()) { ?>	
         <div id="front-list">	
 	        <?php 
-	          $width = get_settings ( "cp_thumbWidth_LatestPost" );
-	        	$height = get_settings ( "cp_thumbHeight_LatestPost" );
+	          $width = get_option ( "cp_thumbWidth_LatestPost" );
+	        	$height = get_option ( "cp_thumbHeight_LatestPost" );
 	        	if ( $width == 0 ) { $width = 150; }
 	        	if ( $height == 0 ) { $height = 150; }
 	        ?>
@@ -36,8 +36,8 @@
 	<span class="title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></span>
 	<div class="meta"><?php the_time(get_option('date_format')); ?> &#150; <?php the_time(); ?> | <?php comments_popup_link(__('No Comment','arthemia'), __('One Comment','arthemia'), __('% Comments','arthemia'));?></div>		
 	
-    <?php $status = get_settings ( "cp_postThumb" );
-		$status2 = get_settings ( "cp_thumbAuto" );
+    <?php $status = get_option ( "cp_postThumb" );
+		$status2 = get_option ( "cp_thumbAuto" );
 		
 		if (( $status2 != "first" ) && ( $status != "no" )) { ?>
 
@@ -62,7 +62,7 @@ alt="<?php the_title(); ?>" class="left" width="<?php echo $width; ?>px" height=
 
 	<?php } ?>
 
-	<?php $column = get_settings ( "cp_status_Column" );
+	<?php $column = get_option ( "cp_status_Column" );
 		if ( $column != "one" ) { ?>	
 
 	<div id="paged-list">
@@ -92,13 +92,13 @@ alt="<?php the_title(); ?>" class="left" width="<?php echo $width; ?>px" height=
 		<span class="title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></span>
 		<div class="meta"><?php the_time(get_option('date_format')); ?> &#150; <?php the_time(); ?> | <?php comments_popup_link(__('No Comment','arthemia'), __('One Comment','arthemia'), __('% Comments','arthemia'));?></div>
 	
-	<?php $width = get_settings ( "cp_thumbWidth_Column" );
-		$height = get_settings ( "cp_thumbHeight_Column" );
+	<?php $width = get_option ( "cp_thumbWidth_Column" );
+		$height = get_option ( "cp_thumbHeight_Column" );
 		if ( $width == 0 ) { $width = 80; }
 		if ( $height == 0 ) { $height = 80; }
 	?>
 
-	<?php $status = get_settings ( "cp_thumbAuto" );
+	<?php $status = get_option ( "cp_thumbAuto" );
 		if ( $status != "first" ) { ?>
 
 	<?php
@@ -126,7 +126,7 @@ $image_src = $matches['1'][0]; ?>
 	<?php } ?>
 
 
-		<?php $status = get_settings ( "cp_excerptColumn" );		if ( $status != "no" ) { ?>
+		<?php $status = get_option ( "cp_excerptColumn" );		if ( $status != "no" ) { ?>
 		<?php the_excerpt() ?>
 		<?php } ?>
 	</div>
@@ -174,13 +174,13 @@ $image_src = $matches['1'][0]; ?>
 		<span class="title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></span>
 		<div class="meta"><?php the_time(get_option('date_format')); ?> &#150; <?php the_time(); ?> | <?php comments_popup_link(__('No Comment','arthemia'), __('One Comment','arthemia'), __('% Comments','arthemia'));?></div>
 	
-	<?php $width = get_settings ( "cp_thumbWidth_Column" );
-		$height = get_settings ( "cp_thumbHeight_Column" );
+	<?php $width = get_option ( "cp_thumbWidth_Column" );
+		$height = get_option ( "cp_thumbHeight_Column" );
 		if ( $width == 0 ) { $width = 80; }
 		if ( $height == 0 ) { $height = 80; }
 	?>
 
-	<?php $status = get_settings ( "cp_thumbAuto" );
+	<?php $status = get_option ( "cp_thumbAuto" );
 		if ( $status != "first" ) { ?>
 
 	<?php
@@ -208,7 +208,7 @@ $image_src = $matches['1'][0]; ?>
 	<?php } ?>
 
 
-		<?php $status = get_settings ( "cp_excerptColumn" );		if ( $status != "no" ) { ?>
+		<?php $status = get_option ( "cp_excerptColumn" );		if ( $status != "no" ) { ?>
 		<?php the_excerpt() ?>
 		<?php } ?>
 		</div>

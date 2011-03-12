@@ -1,7 +1,5 @@
 <?php
 
-require_once("_global_content.php");
-
 $prefix = "wb_";
 
 /**
@@ -65,4 +63,4 @@ function save_food_details($post_id) {
        update_post_meta($post_id, 'featured-post', $featured);
   }
 }
-add_action("save_post", "save_Food_details");
+add_action("save_post", "save_food_details");
