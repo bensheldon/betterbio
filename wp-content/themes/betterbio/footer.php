@@ -156,7 +156,7 @@ $image_src = $matches['1'][0]; ?>
 </div>
 </div>
 
-<div id="footer"> <?php wp_footer(); ?> <?php _e('Powered by','arthemia'); ?> <a href="http://wordpress.org/">WordPress</a> | <?php if ( is_user_logged_in() ) { ?> <?php wp_register('', ''); ?> | <?php } ?> <?php wp_loginout(); ?> | <a href="<?php bloginfo('rss2_url'); ?>"><?php _e('Entries (RSS)','arthemia');?></a> | <a href="<?php bloginfo('comments_rss2_url'); ?>"><?php _e('Comments (RSS)','arthemia');?></a> | <a href="http://colorlabsproject.com/themes/arthemia-premium/" target="_blank">Arthemia Premium</a> theme <?php _e('by','arthemia');?> <a href="http://colorlabsproject.com" target="_blank">Colorlabs Project</a>
+<div id="footer"> All Material Copyright © 2010-<?php echo date("Y"); ?> BetterBio | <?php wp_footer(); ?> <?php if ( is_user_logged_in() ) { ?> <?php wp_register('', ''); ?> | <?php } ?> <?php wp_loginout(); ?> | <a href="<?php bloginfo('rss2_url'); ?>"><?php _e('Entries (RSS)','arthemia');?></a> | <a href="<?php bloginfo('comments_rss2_url'); ?>"><?php _e('Comments (RSS)','arthemia');?></a></a>
 
 <!-- <?php echo get_num_queries(); ?> queries. <?php timer_stop(1); ?> seconds. -->
 

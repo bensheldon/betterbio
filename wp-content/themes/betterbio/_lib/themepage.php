@@ -313,7 +313,7 @@ function cp_themePage() {
       
 	<div style="font-size:0.9em; color:#999;"><p>For the best layout, assign more than 6 posts to the Featured category.</div>
 	
-	<table width="100%" cellspacing="2" cellpadding="5" class="editform form-table">
+	<?php /* ?><table width="100%" cellspacing="2" cellpadding="5" class="editform form-table">
 
 	<?php
 		cp_th( "Latest Post Section" );
@@ -322,9 +322,9 @@ function cp_themePage() {
 		cp_cth();
 	?>
 
-</table>
+</table> */ ?>
 
-	<div style="font-size:0.9em; color:#999;"><p>Latest Post automated thumbnail will be hidden if you assign thumbnails to be taken from First Image in posts.</p></div>
+	<?php /* ?><div style="font-size:0.9em; color:#999;"><p>Latest Post automated thumbnail will be hidden if you assign thumbnails to be taken from First Image in posts.</p></div> */ ?>
 	
 	<table width="100%" cellspacing="2" cellpadding="5" class="editform form-table">
 
@@ -335,8 +335,8 @@ function cp_themePage() {
 		$cp_num_column[] = array( "one", "Show One-Column List" );
 
 		cp_th( "Column List" );
-		cp_input( "cp_thumbWidth_Column", "smalltext", "Thumbnail Width (default. 80)", get_option( "cp_thumbWidth_Column" ) );
-		cp_input( "cp_thumbHeight_Column", "smalltext", "Thumbnail Height (default. 80)", get_option( "cp_thumbHeight_Column" ) );
+		//cp_input( "cp_thumbWidth_Column", "smalltext", "Thumbnail Width (default. 80)", get_option( "cp_thumbWidth_Column" ) );
+		//cp_input( "cp_thumbHeight_Column", "smalltext", "Thumbnail Height (default. 80)", get_option( "cp_thumbHeight_Column" ) );
 		cp_select( "cp_excerptColumn", $cp_column, get_option( "cp_excerptColumn" ), "" );
 		cp_select ("cp_status_Column", $cp_num_column, get_option( "cp_status_Column" ), "" );
 		cp_cth();
@@ -345,8 +345,8 @@ function cp_themePage() {
 ?>
 	</table>
 
-	<div style="font-size:0.9em; color:#999;"><p>Recommended values for above Column List fields are:
-	<ul><li>width = 80, height = 80, show post excerpts, two-column list</li><li>width = 265, height = 80, show post excerpts, two-column list</li><li>width = 265, height = 80, hide post excerpts, two-column list</li><li>width = 150, height = 90, show post excerpts, one-column list</li></ul></p></div>
+	<?php /* ?><div style="font-size:0.9em; color:#999;"><p>Recommended values for above Column List fields are:
+	<ul><li>width = 80, height = 80, show post excerpts, two-column list</li><li>width = 265, height = 80, show post excerpts, two-column list</li><li>width = 265, height = 80, hide post excerpts, two-column list</li><li>width = 150, height = 90, show post excerpts, one-column list</li></ul></p></div> */ ?>
 
 	<table width="100%" cellspacing="2" cellpadding="5" class="editform form-table">
 

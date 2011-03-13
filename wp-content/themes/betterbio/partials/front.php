@@ -3,6 +3,8 @@
     'showposts' => 1,
     'post_type' => array('industry', 'food', 'fuel', 'drugs') 
   ));
+  
+  //TODO: Blogs Query stuff and avatars
 ?>
 
 <div id="top" class="clearfloat">
