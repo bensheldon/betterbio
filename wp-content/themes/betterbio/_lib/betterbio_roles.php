@@ -9,7 +9,7 @@
  * Content Editor   Level 7
  * Content Author   Level 6
  * ????????         Level 5
- * Media Editor     Level 4
+ * ????????         Level 4
  * Media Author     Level 3
  * News Contributor Level 2
  * ?????????        Level 1
@@ -154,12 +154,16 @@ if(isset($_GET['flush_user_roles']) && is_admin()) {
                                     "read_private_posts", "edit_private_posts", "list_users", "read_private_pages");
   $capabilities = forbid_user_capabilities($capabilities, $content_author_forbidden);
   add_role( 'content_author', 'Content Author', $capabilities );
-  
+
+  $media_author_forbidden = array("level_6", "level_5", "level_4", "edit_posts", "delete_posts");
+  $capabilities = forbid_user_capabilities($capabilities, $media_author_forbidden);
   add_role( 'media_author', 'Media Author', $capabilities );
 
-  $news_contributor_forbidden = array("level_3", "upload_files", "delete_posts");
+  // Not sure what to do here
+  $news_contributor_forbidden = array("level_3", "upload_files");
   $capabilities = forbid_user_capabilities($capabilities, $content_author_forbidden);
   add_role( 'news_contributor', 'News Contributor', $capabilities );
+  $wp_roles->add_cap( 'news_contributor', 'edit_posts' );
 
   header("Location:/wp-admin");
 }
