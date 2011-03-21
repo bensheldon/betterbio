@@ -1,10 +1,9 @@
 <?php
 
 function add_featured_boxen() {
-  add_meta_box("featured-post", "Feature this post", "bb_featured_post", "food", "normal", "high");
-  add_meta_box("featured-post", "Feature this post", "bb_featured_post", "industry", "normal", "high");
-  add_meta_box("featured-post", "Feature this post", "bb_featured_post", "drugs", "normal", "high");
-  add_meta_box("featured-post", "Feature this post", "bb_featured_post", "fuel", "normal", "high");
+  foreach(array("food", "industry", "drugs", "fuel", "events") as $type) {
+    add_meta_box("featured-post", "Feature this post", "bb_featured_post", $type, "normal", "high");    
+  }
 }
 
 function bb_featured_post(){

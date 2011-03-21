@@ -3,7 +3,7 @@
 $prefix = "wb_";
 
 /**
- * Post type and meta boxes for inventory type.
+ * Post type and meta boxes for drugs type.
  *
  * @author Mark Henderson
  */

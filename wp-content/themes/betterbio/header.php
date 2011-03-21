@@ -177,7 +177,7 @@
           <li><a href="/drugs/" class="orange">Drugs</a></li>
           <li><a href="/food/" class="green">Food</a></li>
           <li><a href="/fuel/" class="yellow">Fuel</a></li>
-          <li><a href="/blogs/" class="grey">Blogs</a></li>
+          <li><a href="/events/" class="grey">Events</a></li>
           <?php wp_list_pages('title_li=&sort_column=menu_order'); ?> 
         </ul>
         <?php include (TEMPLATEPATH . '/searchform.php'); ?>
