@@ -4,7 +4,7 @@ Donate link: http://radiok.info/donate/
 Tags: registration, register, plus, redux, password, invitation, code, email, verification, disclaimer, license, agreement, privacy, policy, logo, moderation, user
 Requires at least: 3.0
 Tested up to: 3.0.1
-Stable tag: 3.6.22
+Stable tag: 3.7.1
 
 Enhances the user registration process with complete customization and additional administration options.
 
@@ -40,9 +40,17 @@ Register Plus Redux was forked from Register Plus, developed by skullbit, which 
 
 Available in the following translations:
 
+fr_FR France French
+
 ir_FA Islamic Republic of Iran Persian
 
 it_IT Italy Italian
+
+ro_RO Romania Romanian
+
+ru_RU Russia Russian
+
+tr_TR Turkey Turkish
 
 == Installation ==
 
@@ -56,11 +64,11 @@ it_IT Italy Italian
 Register Plus was abandoned by skullbit sometime after September, 2008 following the release of Register Plus 3.5.1.  As of September, 2009 skullbit's website was undergoing maintenance.  Several bugs have been reported to the Register Plus plugin forum since that time, to resolve these bugs and continue development radiok forked the project.
 
 = What's New? or What's Coming Soon? =
-Visit <http://radiok.info/blog/category/history/> to view recent changes
+Visit <http://radiok.info/category/history/> to view recent changes
 
-Visit <http://radiok.info/blog/category/worklog/> to view features in development
+Visit <http://radiok.info/category/worklog/> to view features in development
 
-Visit <http://radiok.info/blog/category/feature-request/> to view outstanding feature requests
+Visit <http://radiok.info/category/feature-request/> to view outstanding feature requests
 
 = Didn't Register Plus have CAPTCHA? =
 Register Plus offered two different CAPTCHA methods, a simple random CAPTCHA and reCAPTCHA.  The simple one randomly created a 5-character sequence on a background image with two random lines drawn across the image, this CAPTCHA would be very easy for any OCR program to decipher as the characters were not modified in anyway and contrast was high.  reCAPTCHA is a great idea, but there is another plugin, [WP-reCAPTCHA](http://wordpress.org/extend/plugins/wp-recaptcha/) endorsed by the reCAPTCHA developers that can be used to add reCAPTCHA to the registration page.  I also endorse the use of that plugin for that purpose.
@@ -81,6 +89,19 @@ HTML attributes should go in the following order name -> id -> class
 4. Unverified User Management
 
 == Changelog ==
+= 3.7.1 =
+March 16, 2011 by radiok
+
+* Moved load_plugin_textdomain from constructor to initialization
+
+= 3.7.0 =
+March 16, 2011 by radiok
+
+* Major change, wp_new_user_notification is only created as neccessary
+* Added fr_FR, ro_RO, ru_RU, and tr_TR translations
+* Fixed bug with auto-complete not filling in user_login and user_email, as reported by webakimbo
+* Fixed invitation code tracking dashboard widget, as reported by Galyn
+
 = 3.6.22 =
 November 5, 2010 by radiok
 
@@ -426,3 +447,6 @@ April 10 2008 by Skullbit
 
 = 3.6 =
 First stable release by radiok with bugfixes to issues found in 3.5.1
+
+= 3.7.0 =
+Major change to avoid conflicts
