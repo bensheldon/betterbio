@@ -81,29 +81,35 @@ class Theme_My_Login_Template {
 			do_action_ref_array( 'tml_display_' . $action, array( &$this ) );
 		} else {
 			$template = array();
-			switch ( $action ) {
-				case 'lostpassword':
-				case 'retrievepassword':
-					if ( !empty( $this->options['lostpassword_template'] ) )
-						$template[] = $this->options['lostpassword_template'];
-					$template[] = 'lostpassword-form.php';
-					break;
-				case 'register':
-					if ( !empty( $this->options['register_template'] ) )
-						$template[] = $this->options['register_template'];
-					$template[] = 'register-form.php';
-					break;
-				case 'login':
-				default :
-					if ( is_user_logged_in() ) {
-						if ( !empty( $this->options['user_template'] ) )
-							$template[] = $this->options['user_template'];
-						$template[] = 'user-panel.php';
-					} else {
+			if ( is_user_logged_in() ) {
+				if ( !empty( $this->options['user_template'] ) )
+					$template[] = $this->options['user_template'];
+				$template[] = 'user-panel.php';
+			} else {
+				switch ( $action ) {
+					case 'lostpassword':
+					case 'retrievepassword':
+						if ( !empty( $this->options['lostpassword_template'] ) )
+							$template[] = $this->options['lostpassword_template'];
+						$template[] = 'lostpassword-form.php';
+						break;
+					case 'resetpass':
+					case 'rp':
+						if ( !empty( $template->options['resetpass_template'] ) )
+							$template[] = $template->options['resetpass_template'];
+						$template[] = 'resetpass-form.php';
+						break;
+					case 'register':
+						if ( !empty( $this->options['register_template'] ) )
+							$template[] = $this->options['register_template'];
+						$template[] = 'register-form.php';
+						break;
+					case 'login':
+					default :
 						if ( !empty( $this->options['login_template'] ) )
 							$template[] = $this->options['login_template'];
 						$template[] = 'login-form.php';
-					}
+				}
 			}
 			$this->get_template( $template );
 		}
@@ -288,7 +294,7 @@ class Theme_My_Login_Template {
 		if ( $action_links = $this->get_action_links( $args ) ) {
 			echo '<ul class="tml-action-links">' . "\n";
 			foreach ( (array) $action_links as $link ) {
-				echo '<li><a href="' . esc_url( $link['url'] ) . '">' . esc_html( $link['title'] ) . '</a></li>' . "\n";
+				echo '<li><a href="' . esc_url( $link['url'] ) . '" rel="nofollow">' . esc_html( $link['title'] ) . '</a></li>' . "\n";
 			}
 			echo '</ul>' . "\n";
 		}
@@ -350,12 +356,19 @@ class Theme_My_Login_Template {
 	 * @return string The requested template message
 	 */
 	function get_action_template_message( $action = '' ) {
-		if ( 'register' == $action )
-			$message = __( 'Register For This Site', 'theme-my-login' );
-		elseif ( 'lostpassword' == $action )
-			$message = __( 'Please enter your username or e-mail address. You will receive a new password via e-mail.', 'theme-my-login' );
-		else
-			$message = '';
+		switch ( $action ) {
+			case 'register':
+				$message = __( 'Register For This Site', 'theme-my-login' );
+				break;
+			case 'lostpassword':
+				$message = __( 'Please enter your username or email address. You will receive a link to create a new password via email.', 'theme-my-login' );
+				break;
+			case 'resetpass':
+				$message = __( 'Enter your new password below.', 'theme-my-login' );
+				break;
+			default:
+				$message = '';
+		}
 		return apply_filters( 'tml_action_template_message', $message, $action );
 	}
 
