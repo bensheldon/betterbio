@@ -77,7 +77,8 @@
                           "Fuel" => "#FEDFA6",
                           "Events" => "#a1a1a1");
           $menu_items = new WP_Query(array("post_type" => "nav_menu_item"));
-          while($menu_items->have_posts()): $menu_items->the_post(); 
+          while($menu_items->have_posts()): $menu_items->the_post();
+            echo "/* {$post->ID} */";
             if(array_key_exists($post->post_title, $colors)): ?>
               #madmenu #menu-item-<?php echo $post->ID ?> a { color: <?php echo $colors[$post->post_title] ?> !important; }
         <?php endif; endwhile; ?>
