@@ -6,6 +6,7 @@ require_once("_lib/image_sizes.php");
 require_once("_lib/betterbio_js.php");
 require_once("_lib/themepage.php");
 require_once("_lib/sidebars.php");
+require_once("_lib/menus.php");
 
 // Post types
 require_once("_lib/post_types/_global_content.php");

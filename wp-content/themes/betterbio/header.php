@@ -69,6 +69,18 @@
             .jcarousel-skin-arthemia .jcarousel-clip-vertical { width: 310px; height: <?php echo $clip_height; ?>px; }
             #featured { height: <?php echo $feat_height; ?>px; overflow:hidden; } 
         <?php endif; ?>
+        
+        <?php //I hate writing CSS with PHP, but while we're here... -MRH
+          $colors = array("Industry" => "#C994C0",
+                          "Drugs" => "#F09E66",
+                          "Food" => "#95B665",
+                          "Fuel" => "#FEDFA6",
+                          "Events" => "#a1a1a1");
+          $menu_items = new WP_Query(array("post_type" => "nav_menu_item"));
+          while($menu_items->have_posts()): $menu_items->the_post(); 
+            if(array_key_exists($post->post_title, $colors)): ?>
+              #madmenu #menu-item-<?php echo $post->ID ?> a { color: <?php echo $colors[$post->post_title] ?> !important; }
+        <?php endif; endwhile; ?>
     </style>
 
     <?php load_theme_textdomain('arthemia');?>
@@ -171,17 +183,10 @@
 
     <div id="navbar" class="clearfloat">
       <div id="madmenu">
-        <ul>
-          <li class="first"><a href="<?php echo get_option('home'); ?>/"><?php _e('Home','arthemia');?></a></li>
-          <li><a href="/industry/" class="purple">Industry</a></li>
-          <li><a href="/drugs/" class="orange">Drugs</a></li>
-          <li><a href="/food/" class="green">Food</a></li>
-          <li><a href="/fuel/" class="yellow">Fuel</a></li>
-          <li><a href="/events/" class="grey">Events</a></li>
-          <?php wp_list_pages('title_li=&sort_column=menu_order'); ?> 
-        </ul>
+        <?php wp_nav_menu(array('menu' => 'top_navigation',
+                                "container" => null)); ?>
         <?php include (TEMPLATEPATH . '/searchform.php'); ?>
-      </div> 
+      </div>
     </div>
 
     <?php include(TEMPLATEPATH . '/partials/front.php'); ?>
