@@ -9,13 +9,17 @@ require_once("_lib/sidebars.php");
 require_once("_lib/menus.php");
 
 // Post types
-require_once("_lib/post_types/_global_content.php");
-require_once("_lib/post_types/industry.php");
-require_once("_lib/post_types/drugs.php");
-require_once("_lib/post_types/events.php");
-require_once("_lib/post_types/food.php");
-require_once("_lib/post_types/fuel.php");
+// require_once("_lib/post_types/_global_content.php");
+// require_once("_lib/post_types/industry.php");
+// require_once("_lib/post_types/drugs.php");
+// require_once("_lib/post_types/events.php");
+// require_once("_lib/post_types/food.php");
+// require_once("_lib/post_types/fuel.php");
+require_once("_lib/post_types/blogs.php");
+require_once("_lib/post_types/articles.php");
 
+
+require_once("_lib/taxonomies.php");
 
 // TODO: Blogs System and Podcasts system
 //require_once("_lib/post_types/blogs.php");
