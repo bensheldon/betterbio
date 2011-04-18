@@ -1,9 +1,12 @@
 <?php
 
+add_action( 'init', 'build_taxonomies', 0 ); 
 function build_taxonomies() {
-    register_taxonomy(
+  
+  // Create our 2 new taxonomies
+  register_taxonomy(
     'target',
-    array('post', 'article'),
+    array('post'),
     array(
       'hierarchical' => true,
       'label' => 'Target Area',
@@ -11,10 +14,9 @@ function build_taxonomies() {
       'rewrite' => true,
     )
   );
-  
   register_taxonomy(
     'impact',
-    array('post', 'article'),
+    array('post'),
     array(
       'hierarchical' => true,
       'label' => 'Impact Area',
@@ -32,7 +34,7 @@ function build_taxonomies() {
   // Add Tags to Articles
   register_taxonomy(
     'post_tag',
-    array('post','article'),
+    array('post','blog'),
     array(
       'hierarchical' => false,
       'label' => 'Tags',
@@ -40,10 +42,7 @@ function build_taxonomies() {
       'rewrite' => true,
     )
   );
-
-
 }
-add_action( 'init', 'build_taxonomies', 0 ); 
 
 
 /**
@@ -60,7 +59,7 @@ function permalink_taxonomy_target($permalink, $post_id, $leavename) {
  
   // Get post
   $post = get_post($post_id);
-  if (!$post) return $permalink;
+  //if (!$post) return $permalink;
 
   // Get taxonomy terms target
   $terms = wp_get_object_terms($post->ID, 'target');	
@@ -68,13 +67,7 @@ function permalink_taxonomy_target($permalink, $post_id, $leavename) {
     $taxonomy_target_slug = $terms[0]->slug;
   }
   else {
-    $terms = wp_get_object_terms($post->ID, 'impact');	
-    if (!is_wp_error($terms) && !empty($terms) && is_object($terms[0])) {
-      $taxonomy_impact_slug = $terms[0]->slug;
-    }
-    else {
-      $taxonomy_target_slug = 'article';
-    }
+    $taxonomy_target_slug = 'general';
   }
   
   $terms = wp_get_object_terms($post->ID, 'impact');	
@@ -82,9 +75,8 @@ function permalink_taxonomy_target($permalink, $post_id, $leavename) {
     $taxonomy_impact_slug = $terms[0]->slug;
   }
   else {
-    $taxonomy_target_slug = 'article';
+    $taxonomy_impact_slug = 'general';
   }
-  
 
 	$permalink = str_replace('%target%', $taxonomy_target_slug, $permalink);
 	$permalink = str_replace('%impact%', $taxonomy_impact_slug, $permalink);
