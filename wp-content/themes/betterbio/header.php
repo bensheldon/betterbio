@@ -198,6 +198,7 @@
 		       (is_archive() && get_option ( "cp_showarchivecatbar" ) != "no") || 
 		       (is_single() && get_option ( "cp_showpostcatbar" ) != "no") ): ?>
 	
+<!-- 
 	         <div id="middle" class="clearfloat"><?php 
 	           $post_types = get_option( "ar_categories" );
 	           $post_types = array_slice($post_types, 0, 5);
@@ -214,6 +215,7 @@
 	           <?php } ?>
              <?php wp_reset_query(); ?>
            </div>
+ -->
 
 	  <?php endif; ?>
 

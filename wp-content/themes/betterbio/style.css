@@ -1,3 +1,4 @@
+/* @override http://ec2-50-17-216-76.compute-1.amazonaws.com/wp-content/themes/betterbio/style.css */
 /*  
 Theme Name: Better Bio (forked from Arthemia Premium)
 Theme URI: http://betterbio.org
@@ -59,7 +60,7 @@ blockquote, q {	quotes: "" "";}
 
 body {
 	font: 100% Arial, Helvetica;
-	background: #505050;
+	background: #eee;
 	color: #505050;
 	}
 
@@ -161,10 +162,11 @@ em {
 #navbar {
 	margin:0 auto;
 	padding:0px 10px 0px 10px;
-	text-transform:uppercase;
-	background:#333333 url(images/navbar.png) no-repeat;
+	text-transform: Uppercase important!;
+	/*background:#333333 url(images/navbar.png) no-repeat;*/
+	background: #333;
 	width:920px;
-	font-size:10px;
+	font-size:12px !important !important;
 	border-left:5px solid #fff;
 	border-right:5px solid #fff;
 	}
@@ -503,32 +505,35 @@ h3.authors {
 
 #middle {
 	margin:0 auto;
-	padding:10px 10px 0px 10px;
+	padding:5px 0 0;
 	background:#fff;
-	width:920px;
+	width:940px;
 	border-left:5px solid #fff;
 	border-right:5px solid #fff;
+	border-bottom: 5px solid #fff;
 	}
+	
 #middle a:hover { text-decoration: none; color: black; }
     
 .category {
-	width:164px;
+	width:168px;
 	float:left;
 	border-top:8px solid #333333;
 	margin:0px;
-	padding:5px 10px 15px 10px;
+	padding:10px 10px 15px 10px;
 	background:#fff;
     cursor:pointer;
+    height: 110px;
 	}
 
 .category p {
-	margin:0;
+	margin:6px 0 0;
     font-size:11px;
+    line-height: 14px;
 	}
 
 .category span.cat_title, #front-popular h3, #front-list .cat_title, #gallery h3 {
-	text-transform:lowercase;
-	margin:0;
+	text-transform: capitalize;
 	font-weight:bold;
 	font-size:16px;
 	letter-spacing:-0.05em;
@@ -536,7 +541,7 @@ h3.authors {
 
 #front-list .cat_title {
 	font-size:14px;
-    margin-bottom:5px;
+    margin-bottom:7px;
 	}
 
 #front-popular h3 {

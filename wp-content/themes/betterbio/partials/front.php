@@ -1,14 +1,15 @@
-<?php
-  $featured = new WP_Query(array(
-    'showposts' => 1,
-    'post_type' => array('industry', 'food', 'fuel', 'drugs') 
-  ));
-  
-  //TODO: Blogs Query stuff and avatars
-?>
+<?php if (is_home() && !is_paged()) { ?>
 
-<div id="top" class="clearfloat">
-	<?php if (is_home() && !is_paged()) { ?>
+  <?php
+    $featured = new WP_Query(array(
+      'showposts' => 1,
+      'post_type' => array('post') 
+    ));
+    
+    //TODO: Blogs Query stuff and avatars
+  ?>
+
+  <div id="top" class="clearfloat">
 		<div id="headline">
 		  <?php while ($featured->have_posts()) : $featured->the_post(); ?>	
 	      <div class="label">
