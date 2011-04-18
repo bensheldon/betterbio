@@ -43,8 +43,56 @@ function build_taxonomies() {
 
 
 }
-
 add_action( 'init', 'build_taxonomies', 0 ); 
+
+
+/**
+ * Add the permalinks
+ */
+add_filter('post_link', 'permalink_taxonomy_target', 10, 3);
+add_filter('post_type_link', 'permalink_taxonomy_target', 10, 3);
+function permalink_taxonomy_target($permalink, $post_id, $leavename) {
+	
+	// try to first get the target category
+	if (strpos($permalink, '%target%') === FALSE) {
+	  return $permalink;
+	}
+ 
+  // Get post
+  $post = get_post($post_id);
+  if (!$post) return $permalink;
+
+  // Get taxonomy terms target
+  $terms = wp_get_object_terms($post->ID, 'target');	
+  if (!is_wp_error($terms) && !empty($terms) && is_object($terms[0])) {
+    $taxonomy_target_slug = $terms[0]->slug;
+  }
+  else {
+    $terms = wp_get_object_terms($post->ID, 'impact');	
+    if (!is_wp_error($terms) && !empty($terms) && is_object($terms[0])) {
+      $taxonomy_impact_slug = $terms[0]->slug;
+    }
+    else {
+      $taxonomy_target_slug = 'article';
+    }
+  }
+  
+  $terms = wp_get_object_terms($post->ID, 'impact');	
+  if (!is_wp_error($terms) && !empty($terms) && is_object($terms[0])) {
+    $taxonomy_impact_slug = $terms[0]->slug;
+  }
+  else {
+    $taxonomy_target_slug = 'article';
+  }
+  
+
+	$permalink = str_replace('%target%', $taxonomy_target_slug, $permalink);
+	$permalink = str_replace('%impact%', $taxonomy_impact_slug, $permalink);
+	return $permalink;
+}
+
+
+
 
 /**
  * Unregister the default categories & Tags
