@@ -1,12 +1,12 @@
 <?php
   //TODO: Move queries up here
   $first_post = new WP_Query(array(
-    'post_type' => array( 'industry', 'drugs', 'food', 'fuel' ),
+    'post_type' => array( 'post' ),
     'showposts' => 1
   ));
   
   $front_listing = new WP_Query(array(
-    'post_type' => array( 'industry', 'drugs', 'food', 'fuel' ),
+    'post_type' => array( 'post' ),
 		'offset' => 1,
 		'paged' => $paged,
 		'showposts' => 10
