@@ -70,7 +70,7 @@
             #featured { height: <?php echo $feat_height; ?>px; overflow:hidden; } 
         <?php endif; ?>
         
-        <?php //I hate writing CSS with PHP, but while we're here... -MRH
+        <?php //I hate writing CSS with PHP, but while we are here... -MRH
           $colors = array("Industry" => "#C994C0",
                           "Drugs" => "#F09E66",
                           "Food" => "#95B665",
