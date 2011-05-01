@@ -44,6 +44,13 @@
  * Used to set the width of images and content. Should be equal to the width the theme
  * is designed for, generally via the style.css stylesheet.
  */
+ 
+require_once("includes/post_type-blogs.php");
+require_once("includes/post_type-articles.php");
+
+require_once("includes/taxonomies.php");
+ 
+ 
 if ( ! isset( $content_width ) )
 	$content_width = 640;
 

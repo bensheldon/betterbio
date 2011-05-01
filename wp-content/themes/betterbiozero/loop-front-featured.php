@@ -1,6 +1,6 @@
  <?php 
   $featured_query = new WP_Query( array ( 
-      'author_name' => 'admin', 
+      'author_name' => 'khadijah', 
       'posts_per_page' => 1,
       'post_type' => 'post' ) );
 ?>

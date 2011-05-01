@@ -7,13 +7,13 @@ $prefix = "wb_";
  *
  * @author Mark Henderson
  */
-add_action( 'init', 'create_blog_type', 1);
+add_action( 'init', 'create_article_type', 1);
 function create_blog_type() {
-  register_post_type( 'blog',
+  register_post_type( 'article',
     array(
-    'label' => 'Blog posts',
-    'singular_label' => 'Blog',
-    'description' => 'Blog posts by writers.',
+    'label' => 'News Articles',
+    'singular_label' => 'Article',
+    'description' => 'News articles by reporters.',
     'public' => TRUE,
     'publicly_queryable' => TRUE,
     'show_ui' => TRUE,
@@ -31,15 +31,15 @@ function create_blog_type() {
   // http://madpress.org/display-date-in-custom-post-type-permalinks/564/
   
   global $wp_rewrite;
-  $permalink = 'blogs/%author%/%year%/%monthnum%/%article%';
-  $wp_rewrite->add_rewrite_tag("%blog%", '([^/]+)', "blog=");
-  $wp_rewrite->add_permastruct('blog', $permalink, false);
+  $permalink = 'articles/%author%/%year%/%monthnum%/%article%';
+  $wp_rewrite->add_rewrite_tag("%article%", '([^/]+)', "article=");
+  $wp_rewrite->add_permastruct('article', $permalink, false);
   
   flush_rewrite_rules();
 }
 
-add_filter('post_type_link', 'blog_permalink', 10, 3);	  
-function blog_permalink($permalink, $post_id, $leavename) {
+add_filter('post_type_link', 'article_permalink', 10, 3);	  
+function article_permalink($permalink, $post_id, $leavename) {
     $post = get_post($post_id);
     $rewritecode = array(
       '%year%',
