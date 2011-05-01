@@ -912,6 +912,12 @@ body.page .edit-link {
 	clear: left;
 }
 
+#front .post.sticky {
+	background: none;
+	margin: 0 0 10px 0;
+	padding: none;
+}
+
 #front article img.avatar {
 	float: left;
 }
