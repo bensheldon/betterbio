@@ -6,7 +6,7 @@ function build_taxonomies() {
   // Create our 2 new taxonomies
   register_taxonomy(
     'target',
-    array('post'),
+    array('article'),
     array(
       'hierarchical' => true,
       'label' => 'Target Area',
@@ -16,7 +16,7 @@ function build_taxonomies() {
   );
   register_taxonomy(
     'impact',
-    array('post'),
+    array('article'),
     array(
       'hierarchical' => true,
       'label' => 'Impact Area',
@@ -34,7 +34,7 @@ function build_taxonomies() {
   // Add Tags to Articles
   register_taxonomy(
     'post_tag',
-    array('post','blog'),
+    array('post','article'),
     array(
       'hierarchical' => false,
       'label' => 'Tags',
