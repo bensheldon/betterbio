@@ -1,6 +1,7 @@
  <?php 
   $blogs_query = new WP_Query( array ( 
 //       'category_name' => 'The Category Name', 
+      'author' => '-7', // exclude Khadijah
       'posts_per_page' => 3,
       'post_type' => 'post' ) );
 ?>
