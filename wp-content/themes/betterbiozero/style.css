@@ -916,6 +916,7 @@ body.page .edit-link {
 	background: none;
 	margin: 0 0 10px 0;
 	padding: none;
+	border: none;
 }
 
 #front article img.avatar {
