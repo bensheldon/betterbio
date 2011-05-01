@@ -8,7 +8,7 @@ $prefix = "wb_";
  * @author Mark Henderson
  */
 add_action( 'init', 'create_article_type', 1);
-function create_blog_type() {
+function create_article_type() {
   register_post_type( 'article',
     array(
     'label' => 'News Articles',
