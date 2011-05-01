@@ -1541,6 +1541,7 @@ code {
 .jcarousel-skin-tango .jcarousel-item {
     width: 270px;
     height: 180px;
+    position: relative;
 }
 
 .jcarousel-skin-tango .jcarousel-item-horizontal {
@@ -1553,7 +1554,6 @@ code {
 .jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-item-horizontal {
 	margin-left: 10px;
     margin-right: 0;
-    position: relative;
 }
 
 .jcarousel-skin-tango .jcarousel-item-horizontal .carousel-title {
