@@ -9,7 +9,7 @@
  <?php while( $blogs_query->have_posts() ) : $blogs_query->the_post(); ?>
 
     <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
-      <?php print get_avatar(get_the_author_ID(), $size = '60') ?>
+      <?php print get_avatar(get_the_author_ID(), 60) ?>
       <div class="entry-content">
             <h1 class="entry-title">
               <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">

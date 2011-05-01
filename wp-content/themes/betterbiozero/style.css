@@ -9,8 +9,10 @@ License URI: license.txt
 Tags: black, blue, white, two-columns, fixed-width, custom-header, custom-background, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style, custom-menu
 */
 
-/* @override http://betterbio.dev/wp-content/themes/betterbiozero/style.css?v=1 */
-
+/* @override 
+	http://betterbio.dev/wp-content/themes/betterbiozero/style.css?v=1
+	http://ec2-50-17-216-76.compute-1.amazonaws.com/wp-content/themes/betterbiozero/style.css?v=1
+*/
 
 /* 
   html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
@@ -920,12 +922,14 @@ body.page .edit-link {
 	border: none;
 }
 
-#front article img.avatar {
+#front article img.avatar,
+#front article img.photo
+ {
 	float: left;
 }
 
 #front article .entry-content {
-	margin-left: 80px;
+	margin-left: 110px;
 	clear: none;
 	margin-top: 0;
 	padding-top: 0;
@@ -1549,6 +1553,23 @@ code {
 .jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-item-horizontal {
 	margin-left: 10px;
     margin-right: 0;
+    position: relative;
+}
+
+.jcarousel-skin-tango .jcarousel-item-horizontal .carousel-title {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: rgba(255,255,255,.65);
+	width: 250px;
+	padding: 10px;
+	font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+}
+.jcarousel-skin-tango .jcarousel-item-horizontal a {
+	color: #000;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 14px;	
 }
 
 .jcarousel-skin-tango .jcarousel-item-placeholder {
