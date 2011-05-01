@@ -19,7 +19,9 @@
         </div>
 		</article>
 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras volutpat ante eget nulla iaculis consequat. Praesent accumsan, justo vel ullamcorper elementum, metus orci rutrum dui, non tincidunt augue justo et nunc. Duis ut ipsum id massa hendrerit commodo quis non neque. Mauris ultrices nibh in ipsum ullamcorper vehicula. Phasellus in dui augue. Vestibulum condimentum lobortis laoreet. Maecenas non erat sit amet arcu vulputate accumsan. Donec quis lorem nisl. Nulla dictum enim id velit consectetur nec placerat tellus condimentum. Donec non ipsum quis est adipiscing faucibus ac at massa.
-
  <!-- Stop The Loop (but note the "else:" - see next line). -->
 <?php endwhile; wp_reset_postdata(); ?>
+
+    <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras volutpat ante eget nulla iaculis consequat. Praesent accumsan, justo vel ullamcorper elementum, metus orci rutrum dui, non tincidunt augue justo et nunc. Duis ut ipsum id massa hendrerit commodo quis non neque. Mauris ultrices nibh in ipsum ullamcorper vehicula. Phasellus in dui augue. Vestibulum condimentum lobortis laoreet. Maecenas non erat sit amet arcu vulputate accumsan. Donec quis lorem nisl. Nulla dictum enim id velit consectetur nec placerat tellus condimentum. Donec non ipsum quis est adipiscing faucibus ac at massa.
+    </p>

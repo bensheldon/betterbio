@@ -521,6 +521,11 @@ function twentyten_posted_in() {
 }
 endif;
 
+
+
+add_image_size( 'carousel-thumb', 270, 180, TRUE );
+
+
 /**
  * make a better wordpress excert
  */

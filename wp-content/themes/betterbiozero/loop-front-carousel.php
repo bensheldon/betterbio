@@ -1,6 +1,7 @@
  <?php 
   $featured_query = new WP_Query( array ( 
-//       'author_name' => 'admin', 
+//       'author_name' => 'admin',
+      'post_type' => 'article',
       'posts_per_page' => 6 ) );
 ?>
  
@@ -11,8 +12,10 @@
  <?php while( $featured_query->have_posts() ) : $featured_query->the_post(); ?>
 
     <li>
-        <?php //print get_avatar($user->ID, $size = '60') ?>
-        <?php the_title(); ?>
+      <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
+        <?php the_post_thumbnail( 'carousel-thumb' ); ?> 
+        <div class="carousel-title"><?php the_title(); ?></div>
+      </a>
     </li>
 
  <!-- Stop The Loop (but note the "else:" - see next line). -->
