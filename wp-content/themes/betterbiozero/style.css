@@ -909,7 +909,7 @@ body.page .edit-link {
 #front .post {
 	margin-bottom: 10px;
 	padding: 0;
-	clear: none;
+	clear: left;
 }
 
 #front article img.avatar {

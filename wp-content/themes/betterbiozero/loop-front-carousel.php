@@ -1,7 +1,7 @@
  <?php 
   $featured_query = new WP_Query( array ( 
 //       'author_name' => 'admin', 
-      'posts_per_page' => 20 ) );
+      'posts_per_page' => 6 ) );
 ?>
  
 
