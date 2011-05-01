@@ -79,6 +79,10 @@ if ( ! function_exists( 'betterbiozero_setup' ) ):
  *
  * @since Twenty Ten 1.0
  */
+ 
+// This theme uses post thumbnails
+add_theme_support( 'post-thumbnails' );
+ 
 function betterbiozero_setup() {
 
 	// This theme styles the visual editor with editor-style.css to match the theme style.
