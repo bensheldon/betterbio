@@ -7,7 +7,7 @@
  
  <?php while( $blogs_query->have_posts() ) : $blogs_query->the_post(); ?>
 
-    <article id="post-<?php the_ID(); ?>" <?php post_class(''); ?>>
+    <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
       <?php print get_avatar($user->ID, $size = '60') ?>
       <div class="entry-content">
             <h1 class="entry-title">

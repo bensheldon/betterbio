@@ -904,6 +904,7 @@ body.page .edit-link {
 #front-blogs {
 	width: 49%;
 	padding-right: 1%;
+	float: left;
 }
 
 #front .post {
