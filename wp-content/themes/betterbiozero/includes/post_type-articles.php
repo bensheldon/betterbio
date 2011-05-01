@@ -31,7 +31,7 @@ function create_article_type() {
   // http://madpress.org/display-date-in-custom-post-type-permalinks/564/
   
   global $wp_rewrite;
-  $permalink = 'articles/%author%/%year%/%monthnum%/%article%';
+  $permalink = 'articles/%year%/%monthnum%/%article%';
   $wp_rewrite->add_rewrite_tag("%article%", '([^/]+)', "article=");
   $wp_rewrite->add_permastruct('article', $permalink, false);
   
